@@ -1,0 +1,73 @@
+# Builds every course folder a change touches, each on its own, the way a deploy button copies it.
+# Admins can merge their own PRs in this org, so this is the check that stands in for a second reviewer.
+name: Build changed folders
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    outputs:
+      dirs: ${{ steps.find.outputs.dirs }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - id: find
+        env:
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          # A course folder is <course>/<folder> with its own package.json.
+          all=$(find . -mindepth 3 -maxdepth 3 -name package.json -not -path './node_modules/*' | sed 's|^\./||; s|/package.json$||' | sort)
+          if git cat-file -e "$BASE^{commit}" 2>/dev/null; then
+            changed=$(git diff --name-only "$BASE" HEAD | awk -F/ 'NF > 2 { print $1 "/" $2 }' | sort -u)
+            dirs=$(comm -12 <(echo "$all") <(echo "$changed"))
+          else
+            dirs="$all"   # first push: build everything
+          fi
+          echo "dirs=$(echo "$dirs" | jq -R . | jq -sc 'map(select(length > 0))')" >> "$GITHUB_OUTPUT"
+          echo "Folders to build:"; echo "$dirs"
+
+  build:
+    needs: find
+    if: needs.find.outputs.dirs != '[]'
+    strategy:
+      fail-fast: false
+      matrix:
+        dir: ${{ fromJson(needs.find.outputs.dirs) }}
+    name: ${{ matrix.dir }}
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ${{ matrix.dir }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Install
+        run: |
+          if [ -f pnpm-lock.yaml ]; then corepack enable && pnpm install --frozen-lockfile
+          elif [ -f package-lock.json ]; then npm ci
+          else npm install
+          fi
+      - name: Build
+        run: |
+          if [ -f pnpm-lock.yaml ]; then pnpm run --if-present build; else npm run build --if-present; fi
+
+  # One fixed name to require in the repo's rules, since the build jobs are named per folder.
+  builds-pass:
+    needs: [find, build]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          if [ "${{ needs.find.result }}" != success ] || [[ "${{ needs.build.result }}" != success && "${{ needs.build.result }}" != skipped ]]; then
+            echo "A folder failed to build."; exit 1
+          fi
