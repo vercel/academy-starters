@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { unstable_cacheTag as cacheTag } from "next/cache";
+import { cacheTag } from "next/cache";
 import { drops } from "@/app/data/drops";
 import { getProductBySlug } from "@/app/data/products";
 
