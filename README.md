@@ -8,7 +8,7 @@ Starter and finished apps for [Vercel Academy](https://vercel.com/academy) cours
   complete/   the finished app, with every change the course makes
 ```
 
-Some courses add checkpoint folders between the two (for example `implementation-start/`).
+A course has whichever of the two it teaches: a course that deploys one app and builds on it has only `starter/`, and a course that learners build from scratch keeps only `complete/` as the reference. A folder can hold more than one service (`python-on-vercel/starter/` has `frontend/` and `backend/`).
 
 ## Using a starter
 

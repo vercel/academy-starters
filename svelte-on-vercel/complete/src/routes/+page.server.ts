@@ -1,0 +1,18 @@
+import { resorts } from '#lib/data/resorts.ts';
+import { fetchAllConditions } from '#lib/services/weather.ts';
+import type { PageServerLoad } from './$types';
+
+export const config = {
+	isr: {
+		expiration: 300 // Revalidate every 5 minutes
+	}
+};
+
+export const load: PageServerLoad = async () => {
+	const conditions = await fetchAllConditions(resorts);
+
+	return {
+		conditions,
+		fetchedAt: new Date().toISOString()
+	};
+};

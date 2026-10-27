@@ -23,13 +23,15 @@ jobs:
         env:
           BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
         run: |
-          # A course folder is <course>/<folder> with its own package.json.
-          all=$(find . -mindepth 3 -maxdepth 3 -name package.json -not -path './node_modules/*' | sed 's|^\./||; s|/package.json$||' | sort)
+          # An app is the nearest package.json in a course folder: <course>/<folder>/package.json, or one level
+          # down when the folder holds more than one service (python-on-vercel/starter/frontend).
+          apps=$(find . -mindepth 3 -maxdepth 4 -name package.json -not -path '*/node_modules/*' | sed 's|^\./||; s|/package.json$||' | sort \
+            | awk '{ split($0, p, "/"); top = p[1] "/" p[2]; if (!(top in seen) || length($0) < length(seen[top])) seen[top] = $0 } END { for (t in seen) print seen[t] }' | sort)
           if git cat-file -e "$BASE^{commit}" 2>/dev/null; then
-            changed=$(git diff --name-only "$BASE" HEAD | awk -F/ 'NF > 2 { print $1 "/" $2 }' | sort -u)
-            dirs=$(comm -12 <(echo "$all") <(echo "$changed"))
+            changed=$(git diff --name-only "$BASE" HEAD)
+            dirs=$(for app in $apps; do top=$(echo "$app" | cut -d/ -f1-2); echo "$changed" | grep -q "^$top/" && echo "$app"; done)
           else
-            dirs="$all"   # first push: build everything
+            dirs="$apps"   # first push: build everything
           fi
           echo "dirs=$(echo "$dirs" | jq -R . | jq -sc 'map(select(length > 0))')" >> "$GITHUB_OUTPUT"
           echo "Folders to build:"; echo "$dirs"
@@ -59,6 +61,17 @@ jobs:
           fi
       - name: Build
         run: |
+          # Give every key in .env.example a placeholder, like a deploy with its env vars set.
+          # Builds that only construct clients (new Resend(...)) pass; anything that calls a real API still fails.
+          if [ -f .env.example ]; then
+            while IFS='=' read -r key value; do
+              case "$key" in ''|\#*) continue ;; esac
+              key=$(echo "$key" | xargs)
+              [ -n "$value" ] || value="ci-placeholder"
+              echo "$key=$value" >> "$GITHUB_ENV"
+              export "$key=$value"
+            done < .env.example
+          fi
           if [ -f pnpm-lock.yaml ]; then pnpm run --if-present build; else npm run build --if-present; fi
 
   # One fixed name to require in the repo's rules, since the build jobs are named per folder.

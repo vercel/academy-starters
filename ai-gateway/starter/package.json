@@ -1,0 +1,43 @@
+{
+  "name": "taco-tuesday-demo",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "cost-check": "node --env-file-if-exists=.env.local --import tsx scripts/cost-check.ts",
+    "describe-special": "node --env-file-if-exists=.env.local --import tsx scripts/describe-special.ts",
+    "route-cheapest": "node --env-file-if-exists=.env.local --import tsx scripts/route-cheapest.ts",
+    "cache-check": "node --env-file-if-exists=.env.local --import tsx scripts/cache-check.ts",
+    "whose-key": "node --env-file-if-exists=.env.local --import tsx scripts/whose-key.ts",
+    "one-key": "node --env-file-if-exists=.env.local --import tsx scripts/one-key.ts",
+    "existing-stack": "node --env-file-if-exists=.env.local --import tsx scripts/existing-stack.ts",
+    "switch-models": "node --env-file-if-exists=.env.local --import tsx scripts/switch-models.ts",
+    "outage-drill": "node --env-file-if-exists=.env.local --import tsx scripts/outage-drill.ts",
+    "migrated-stack": "node --env-file-if-exists=.env.local --import tsx scripts/migrated-stack.ts",
+    "latency-guard": "node --env-file-if-exists=.env.local --import tsx scripts/latency-guard.ts",
+    "pin-provider": "node --env-file-if-exists=.env.local --import tsx scripts/pin-provider.ts",
+    "private-prompts": "node --env-file-if-exists=.env.local --import tsx scripts/private-prompts.ts",
+    "tag-orders": "node --env-file-if-exists=.env.local --import tsx scripts/tag-orders.ts",
+    "seed-traffic": "node --env-file-if-exists=.env.local --import tsx scripts/seed-traffic.ts"
+  },
+  "dependencies": {
+    "@ai-sdk/react": "^4.0.0",
+    "ai": "^7.0.0",
+    "next": "^16.4.3",
+    "openai": "^6.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "@types/react": "^19.0.0",
+    "tsx": "^4.19.0",
+    "typescript": "^5.6.0"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
