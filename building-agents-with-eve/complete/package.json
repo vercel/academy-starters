@@ -57,6 +57,8 @@
   },
   "overrides": {
     "ai": "$ai",
-    "dompurify": "^3.4.17"
+    "dompurify": "^3.4.17",
+    "zod": "$zod",
+    "undici@8": "^8.12.3"
   }
 }
