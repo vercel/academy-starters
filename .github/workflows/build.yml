@@ -61,6 +61,17 @@ jobs:
           fi
       - name: Build
         run: |
+          # Give every key in .env.example a placeholder, like a deploy with its env vars set.
+          # Builds that only construct clients (new Resend(...)) pass; anything that calls a real API still fails.
+          if [ -f .env.example ]; then
+            while IFS='=' read -r key value; do
+              case "$key" in ''|\#*) continue ;; esac
+              key=$(echo "$key" | xargs)
+              [ -n "$value" ] || value="ci-placeholder"
+              echo "$key=$value" >> "$GITHUB_ENV"
+              export "$key=$value"
+            done < .env.example
+          fi
           if [ -f pnpm-lock.yaml ]; then pnpm run --if-present build; else npm run build --if-present; fi
 
   # One fixed name to require in the repo's rules, since the build jobs are named per folder.
