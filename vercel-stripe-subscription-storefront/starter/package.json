@@ -1,0 +1,43 @@
+{
+  "name": "foragers-guild",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Forager's Guild - A subscription-based field guide for wild edibles, mushrooms, and survival knowledge",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@radix-ui/react-label": "^2.1.2",
+    "@radix-ui/react-slot": "^1.1.2",
+    "@supabase/ssr": "^0.8.0",
+    "@supabase/supabase-js": "^2.86.2",
+    "@stripe/stripe-js": "^4.10.0",
+    "@tailwindcss/postcss": "^4.0.13",
+    "class-variance-authority": "^0.7.1",
+    "stripe": "^17.3.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.476.0",
+    "next": "^16.1.0",
+    "next-themes": "^0.4.6",
+    "react": "^19.2.1",
+    "react-dom": "^19.2.1",
+    "tailwind-merge": "^3.0.2",
+    "tailwindcss": "^4.0.13",
+    "tailwindcss-animate": "^1.0.7"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.3.0",
+    "@next/eslint-plugin-next": "^16.1.0",
+    "@types/node": "^20.17.24",
+    "@types/react": "^19.2.1",
+    "@types/react-dom": "^19.2.1",
+    "eslint": "^9.22.0",
+    "eslint-config-next": "^16.1.0",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "postcss": "^8.5.3",
+    "typescript": "^5.8.2"
+  }
+}

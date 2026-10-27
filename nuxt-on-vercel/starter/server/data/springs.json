@@ -1,0 +1,414 @@
+[
+  {
+    "id": "breitenbush-hot-springs",
+    "name": "Breitenbush Hot Springs",
+    "description": "Tucked into the Willamette National Forest, Breitenbush has been drawing seekers and soakers since the 1920s. The communal tubs sit above a rushing river, geothermally heated to a temperature that makes you forget what month it is. Come for the water, stay for the silence.",
+    "location": {
+      "region": "Pacific Northwest",
+      "country": "US",
+      "lat": 44.7896,
+      "lng": -121.9815
+    },
+    "temperature": {
+      "min": 98,
+      "max": 112
+    },
+    "type": "developed",
+    "features": [
+      "clothing-optional",
+      "forest-setting",
+      "riverside",
+      "scenic-views",
+      "camping-nearby",
+      "hiking-trails"
+    ],
+    "elevation": 2200,
+    "imageUrl": "/images/springs/breitenbush-hot-springs.jpg"
+  },
+  {
+    "id": "goldmeyer-hot-springs",
+    "name": "Goldmeyer Hot Springs",
+    "description": "A four-mile hike past a waterfall is the price of admission, and it is absolutely worth it. The cave pool at Goldmeyer sits inside a mossy grotto carved by the same geological forces that heated the water. Reservations are limited by design — the solitude is the whole point.",
+    "location": {
+      "region": "Pacific Northwest",
+      "country": "US",
+      "lat": 47.4568,
+      "lng": -121.3801
+    },
+    "temperature": {
+      "min": 106,
+      "max": 118
+    },
+    "type": "wild",
+    "features": [
+      "clothing-optional",
+      "hiking-trails",
+      "forest-setting",
+      "scenic-views",
+      "mineral-rich"
+    ],
+    "elevation": 1560,
+    "imageUrl": "/images/springs/goldmeyer-hot-springs.jpg"
+  },
+  {
+    "id": "bagby-hot-springs",
+    "name": "Bagby Hot Springs",
+    "description": "Hand-hewn cedar tubs fed by a 136-degree source give Bagby its reputation as the most idyllic soak in Oregon. The walk in winds through old-growth forest, which sets the mood before the water even touches you. The private tubs book up fast on weekends, so plan accordingly.",
+    "location": {
+      "region": "Pacific Northwest",
+      "country": "US",
+      "lat": 44.9273,
+      "lng": -122.1674
+    },
+    "temperature": {
+      "min": 100,
+      "max": 136
+    },
+    "type": "developed",
+    "features": [
+      "clothing-optional",
+      "forest-setting",
+      "hiking-trails",
+      "riverside",
+      "scenic-views"
+    ],
+    "elevation": 2100,
+    "imageUrl": "/images/springs/bagby-hot-springs.jpg"
+  },
+  {
+    "id": "strawberry-park-hot-springs",
+    "name": "Strawberry Park Hot Springs",
+    "description": "Three pools, each cooler than the last, cascade down a hillside in Steamboat Springs country. After dark, clothing is optional and the stars are spectacular — this is Colorado before the crowds found it. In winter, you soak surrounded by snow while steam rises into the cold air.",
+    "location": {
+      "region": "Rocky Mountains",
+      "country": "US",
+      "lat": 40.6232,
+      "lng": -106.9171
+    },
+    "temperature": {
+      "min": 100,
+      "max": 147
+    },
+    "type": "developed",
+    "features": [
+      "clothing-optional",
+      "mountain-views",
+      "scenic-views",
+      "camping-nearby",
+      "forest-setting"
+    ],
+    "elevation": 7550,
+    "imageUrl": "/images/springs/strawberry-park-hot-springs.jpg"
+  },
+  {
+    "id": "dunton-hot-springs",
+    "name": "Dunton Hot Springs",
+    "description": "An abandoned ghost town turned luxury resort, Dunton is not exactly roughing it — but the geothermal pool inside the restored bathhouse is genuinely extraordinary. The San Juan Mountains frame every view and the water hovers around 108 degrees year-round. It is the most expensive free afternoon you will ever spend.",
+    "location": {
+      "region": "Rocky Mountains",
+      "country": "US",
+      "lat": 37.7765,
+      "lng": -108.0629
+    },
+    "temperature": {
+      "min": 105,
+      "max": 110
+    },
+    "type": "resort",
+    "features": [
+      "mountain-views",
+      "scenic-views",
+      "mineral-rich",
+      "hiking-trails"
+    ],
+    "elevation": 8900,
+    "imageUrl": "/images/springs/dunton-hot-springs.jpg"
+  },
+  {
+    "id": "keyhole-hot-springs",
+    "name": "Keyhole Hot Springs",
+    "description": "Float in a rock pool above a lake, surrounded by peaks, at 4,800 feet in British Columbia. Keyhole requires a river crossing and some scrambling, which keeps the crowds manageable and the experience memorable. The water comes out of the cliff face at 104 degrees, perfectly mixed with cool mountain air.",
+    "location": {
+      "region": "Pacific Northwest",
+      "country": "Canada",
+      "lat": 50.1548,
+      "lng": -122.7291
+    },
+    "temperature": {
+      "min": 102,
+      "max": 108
+    },
+    "type": "wild",
+    "features": [
+      "hiking-trails",
+      "mountain-views",
+      "scenic-views",
+      "clothing-optional"
+    ],
+    "elevation": 4800,
+    "imageUrl": "/images/springs/keyhole-hot-springs.jpg"
+  },
+  {
+    "id": "ojo-caliente",
+    "name": "Ojo Caliente Mineral Springs",
+    "description": "Four distinct mineral springs bubble up from the Rio Grande Rift in northern New Mexico, each with a different mineral profile and a different cult following. The iron pool will stain your bathing suit; the arsenic pool will raise some questions at the front desk. Ojo has been operating since 1868, and it shows in the best possible way.",
+    "location": {
+      "region": "Southwest",
+      "country": "US",
+      "lat": 36.3134,
+      "lng": -106.0589
+    },
+    "temperature": {
+      "min": 98,
+      "max": 109
+    },
+    "type": "resort",
+    "features": [
+      "mineral-rich",
+      "family-friendly",
+      "scenic-views",
+      "wheelchair-accessible",
+      "camping-nearby"
+    ],
+    "elevation": 5670,
+    "imageUrl": "/images/springs/ojo-caliente.jpg"
+  },
+  {
+    "id": "truth-or-consequences-hot-springs",
+    "name": "Truth or Consequences Hot Springs",
+    "description": "A town that renamed itself after a radio game show has exactly the energy you want from a hot springs destination. The geothermal water runs beneath the entire downtown district, piped into spas, motels, and bathhouses of varying degrees of authenticity. Find a place that suits your budget and soak until the Rio Grande catches the sunset.",
+    "location": {
+      "region": "Southwest",
+      "country": "US",
+      "lat": 33.1284,
+      "lng": -107.2528
+    },
+    "temperature": {
+      "min": 100,
+      "max": 115
+    },
+    "type": "developed",
+    "features": [
+      "mineral-rich",
+      "family-friendly",
+      "scenic-views"
+    ],
+    "elevation": 4260,
+    "imageUrl": "/images/springs/truth-or-consequences-hot-springs.jpg"
+  },
+  {
+    "id": "mystic-hot-springs",
+    "name": "Mystic Hot Springs",
+    "description": "Retired claw-foot bathtubs perched on a hillside, each one fed by its own mineral stream, with an old school bus converted into a soaking room and a campground that leans hard into the eccentric. This is Monroe, Utah at its most gloriously weird. The terraced pools below the tubs cool gradually as they descend, giving you options.",
+    "location": {
+      "region": "Southwest",
+      "country": "US",
+      "lat": 38.6334,
+      "lng": -112.1125
+    },
+    "temperature": {
+      "min": 96,
+      "max": 106
+    },
+    "type": "developed",
+    "features": [
+      "camping-nearby",
+      "mineral-rich",
+      "scenic-views",
+      "mountain-views"
+    ],
+    "elevation": 5450,
+    "imageUrl": "/images/springs/mystic-hot-springs.jpg"
+  },
+  {
+    "id": "blue-lagoon-iceland",
+    "name": "Blue Lagoon",
+    "description": "The world's most photographed hot spring is also one of the most legitimately strange — a milky blue geothermal pool sitting in a lava field, heated by the same volcanic activity that powers the nearby power plant. The silica mud is free, the in-pool bar is not, and the whole experience is absurd in a way that makes it unforgettable. Go early or stay late.",
+    "location": {
+      "region": "Iceland",
+      "country": "Iceland",
+      "lat": 63.8804,
+      "lng": -22.4495
+    },
+    "temperature": {
+      "min": 99,
+      "max": 104
+    },
+    "type": "resort",
+    "features": [
+      "mineral-rich",
+      "scenic-views",
+      "wheelchair-accessible",
+      "family-friendly"
+    ],
+    "elevation": 13,
+    "imageUrl": "/images/springs/blue-lagoon-iceland.jpg"
+  },
+  {
+    "id": "landmannalaugar",
+    "name": "Landmannalaugar",
+    "description": "In the Fjallabak Nature Reserve, a natural hot spring emerges where a lava field meets a cold mountain stream, creating a free, clothing-optional soak at the edge of a landscape that looks like a Mars mission concept art. The surrounding rhyolite mountains shift from pink to orange to green depending on the light. This is Iceland without the ticket counter.",
+    "location": {
+      "region": "Iceland",
+      "country": "Iceland",
+      "lat": 63.9921,
+      "lng": -19.0658
+    },
+    "temperature": {
+      "min": 97,
+      "max": 104
+    },
+    "type": "wild",
+    "features": [
+      "clothing-optional",
+      "hiking-trails",
+      "scenic-views",
+      "camping-nearby",
+      "mountain-views"
+    ],
+    "elevation": 1960,
+    "imageUrl": "/images/springs/landmannalaugar.jpg"
+  },
+  {
+    "id": "kusatsu-onsen",
+    "name": "Kusatsu Onsen",
+    "description": "Japan's most celebrated hot spring town sits at 6,000 feet in Gunma Prefecture, and the water is so acidic it will eat metal buckles off your bag if you are not careful. The yubatake — a wooden grid that cools the water from its 130-degree source — sits in the center of town and steams dramatically in cold weather. Come for the water; stay for the ryokan breakfast.",
+    "location": {
+      "region": "Japan",
+      "country": "Japan",
+      "lat": 36.6209,
+      "lng": 138.5963
+    },
+    "temperature": {
+      "min": 110,
+      "max": 130
+    },
+    "type": "resort",
+    "features": [
+      "mineral-rich",
+      "mountain-views",
+      "scenic-views"
+    ],
+    "elevation": 6070,
+    "imageUrl": "/images/springs/kusatsu-onsen.jpg"
+  },
+  {
+    "id": "beppu-hot-springs",
+    "name": "Beppu Hells",
+    "description": "Eight geothermal pools known as the 'Hells of Beppu' are too hot to soak in and too spectacular not to visit — a blood-red pool here, a cobalt-blue one there, a mud pool that sounds like something is trying to escape. The city of Beppu produces more hot spring water than anywhere on earth outside of Yellowstone. The soaking baths nearby benefit from all that pressure.",
+    "location": {
+      "region": "Japan",
+      "country": "Japan",
+      "lat": 33.2846,
+      "lng": 131.4991
+    },
+    "temperature": {
+      "min": 102,
+      "max": 200
+    },
+    "type": "developed",
+    "features": [
+      "mineral-rich",
+      "family-friendly",
+      "scenic-views"
+    ],
+    "elevation": 65,
+    "imageUrl": "/images/springs/beppu-hot-springs.jpg"
+  },
+  {
+    "id": "hot-water-beach-nz",
+    "name": "Hot Water Beach",
+    "description": "Bring a shovel. Two hours either side of low tide, you can dig your own private hot spring in the sand on a Coromandel Peninsula beach, while the Pacific Ocean waves break ten feet away. The geothermal water that rises through the sand reaches 147 degrees, so the mixing is an art form. New Zealand does not run out of good ideas.",
+    "location": {
+      "region": "New Zealand",
+      "country": "New Zealand",
+      "lat": -36.8924,
+      "lng": 175.8343
+    },
+    "temperature": {
+      "min": 105,
+      "max": 147
+    },
+    "type": "wild",
+    "features": [
+      "family-friendly",
+      "scenic-views",
+      "mineral-rich"
+    ],
+    "elevation": 5,
+    "imageUrl": "/images/springs/hot-water-beach-nz.jpg"
+  },
+  {
+    "id": "kerosene-creek-nz",
+    "name": "Kerosene Creek",
+    "description": "A free, roadside geothermal stream flows into a shallow sandy-bottomed pool in the Waikato bush, smelling faintly of sulfur and strongly of adventure. The 95-degree water is perfect for a long soak, and the small waterfall at one end provides enough pressure to work out whatever the hiking did to your shoulders. No facilities, no fee, no crowds on weekdays.",
+    "location": {
+      "region": "New Zealand",
+      "country": "New Zealand",
+      "lat": -38.3024,
+      "lng": 176.3541
+    },
+    "temperature": {
+      "min": 93,
+      "max": 98
+    },
+    "type": "wild",
+    "features": [
+      "clothing-optional",
+      "forest-setting",
+      "riverside",
+      "scenic-views",
+      "hiking-trails"
+    ],
+    "elevation": 1220,
+    "imageUrl": "/images/springs/kerosene-creek-nz.jpg"
+  },
+  {
+    "id": "saratoga-springs-ny",
+    "name": "Saratoga Mineral Springs",
+    "description": "The carbonated mineral springs of Saratoga made this New York town the country's first resort destination, a fact the bathhouses remind you of with their ornate Victorian confidence. The water is cold — these are mineral springs, not thermal ones — but the dose of magnesium, calcium, and natural carbonation is exactly what a 19th-century doctor would prescribe. The Roosevelt Baths and Spa still operates inside a state park.",
+    "location": {
+      "region": "Northeast",
+      "country": "US",
+      "lat": 43.0831,
+      "lng": -73.7846
+    },
+    "temperature": {
+      "min": 50,
+      "max": 60
+    },
+    "type": "resort",
+    "features": [
+      "mineral-rich",
+      "family-friendly",
+      "wheelchair-accessible",
+      "scenic-views"
+    ],
+    "elevation": 310,
+    "imageUrl": "/images/springs/saratoga-springs-ny.jpg"
+  },
+  {
+    "id": "warm-springs-ga",
+    "name": "Warm Springs",
+    "description": "Franklin Roosevelt came to these Georgia springs to treat his polio, and the town never quite forgot it — the Little White House is down the road, and the pools maintain an air of quiet historical weight. The water bubbles up at a steady 88 degrees year-round, warmer than most outdoor pools and gentler than most hot springs. A good first soak for anyone skeptical of the whole enterprise.",
+    "location": {
+      "region": "Northeast",
+      "country": "US",
+      "lat": 32.8874,
+      "lng": -84.6821
+    },
+    "temperature": {
+      "min": 86,
+      "max": 90
+    },
+    "type": "developed",
+    "features": [
+      "family-friendly",
+      "wheelchair-accessible",
+      "scenic-views",
+      "mineral-rich"
+    ],
+    "elevation": 840,
+    "imageUrl": "/images/springs/warm-springs-ga.jpg"
+  }
+]
