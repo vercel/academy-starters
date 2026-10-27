@@ -1,5 +1,5 @@
 import type { Spring } from "~/types/spring";
-import springs from "~/server/data/springs.json";
+import springs from "~~/server/data/springs.json";
 
 export default defineCachedEventHandler(
   (event) => {
