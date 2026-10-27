@@ -23,7 +23,7 @@ export async function POST(request: Request) {
     );
   }
 
-  revalidateTag("drops");
+  revalidateTag("drops", "max");
 
   return NextResponse.json({
     revalidated: true,

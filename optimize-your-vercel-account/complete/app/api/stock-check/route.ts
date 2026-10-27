@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import {
-  unstable_cacheTag as cacheTag,
-  unstable_cacheLife as cacheLife,
+  cacheTag,
+  cacheLife,
 } from "next/cache";
 import { getProductById } from "@/app/data/products";
 import type {
