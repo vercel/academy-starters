@@ -21,14 +21,3 @@ git clone https://github.com/vercel/academy-starters.git
 cd academy-starters
 diff -r optimize-your-vercel-account/starter optimize-your-vercel-account/complete
 ```
-
-## Rules for every folder
-
-Every change goes through a pull request. The **Build changed folders** check installs and builds each course folder the PR touches, on its own, the way a deploy button copies it. Don't merge on red.
-
-
-- **It stands alone.** A deploy button copies one folder, so each `starter/` and `complete/` installs and runs by itself. No workspace references to other folders, no shared root `package.json`.
-- **Starter and complete move together.** An upgrade changes both in the same PR, so they never teach different versions.
-- **Latest releases only.** Courses teach the current release of everything they use. The weekly maintenance run in vercel/academy-courses flags anything behind.
-
-Course lessons live in [vercel/academy-courses](https://github.com/vercel/academy-courses), which also checks these folders every week.
