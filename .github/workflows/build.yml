@@ -72,7 +72,12 @@ jobs:
               export "$key=$value"
             done < .env.example
           fi
-          if [ -f pnpm-lock.yaml ]; then pnpm run --if-present build; else npm run build --if-present; fi
+          # A folder whose build needs a live service (a database read at build time, Vercel OIDC) can't build here.
+          # It opts out with a .ci-typecheck-only file that says why, and CI type-checks it instead of skipping it.
+          if [ -f .ci-typecheck-only ]; then
+            echo "::notice::Type-checking only: $(cat .ci-typecheck-only)"
+            if [ -f pnpm-lock.yaml ]; then pnpm exec tsc --noEmit; else npx tsc --noEmit; fi
+          elif [ -f pnpm-lock.yaml ]; then pnpm run --if-present build; else npm run build --if-present; fi
 
   # One fixed name to require in the repo's rules, since the build jobs are named per folder.
   builds-pass:

@@ -1,0 +1,20 @@
+{
+  "name": "@geniusgarage/config",
+  "version": "1.0.0",
+  "main": "./index.js",
+  "exports": {
+    "./tsconfig.json": "./tsconfig.json",
+    "./env": "./src/env.ts"
+  },
+  "files": [
+    "eslint.js",
+    "tsconfig.json",
+    "src"
+  ],
+  "dependencies": {
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "typescript": "^5"
+  }
+}

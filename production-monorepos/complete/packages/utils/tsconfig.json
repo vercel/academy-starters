@@ -1,0 +1,9 @@
+{
+  "extends": "@geniusgarage/config/tsconfig.json",
+  "compilerOptions": {
+    "declaration": true,
+    "jsx": "react"
+  },
+  "include": ["src"],
+  "exclude": ["node_modules", "dist"]
+}

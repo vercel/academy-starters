@@ -1,0 +1,23 @@
+{
+  "name": "geniusgarage",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "test": "turbo run test",
+    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
+    "gen:component": "turbo gen component",
+    "gen:package": "turbo gen package"
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.31.1",
+    "prettier": "^3.9.10",
+    "turbo": "^2.11.10"
+  },
+  "packageManager": "pnpm@9.1.0",
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}

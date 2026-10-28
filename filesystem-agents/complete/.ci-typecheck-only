@@ -1,0 +1,1 @@
+lib/agent.ts creates a Vercel Sandbox at import time (top-level await Sandbox.create(), as lessons 2.1 and 2.2 teach), so next build needs Vercel OIDC credentials.

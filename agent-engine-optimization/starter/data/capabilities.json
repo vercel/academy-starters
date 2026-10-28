@@ -1,0 +1,146 @@
+[
+  {
+    "slug": "error-monitoring",
+    "name": "Error Monitoring",
+    "category": "Application health",
+    "shortDescription": "Group browser and server errors by root cause and connect each event to the release that produced it.",
+    "bestFor": "Teams that need actionable JavaScript stack traces without operating a full observability stack",
+    "availability": "All plans",
+    "pricingNote": "Included with every plan; event volume limits vary by plan",
+    "retention": "14 days on Developer, 30 days on Startup, configurable on Enterprise",
+    "setup": "SDK installation plus a CI source-map upload",
+    "supportedFrameworks": ["Next.js", "Nuxt", "SvelteKit", "Express"],
+    "features": [
+      "Groups related browser and server errors into one issue",
+      "Associates events with releases and deployment metadata",
+      "De-minifies JavaScript stack traces when matching source maps are uploaded",
+      "Links an error to correlated logs using a shared trace identifier"
+    ],
+    "limitations": [
+      "Source maps must be generated and uploaded for de-minified stack traces",
+      "Historical events are not reprocessed after a missing source map is uploaded",
+      "Native mobile crash reporting is not supported"
+    ],
+    "docsUrl": "/docs/error-monitoring"
+  },
+  {
+    "slug": "log-management",
+    "name": "Log Management",
+    "category": "Telemetry",
+    "shortDescription": "Ingest, search, and retain structured application logs with fields preserved for filtering.",
+    "bestFor": "Small teams consolidating web application and background-job logs",
+    "availability": "Startup and Enterprise plans",
+    "pricingNote": "Startup includes 50 GB of ingestion per month",
+    "retention": "30 days searchable on Startup; custom retention on Enterprise",
+    "setup": "Send JSON logs over HTTPS or use a supported framework integration",
+    "supportedFrameworks": ["Next.js", "Nuxt", "SvelteKit", "Node.js"],
+    "features": [
+      "Indexes structured JSON fields for search and filtering",
+      "Correlates logs with error events using trace identifiers",
+      "Supports saved searches and scheduled log alerts",
+      "Exports archived logs to customer-owned object storage"
+    ],
+    "limitations": [
+      "Full-text indexing is limited to 25 fields per event on Startup",
+      "SignalArc does not accept raw packet captures",
+      "Archive restore requires an Enterprise plan"
+    ],
+    "docsUrl": "/docs/log-management"
+  },
+  {
+    "slug": "distributed-tracing",
+    "name": "Distributed Tracing",
+    "category": "Telemetry",
+    "shortDescription": "Follow a request across supported services using OpenTelemetry-compatible trace data.",
+    "bestFor": "Teams diagnosing latency across a small number of web services and background jobs",
+    "availability": "Startup and Enterprise plans",
+    "pricingNote": "Trace ingestion shares the plan's monthly event allowance",
+    "retention": "14 days on Startup; custom retention on Enterprise",
+    "setup": "OpenTelemetry SDK configuration in each traced service",
+    "supportedFrameworks": ["Next.js", "Express", "Fastify", "Python ASGI"],
+    "features": [
+      "Accepts OTLP traces over HTTPS",
+      "Connects traces to structured logs and error events",
+      "Highlights slow spans and failed downstream calls",
+      "Supports service and environment filters"
+    ],
+    "limitations": [
+      "Tail-based sampling is available only on Enterprise",
+      "Profiles and continuous profiling are not supported",
+      "Trace completeness depends on instrumentation across every service"
+    ],
+    "docsUrl": "/docs/distributed-tracing"
+  },
+  {
+    "slug": "uptime-monitoring",
+    "name": "Uptime Monitoring",
+    "category": "Availability",
+    "shortDescription": "Run scheduled HTTP checks from multiple regions and alert when a route fails its policy.",
+    "bestFor": "Teams that need external availability checks for public web applications and APIs",
+    "availability": "All plans",
+    "pricingNote": "Developer includes five checks; Startup includes fifty",
+    "retention": "90 days of check history",
+    "setup": "Create a check with a URL, interval, and expected response",
+    "supportedFrameworks": ["Any public HTTP endpoint"],
+    "features": [
+      "Runs checks from three geographic regions",
+      "Validates status code, response time, and optional response text",
+      "Confirms a failure from a second region before alerting",
+      "Publishes check history to a SignalArc status page"
+    ],
+    "limitations": [
+      "Private-network checks require an Enterprise collector",
+      "The shortest check interval is one minute",
+      "Browser transaction monitoring is not supported"
+    ],
+    "docsUrl": "/docs/uptime-monitoring"
+  },
+  {
+    "slug": "alert-routing",
+    "name": "Alert Routing",
+    "category": "Incident response",
+    "shortDescription": "Route alerts by service and severity to Slack, email, or an on-call escalation policy.",
+    "bestFor": "Teams replacing a shared alert channel with explicit ownership and escalation",
+    "availability": "All plans; advanced schedules require Startup",
+    "pricingNote": "Email and Slack routing are included; phone escalation is billed per user",
+    "retention": "One year of alert and acknowledgement history",
+    "setup": "Connect a destination, define service ownership, and test the policy",
+    "supportedFrameworks": ["Slack", "Email", "Webhooks", "PagerDuty import"],
+    "features": [
+      "Routes by service, environment, severity, and tag",
+      "Groups duplicate alerts during a configurable window",
+      "Escalates unacknowledged incidents through an on-call schedule",
+      "Records delivery, acknowledgement, and resolution timestamps"
+    ],
+    "limitations": [
+      "SignalArc does not provide voice-call escalation",
+      "Complex follow-the-sun rotations require Enterprise",
+      "Imported PagerDuty schedules are read-only"
+    ],
+    "docsUrl": "/docs/alert-routing"
+  },
+  {
+    "slug": "status-pages",
+    "name": "Status Pages",
+    "category": "Incident communication",
+    "shortDescription": "Publish service health, incident updates, and uptime history on a hosted status page.",
+    "bestFor": "Software teams that need a simple public incident-communication surface",
+    "availability": "Startup and Enterprise plans",
+    "pricingNote": "One public status page is included with Startup",
+    "retention": "Published incident history is retained while the account is active",
+    "setup": "Choose services, add a custom domain, and assign incident publishers",
+    "supportedFrameworks": ["Hosted web page", "Atom feed", "Webhook"],
+    "features": [
+      "Displays current status for selected services",
+      "Publishes timestamped incident updates",
+      "Shows ninety-day uptime history from SignalArc checks",
+      "Supports email subscribers"
+    ],
+    "limitations": [
+      "Private subscriber-only pages require Enterprise",
+      "Uptime history is available only for SignalArc checks",
+      "SMS subscriber notifications are not supported"
+    ],
+    "docsUrl": "/docs/status-pages"
+  }
+]
