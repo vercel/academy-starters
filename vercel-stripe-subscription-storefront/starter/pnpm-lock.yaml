@@ -9,10 +9,10 @@ importers:
   .:
     dependencies:
       '@radix-ui/react-label':
-        specifier: ^2.1.2
+        specifier: ^2.1.17
         version: 2.1.17(@types/react-dom@19.3.0(@types/react@19.3.0))(@types/react@19.3.0)(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       '@radix-ui/react-slot':
-        specifier: ^1.1.2
+        specifier: ^1.5.0
         version: 1.5.0(@types/react@19.3.0)(react@19.3.1)
       '@stripe/stripe-js':
         specifier: ^4.10.0
@@ -21,10 +21,10 @@ importers:
         specifier: ^0.8.0
         version: 0.8.0(@supabase/supabase-js@2.118.0)
       '@supabase/supabase-js':
-        specifier: ^2.86.2
+        specifier: ^2.118.0
         version: 2.118.0
       '@tailwindcss/postcss':
-        specifier: ^4.0.13
+        specifier: ^4.3.3
         version: 4.3.3
       class-variance-authority:
         specifier: ^0.7.1
@@ -42,41 +42,41 @@ importers:
         specifier: ^0.4.6
         version: 0.4.6(react-dom@19.3.1(react@19.3.1))(react@19.3.1)
       react:
-        specifier: ^19.2.1
+        specifier: ^19.3.1
         version: 19.3.1
       react-dom:
-        specifier: ^19.2.1
+        specifier: ^19.3.1
         version: 19.3.1(react@19.3.1)
       stripe:
-        specifier: ^17.3.1
+        specifier: ^17.7.0
         version: 17.7.0
       tailwind-merge:
-        specifier: ^3.0.2
+        specifier: ^3.7.0
         version: 3.7.0
       tailwindcss:
-        specifier: ^4.0.13
+        specifier: ^4.3.3
         version: 4.3.3
       tailwindcss-animate:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@4.3.3)
     devDependencies:
       '@eslint/eslintrc':
-        specifier: ^3.3.0
+        specifier: ^3.3.7
         version: 3.3.7(supports-color@7.2.0)
       '@next/eslint-plugin-next':
         specifier: ^16.4.3
         version: 16.4.3(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))
       '@types/node':
-        specifier: ^20.17.24
+        specifier: ^20.19.43
         version: 20.19.43
       '@types/react':
-        specifier: ^19.2.1
+        specifier: ^19.3.0
         version: 19.3.0
       '@types/react-dom':
-        specifier: ^19.2.1
+        specifier: ^19.3.0
         version: 19.3.0(@types/react@19.3.0)
       eslint:
-        specifier: ^9.22.0
+        specifier: ^9.39.5
         version: 9.39.5(jiti@2.7.0)(supports-color@7.2.0)
       eslint-config-next:
         specifier: ^16.4.3
@@ -85,10 +85,10 @@ importers:
         specifier: ^5.2.0
         version: 5.2.0(eslint@9.39.5(jiti@2.7.0)(supports-color@7.2.0))
       postcss:
-        specifier: ^8.5.3
-        version: 8.5.31
+        specifier: ^8.5.31
+        version: 8.5.32
       typescript:
-        specifier: ^5.8.2
+        specifier: ^5.9.3
         version: 5.9.3
 
 packages:
@@ -982,8 +982,8 @@ packages:
     resolution: {integrity: sha512-yQbXgO/OSZVD2IsiLlro+7Hf6Q18EJrKSEsdoMzKePKXct3gvD8oLcOQdIzGupr5Fj+EDe8gO/lxc1BzfMpxvA==}
     engines: {node: '>=8'}
 
-  browserslist@4.29.4:
-    resolution: {integrity: sha512-2TcbbiwXEq+N0kD36tykpCfyyQigUXmuwNQbnPp4Xk4PX9JOqVIKjJlIDjpH7uY6tmRGoAd+apeT1p60T8wsdA==}
+  browserslist@4.29.5:
+    resolution: {integrity: sha512-khTmKu5NGYTotqcYo8Bew2k4RAE9PuXRSFRXG2lQBrCEQHyeQ/vX6gKMxfokwywBsLiXZMnHsmWMG1pnO8J7uQ==}
     engines: {node: ^6 || ^7 || ^8 || ^9 || ^10 || ^11 || ^12 || >=13.7}
     hasBin: true
 
@@ -1099,8 +1099,8 @@ packages:
     resolution: {integrity: sha512-KIN/nDJBQRcXw0MLVhZE9iQHmG68qAVIBg9CqmUYjmQIhgij9U5MFvrqkUL5FbtyyzZuOeOt0zdeRe4UY7ct+A==}
     engines: {node: '>= 0.4'}
 
-  electron-to-chromium@1.5.464:
-    resolution: {integrity: sha512-nRa65aFge40viPAKxMKULIY8tcXKwKboJWNn4RoKwyWXJ6SP7BnrDGKUTzc64818jIciH0PK7LSF8QzZes19GA==}
+  electron-to-chromium@1.5.465:
+    resolution: {integrity: sha512-zg4iUpbeGw7YNZsswc2xKr2uiBex2d8dELAXo92Icw3but1ULbrvK8USe6wVLaWjgJnKBARv0pchx9Owktx6wQ==}
 
   emoji-regex@9.2.2:
     resolution: {integrity: sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==}
@@ -1865,8 +1865,8 @@ packages:
     resolution: {integrity: sha512-g50586zr4bZmwFiTlflMu8E0bDTb5I5gertgwAKmsdUlTQIhZtunzUlD1WSzwcVWPoAVpsrA6vlfCD7oXvRwgg==}
     engines: {node: ^10 || ^12 || >=14}
 
-  postcss@8.5.31:
-    resolution: {integrity: sha512-YUbWYCgErwnMAVkjUnYa+KlMBzGpHwiIt/DE7f0G33AuX2LH9UcTk6KgWxd3zRU+pN3u/C+Xl3EnMLM4Hea7Sg==}
+  postcss@8.5.32:
+    resolution: {integrity: sha512-LJlKCCAUFKOuZxipUdYw1NzIITEsPcgyOG9LkvRJvuKj/bRzbuRY0ARXvL0pWGpsZvn8jku+LMep2eU0seHp8g==}
     engines: {node: ^10 || ^12 || >=14}
 
   prelude-ls@1.2.1:
@@ -2233,7 +2233,7 @@ snapshots:
     dependencies:
       '@babel/compat-data': 7.29.7
       '@babel/helper-validator-option': 7.29.7
-      browserslist: 4.29.4
+      browserslist: 4.29.5
       lru-cache: 5.1.1
       semver: 6.3.1
 
@@ -2703,7 +2703,7 @@ snapshots:
       '@alloc/quick-lru': 5.3.0
       '@tailwindcss/node': 4.3.3
       '@tailwindcss/oxide': 4.3.3
-      postcss: 8.5.31
+      postcss: 8.5.32
       tailwindcss: 4.3.3
 
   '@tybys/wasm-util@0.10.4':
@@ -3009,13 +3009,13 @@ snapshots:
     dependencies:
       fill-range: 7.1.1
 
-  browserslist@4.29.4:
+  browserslist@4.29.5:
     dependencies:
       baseline-browser-mapping: 2.11.33
       caniuse-lite: 1.0.30001819
-      electron-to-chromium: 1.5.464
+      electron-to-chromium: 1.5.465
       node-releases: 2.0.60
-      update-browserslist-db: 1.3.4(browserslist@4.29.4)
+      update-browserslist-db: 1.3.4(browserslist@4.29.5)
 
   call-bind-apply-helpers@1.0.2:
     dependencies:
@@ -3129,7 +3129,7 @@ snapshots:
       es-errors: 1.3.0
       gopd: 1.2.0
 
-  electron-to-chromium@1.5.464: {}
+  electron-to-chromium@1.5.465: {}
 
   emoji-regex@9.2.2: {}
 
@@ -4024,7 +4024,7 @@ snapshots:
       picocolors: 1.1.1
       source-map-js: 1.2.2
 
-  postcss@8.5.31:
+  postcss@8.5.32:
     dependencies:
       nanoid: 3.3.20
       picocolors: 1.1.1
@@ -4409,9 +4409,9 @@ snapshots:
       '@unrs/resolver-binding-win32-ia32-msvc': 1.12.2
       '@unrs/resolver-binding-win32-x64-msvc': 1.12.2
 
-  update-browserslist-db@1.3.4(browserslist@4.29.4):
+  update-browserslist-db@1.3.4(browserslist@4.29.5):
     dependencies:
-      browserslist: 4.29.4
+      browserslist: 4.29.5
       escalade: 3.2.0
       picocolors: 1.1.1
 
