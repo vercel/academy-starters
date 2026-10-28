@@ -29,7 +29,7 @@ jobs:
             | awk '{ split($0, p, "/"); top = p[1] "/" p[2]; if (!(top in seen) || length($0) < length(seen[top])) seen[top] = $0 } END { for (t in seen) print seen[t] }' | sort)
           if git cat-file -e "$BASE^{commit}" 2>/dev/null; then
             changed=$(git diff --name-only "$BASE" HEAD)
-            dirs=$(for app in $apps; do top=$(echo "$app" | cut -d/ -f1-2); echo "$changed" | grep -q "^$top/" && echo "$app"; done)
+            dirs=$(for app in $apps; do top=$(echo "$app" | cut -d/ -f1-2); if echo "$changed" | grep -q "^$top/"; then echo "$app"; fi; done)
           else
             dirs="$apps"   # first push: build everything
           fi
