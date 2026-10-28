@@ -7,5 +7,3 @@ node_modules
 coverage
 dist
 
-
-/fixtures/approval-runtime/agent/tools/approve_spec.ts

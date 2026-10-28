@@ -10,9 +10,7 @@
     "eval": "eve eval",
     "test": "vitest run",
     "typecheck": "tsc --noEmit",
-    "validate": "pnpm typecheck && pnpm test && eve info",
-    "trace": "node scripts/trace-work-order.mjs",
-    "test:approval": "node scripts/test-approval.mjs"
+    "validate": "pnpm typecheck && pnpm test && eve info"
   },
   "dependencies": {
     "@github-tools/eve-extension": "0.3.2",
