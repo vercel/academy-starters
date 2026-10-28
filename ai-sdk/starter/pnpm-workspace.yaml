@@ -6,3 +6,6 @@ minimumReleaseAgeExclude:
   - '@ai-sdk/react@4.0.159'
   - ai@7.0.155
   - lucide-react@1.62.0
+allowBuilds:
+  esbuild: true
+  unrs-resolver: true
