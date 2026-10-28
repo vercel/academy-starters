@@ -2,19 +2,12 @@
 
 This is the project for the Vercel Academy course **Creating a Software Factory**.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel-labs%2Facademy-software-factory&project-name=signalworks-software-factory&repository-name=signalworks-software-factory)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Facademy-starters%2Ftree%2Fmain%2Fcreating-a-software-factory%2Fstarter&project-name=signalworks-software-factory&repository-name=signalworks-software-factory)
 
-## This implementation
+## Folders
 
-`solution-remi` implements the course in 14 ordered lesson commits, followed by focused fixes and tests. See [the commit-by-commit guide and verification record](docs/course-progress.md). Local validation, build, and fast live routing evaluations pass; repository-backed and deployed checks still need a configured target.
-
-## Branches
-
-- `main` is the deployable course starter. It includes GitHub intake, repository sandbox infrastructure, the notification SDK, and four case fixtures. Learners build the factory from this branch.
-- `solution-remi` is this locally implemented course solution.
-- `solution` is the upstream-documented completed reference, but upstream did not expose that branch when checked on 2026-09-10. It includes five root tools, Investigator, Builder, and Verifier subagents, approval gates, draft pull request policy, traces, and evaluations.
-
-A fresh clone should remain on `main`.
+- `starter` is the deployable course starter. It includes GitHub intake, repository sandbox infrastructure, the notification SDK, and four case fixtures. Learners build the factory from this folder.
+- [`complete`](https://github.com/vercel/academy-starters/tree/main/creating-a-software-factory/complete) is the completed reference. It includes five root tools, Investigator, Builder, and Verifier subagents, approval gates, draft pull request policy, traces, and evaluations.
 
 ## Repository map
 
@@ -23,19 +16,18 @@ agent/                         # eve agent, channels, policies, and stations
 fixtures/issues/               # prompts for the four course cases
 fixtures/runs/                 # recorded outcomes used before live model calls
 packages/notification-sdk/     # sample TypeScript product the factory maintains
-evals/                         # regression evaluations on the solution branch
+evals/                         # regression evaluations added in Section 5
 ```
 
-The upstream repository is the course template. Your personal fork is the factory's target: it is cloned into sandboxes, receives `factory/*` branches, and hosts draft pull requests.
+This folder is the course template. Your personal copy is the factory's target: it is cloned into sandboxes, receives `factory/*` branches, and hosts draft pull requests.
 
 ## Setup
 
-Clone your personal fork and install dependencies:
+Clone your personal copy and install dependencies:
 
 ```bash
 git clone https://github.com/YOUR_GITHUB_NAME/signalworks-software-factory.git
 cd signalworks-software-factory
-git switch main
 pnpm install
 pnpm exec eve link
 ```
@@ -73,14 +65,14 @@ GITHUB_CONNECTOR=github/signalworks-factory
 
 `GITHUB_CONNECTOR` must match the UID printed by `vercel connect list`.
 
-## Validate the current branch
+## Validate the project
 
 ```bash
 pnpm install
 pnpm validate
 ```
 
-The starter reports zero authored tools and zero subagents. This implementation reports five authored root tools and three subagents.
+The starter reports zero tools and zero subagents. The `complete` folder reports five tools and three subagents.
 
 ## Invoke locally
 
@@ -92,17 +84,15 @@ pnpm exec eve invoke "$(cat fixtures/issues/bug-example.md)"
 
 For an interactive run, use `pnpm exec eve dev` and paste the fixture into the TUI.
 
-## Inspect the solution
+## Inspect the finished factory
+
+The finished project is in the [`complete`](https://github.com/vercel/academy-starters/tree/main/creating-a-software-factory/complete) folder of `vercel/academy-starters`. Clone that repository separately to run it:
 
 ```bash
-git switch solution-remi
+git clone https://github.com/vercel/academy-starters.git
+cd academy-starters/creating-a-software-factory/complete
+pnpm install
 pnpm validate
 pnpm trace
 pnpm exec eve eval --list
-```
-
-Return to the starter before beginning the course:
-
-```bash
-git switch main
 ```

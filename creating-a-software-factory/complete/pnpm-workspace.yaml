@@ -1,0 +1,14 @@
+packages:
+  - packages/*
+
+minimumReleaseAge: 1440
+minimumReleaseAgeExclude:
+  - "@ai-sdk/*"
+  - "@vercel/*"
+  - ai
+  - eve
+  - typescript
+
+overrides:
+  zod: ^4.6.7
+  "undici@8": ^8.12.3
