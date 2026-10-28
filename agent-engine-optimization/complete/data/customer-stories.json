@@ -1,0 +1,48 @@
+{
+  "error-monitoring": [
+    {
+      "customer": "Harbor Tasks",
+      "role": "Engineering lead",
+      "useCase": "Next.js error monitoring",
+      "quote": "Release-linked errors gave us one place to confirm whether a deployment introduced the failure.",
+      "outcome": "The team reduced the median time required to identify the responsible release from 24 minutes to 9 minutes during a six-week review.",
+      "date": "2026-05-12",
+      "sourceUrl": "/customers/harbor-tasks",
+      "approved": true
+    }
+  ],
+  "log-management": [
+    {
+      "customer": "Parcel North",
+      "role": "Staff engineer",
+      "useCase": "Consolidating application and worker logs",
+      "quote": "Structured fields let support and engineering use the same saved searches without copying logs between tools.",
+      "outcome": "Parcel North replaced three team-specific log views with one shared set of incident searches.",
+      "date": "2026-04-03",
+      "sourceUrl": "/customers/parcel-north",
+      "approved": true
+    }
+  ],
+  "alert-routing": [
+    {
+      "customer": "Ledger Lane",
+      "role": "Head of engineering",
+      "useCase": "Moving alerts out of a shared channel",
+      "quote": "Every production service now has an owner and a tested escalation path.",
+      "outcome": "The team documented ownership for all twelve production services during rollout.",
+      "date": "2026-06-21",
+      "sourceUrl": "/customers/ledger-lane",
+      "approved": true
+    },
+    {
+      "customer": "Internal beta account",
+      "role": "Unpublished",
+      "useCase": "On-call routing",
+      "quote": "This quotation has not been approved for publication.",
+      "outcome": "No public outcome.",
+      "date": "2026-07-01",
+      "sourceUrl": "",
+      "approved": false
+    }
+  ]
+}

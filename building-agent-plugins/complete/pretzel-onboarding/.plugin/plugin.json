@@ -1,0 +1,8 @@
+{
+  "name": "pretzel-onboarding",
+  "version": "1.0.0",
+  "description": "Teaches your AI coding agent the tribal knowledge of the Pretzel Logic codebase: the BoxPlan rename, the salt level lookup, and the build-time shipping zones gotcha.",
+  "author": "Eve Porcello",
+  "license": "MIT",
+  "keywords": ["onboarding", "pretzel-logic", "open-plugin"]
+}

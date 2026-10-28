@@ -1,0 +1,19 @@
+# GeniusGarage Code Ownership
+
+# Default owners for everything
+* @platform-team
+
+# Apps
+/apps/web/ @marketing-team
+/apps/app/ @product-team
+/apps/docs/ @docs-team
+/apps/admin/ @admin-team
+
+# Shared packages
+/packages/ui/ @design-system-team
+/packages/config/ @platform-team
+/packages/utils/ @platform-team
+
+# Infrastructure
+/.github/ @platform-team
+/turbo.json @platform-team

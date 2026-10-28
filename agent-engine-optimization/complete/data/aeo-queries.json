@@ -1,0 +1,72 @@
+[
+  {
+    "category": "Category discovery",
+    "query": "best observability tools for a small software team",
+    "targetPage": "/guides/best-observability-tools-for-startups",
+    "observation": "Record mentioned and recommended vendors, rank, citations, source type, and source support",
+    "notes": "Commercial category query"
+  },
+  {
+    "category": "Category discovery",
+    "query": "error monitoring tools for startups",
+    "targetPage": "/platform/error-monitoring",
+    "observation": "Record the criteria used, vendor order, and cited sources",
+    "notes": "Narrow category query"
+  },
+  {
+    "category": "Use case",
+    "query": "best observability setup for a Next.js application",
+    "targetPage": "/solutions/nextjs-observability",
+    "observation": "Record recommended architecture, named products, qualifications, and citations",
+    "notes": "Framework-specific commercial query"
+  },
+  {
+    "category": "Capability",
+    "query": "does SignalArc support OpenTelemetry",
+    "targetPage": "/platform/distributed-tracing",
+    "observation": "Record the answer, supported protocol, plan qualification, and cited source",
+    "notes": "Brand and capability fact"
+  },
+  {
+    "category": "Capability",
+    "query": "how long does SignalArc retain logs",
+    "targetPage": "/platform/log-management",
+    "observation": "Record the plan-specific retention and whether the citation supports it",
+    "notes": "Changing product specification"
+  },
+  {
+    "category": "Technical guide",
+    "query": "how do I reduce alert noise without missing incidents",
+    "targetPage": "/guides/reduce-alert-noise",
+    "observation": "Record the procedure, cautions, and supporting sources",
+    "notes": "Broad practitioner question"
+  },
+  {
+    "category": "Troubleshooting",
+    "query": "why are production JavaScript source maps not working",
+    "targetPage": "/troubleshooting/missing-source-maps",
+    "observation": "Record diagnostic checks, proposed causes, and cited sources",
+    "notes": "Symptom-first technical query"
+  },
+  {
+    "category": "Comparison",
+    "query": "compare SignalArc with larger observability platforms for a startup",
+    "targetPage": "/guides/best-observability-tools-for-startups",
+    "observation": "Record whether the answer identifies the publisher's conflict and preserves trade-offs",
+    "notes": "Brand comparison query"
+  },
+  {
+    "category": "Policy",
+    "query": "where does SignalArc store customer data",
+    "targetPage": "/faq",
+    "observation": "Record the region qualification and whether the cited page owns the policy",
+    "notes": "Data-handling question"
+  },
+  {
+    "category": "Policy",
+    "query": "how much does SignalArc cost",
+    "targetPage": "/faq",
+    "observation": "Record price, billing unit, included usage, and cited source",
+    "notes": "Pricing question"
+  }
+]
