@@ -1,0 +1,1 @@
+Builds read the products table from Neon (/plans/[slug] static params), so a build needs a real DATABASE_URL. Vercel deploys with the Neon integration build fine.
