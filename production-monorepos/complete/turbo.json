@@ -11,9 +11,12 @@
       "dependsOn": ["^lint"]
     },
     "test": {
-      "dependsOn": ["^build"],
+      "dependsOn": ["transit"],
       "outputs": ["coverage/**"],
       "inputs": ["src/**", "test/**"]
+    },
+    "transit": {
+      "dependsOn": ["^transit"]
     },
     "dev": {
       "cache": false,
