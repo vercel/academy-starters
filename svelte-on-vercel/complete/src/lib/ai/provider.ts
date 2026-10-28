@@ -5,7 +5,8 @@ const gateway = createGateway({
 	apiKey: AI_GATEWAY_API_KEY
 });
 
-const PRIMARY_MODEL = 'anthropic/claude-sonnet-4';
+// The virtual model from the AI Gateway dashboard: claude-sonnet-4.5, with claude-haiku-4.5 as its fallback.
+const PRIMARY_MODEL = 'vmc/ski-alerts';
 const FALLBACK_MODEL = 'anthropic/claude-haiku-4.5';
 
 function withUsageTracking(model: ReturnType<typeof gateway>) {

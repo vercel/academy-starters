@@ -15,7 +15,7 @@ import type { RequestHandler } from './$types';
 // TODO: Use generateText() with Output.object() for structured output
 // AI SDK v6 uses generateText() with an output option:
 //   const { output } = await generateText({
-//     model: gateway('anthropic/claude-sonnet-4'),
+//     model: gateway('anthropic/claude-sonnet-4.5'),
 //     output: Output.object({ schema: valibotSchema(CreateAlertToolInputSchema) }),
 //     prompt: `...`
 //   });

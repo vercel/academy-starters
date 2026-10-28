@@ -8,7 +8,7 @@
 // });
 
 // TODO: Define primary and fallback model names
-// const PRIMARY_MODEL = 'anthropic/claude-sonnet-4';
+// const PRIMARY_MODEL = 'vmc/ski-alerts';
 // const FALLBACK_MODEL = 'anthropic/claude-haiku-4.5';
 
 // TODO: Create a withUsageTracking wrapper using wrapLanguageModel
