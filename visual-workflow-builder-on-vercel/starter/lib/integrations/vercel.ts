@@ -521,7 +521,7 @@ export type CreateEnvironmentVariableParams = {
   key: string;
   value: string;
   target?: Array<"production" | "preview" | "development">;
-  type?: "plain" | "secret" | "encrypted";
+  type?: "plain" | "encrypted" | "sensitive";
 };
 
 /**
