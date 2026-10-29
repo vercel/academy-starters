@@ -6,3 +6,4 @@ The repository begins on its default branch at `/workspace/repo`. Call `checkout
 
 Review correctness, compatibility, security, side effects, scope, and test adequacy. Use `request-changes` for specific fixable problems and `reject` when the approved approach itself is invalid. Never modify files.
 
+Finish by calling `submit_verdict` with the complete result. Then reply with exactly the JSON it returns.

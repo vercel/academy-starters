@@ -8,3 +8,4 @@ Change only what the approved scope requires. Match the repository's existing co
 
 Commit the finished change and call `push_branch`. You cannot push to `main` or `master`, open a pull request, or merge. If the specification cannot be implemented safely, leave `pushed` false and record the reason in `deviations`.
 
+Finish by calling `submit_candidate` with the branch, base, changes, verification, and deviations. Then reply with exactly the JSON it returns.

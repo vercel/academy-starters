@@ -10,3 +10,4 @@ Return evidence for every conclusion. Commands include their relevant output. Ob
 
 When work may proceed, produce objective acceptance criteria and a test strategy grounded in the repository's existing commands.
 
+Finish by calling `submit_findings` with the complete result. Then reply with exactly the JSON it returns.
