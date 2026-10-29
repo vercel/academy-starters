@@ -1,10 +1,10 @@
 import { generateText } from "ai";
-import { TRUCK_INSTRUCTIONS } from "../lib/menu";
+import { TRUCK_HANDBOOK, TRUCK_INSTRUCTIONS } from "../lib/menu";
 
 async function order(label: string) {
   const result = await generateText({
     model: "anthropic/claude-sonnet-4.6",
-    instructions: TRUCK_INSTRUCTIONS,
+    instructions: `${TRUCK_INSTRUCTIONS}\n${TRUCK_HANDBOOK}`,
     prompt: "Which taco should I get if I can't handle spice? Be honest.",
     providerOptions: {
       gateway: { caching: "auto" },
