@@ -2,7 +2,8 @@ import { agent } from '@/lib/agent';
 import {
   UIMessage,
   createUIMessageStream,
-  createUIMessageStreamResponse
+  createUIMessageStreamResponse,
+  toUIMessageStream
 } from 'ai';
 
 export async function POST(request: Request) {
@@ -23,7 +24,7 @@ export async function POST(request: Request) {
       async execute({ writer }) {
         try {
           const stream = await agent.stream({ prompt });
-          writer.merge(stream.toUIMessageStream());
+          writer.merge(toUIMessageStream({ stream: stream.stream }));
         } catch (error) {
           console.error('Agent error:', error);
           writer.write({
