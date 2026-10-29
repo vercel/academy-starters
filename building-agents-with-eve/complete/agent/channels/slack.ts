@@ -6,28 +6,19 @@ import { defaultSlackAuth, slackChannel } from "eve/channels/slack";
 // resume handle, and decides delivery. Everything the agent *does* is unchanged.
 //
 // Credentials run through Vercel Connect, so there's no SLACK_BOT_TOKEN or
-// signing secret in your code. Register the Connect client first:
-//   export FF_CONNECT_ENABLED=1
-//   vercel connect create slack --triggers
-//   vercel connect detach <uid> --yes
-//   vercel connect attach <uid> --triggers --trigger-path /eve/v1/slack --yes
-// then set SLACK_CONNECTOR to that client's UID.
+// signing secret in your code. `eve add channel/slack` creates or reuses the
+// Connect connector and routes its events to /eve/v1/slack. Set SLACK_CONNECTOR
+// to that connector's UID if it isn't slack/spoke-and-mirror.
 export default slackChannel({
   credentials: connectSlackCredentials(
     process.env.SLACK_CONNECTOR ?? "slack/spoke-and-mirror",
   ),
 
-  // Answer @mentions from a real user; ignore bot chatter. defaultSlackAuth
-  // stamps Slack identity, but does not invent a shop membership tier.
+  // Answer @mentions from people; ignore other bots. defaultSlackAuth stamps
+  // Slack identity, but does not invent a shop membership tier.
   onAppMention: (ctx, message) =>
-    message.author ? { auth: defaultSlackAuth(message, ctx) } : null,
+    message.author?.isBot ? null : { auth: defaultSlackAuth(message, ctx) },
 
-  events: {
-    // Post the final reply back to the thread. Skip interim tool-call narration
-    // so the channel only shows the front-desk advisor's actual answer.
-    "message.completed"(eventData, channel, ctx) {
-      if (eventData.finishReason === "tool-calls") return;
-      if (eventData.message) channel.thread.post(eventData.message);
-    },
-  },
+  // No delivery code needed: eve's default renderer posts the final reply to
+  // the thread and shows tool-call narration as the thread status instead.
 });
