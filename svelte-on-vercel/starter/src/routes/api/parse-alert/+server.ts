@@ -1,7 +1,7 @@
 import type { RequestHandler } from './$types';
 
 // TODO: Import AI SDK dependencies
-// import { createGateway, generateText, Output } from 'ai';
+// import { createGateway, generateText, NoObjectGeneratedError, NoOutputGeneratedError, Output } from 'ai';
 // import { valibotSchema } from '@ai-sdk/valibot';
 // import * as v from 'valibot';
 
@@ -13,7 +13,7 @@ import type { RequestHandler } from './$types';
 // TODO: Create the AI Gateway client
 
 // TODO: Use generateText() with Output.object() for structured output
-// AI SDK v6 uses generateText() with an output option:
+// AI SDK 7 uses generateText() with an output option:
 //   const { output } = await generateText({
 //     model: gateway('anthropic/claude-sonnet-4.5'),
 //     output: Output.object({ schema: valibotSchema(CreateAlertToolInputSchema) }),
@@ -30,7 +30,7 @@ export const POST: RequestHandler = async ({ request }) => {
 	// TODO: Implement structured output with generateText() + Output.object()
 	// 1. Use generateText() with output: Output.object({ schema: valibotSchema(...) })
 	// 2. Include available resorts in the prompt
-	// 3. Destructure { output } from the result
+	// 3. Destructure { output } inside a try/catch: NoObjectGeneratedError and NoOutputGeneratedError mean a 422
 	// 4. Validate the result with Valibot's parse()
 	// 5. Return the parsed alert data
 

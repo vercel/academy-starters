@@ -1,4 +1,4 @@
-import { generateText, Output } from 'ai';
+import { generateText, NoObjectGeneratedError, NoOutputGeneratedError, Output } from 'ai';
 import { valibotSchema } from '@ai-sdk/valibot';
 import * as v from 'valibot';
 import { resorts } from '#lib/data/resorts.ts';
@@ -15,10 +15,12 @@ export const POST: RequestHandler = async ({ request }) => {
 
 	const resortList = resorts.map((r) => `- ${r.name} (id: ${r.id})`).join('\n');
 
-	const { output } = await generateText({
-		model: getModel(),
-		output: Output.object({ schema: valibotSchema(CreateAlertToolInputSchema) }),
-		prompt: `Parse this natural language alert request into structured data.
+	let output: v.InferOutput<typeof CreateAlertToolInputSchema>;
+	try {
+		({ output } = await generateText({
+			model: getModel(),
+			output: Output.object({ schema: valibotSchema(CreateAlertToolInputSchema) }),
+			prompt: `Parse this natural language alert request into structured data.
 
 Available resorts:
 ${resortList}
@@ -30,10 +32,12 @@ Map common phrases:
 - Temperature references → temperature type with operator
 
 User request: "${query}"`
-	});
-
-	if (!output) {
-		return Response.json({ error: 'AI returned no structured output' }, { status: 422 });
+		}));
+	} catch (error) {
+		if (NoObjectGeneratedError.isInstance(error) || NoOutputGeneratedError.isInstance(error)) {
+			return Response.json({ error: 'AI returned no structured output' }, { status: 422 });
+		}
+		throw error;
 	}
 
 	// Validate the condition with Valibot for runtime type safety

@@ -1,4 +1,4 @@
-import { streamText, tool, stepCountIs } from 'ai';
+import { streamText, tool, isStepCount } from 'ai';
 import { valibotSchema } from '@ai-sdk/valibot';
 import { resorts } from '#lib/data/resorts.ts';
 import { CreateAlertToolInputSchema } from '#lib/schemas/alert.ts';
@@ -12,7 +12,7 @@ export const POST: RequestHandler = async ({ request }) => {
 
 	const result = streamText({
 		model: getModel(),
-		system: `You are a helpful ski conditions assistant. Users want to create alerts for ski resort conditions.
+		instructions: `You are a helpful ski conditions assistant. Users want to create alerts for ski resort conditions.
 
 Available resorts:
 ${resortList}
@@ -48,13 +48,13 @@ Always confirm the alert was created and explain what conditions will trigger it
 				}
 			})
 		},
-		stopWhen: stepCountIs(3)
+		stopWhen: isStepCount(3)
 	});
 
 	const encoder = new TextEncoder();
 	const stream = new ReadableStream({
 		async start(controller) {
-			for await (const part of result.fullStream) {
+			for await (const part of result.stream) {
 				if (part.type === 'text-delta') {
 					controller.enqueue(
 						encoder.encode(`data: ${JSON.stringify({ type: 'text', content: part.text })}\n\n`)
