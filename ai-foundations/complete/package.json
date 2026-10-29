@@ -7,7 +7,9 @@
     "node": ">=22"
   },
   "scripts": {
-    "script": "tsx --env-file=.env"
+    "script": "tsx --env-file=.env",
+    "typecheck": "tsc --noEmit",
+    "build": "pnpm typecheck"
   },
   "dependencies": {
     "ai": "^7.0.154",

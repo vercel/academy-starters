@@ -1,1 +1,0 @@
-Scripts-only course with no build step, so CI type-checks the reference scripts instead.
