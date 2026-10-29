@@ -6,13 +6,21 @@ import Link from "next/link";
 
 export default function ProtectedError({
   error,
-  reset,
+  retry,
 }: {
-  error: Error & { digest?: string };
-  reset: () => void;
+  error: unknown;
+  retry: () => void;
 }) {
+  // Server Component errors arrive as Error instances. A Client Component can
+  // throw anything, so narrow before reading message or digest.
+  const message = error instanceof Error ? error.message : String(error);
+  const digest =
+    error instanceof Error && "digest" in error && typeof error.digest === "string"
+      ? error.digest
+      : undefined;
+
   // Check if this is a "not implemented" error from our TODO stubs
-  const isNotImplemented = error.message?.includes("not implemented");
+  const isNotImplemented = message.includes("not implemented");
 
   if (isNotImplemented) {
     return (
@@ -27,7 +35,7 @@ export default function ProtectedError({
           </p>
           <div className="mt-4 p-3 bg-muted rounded-lg">
             <p className="text-sm font-mono text-muted-foreground">
-              {error.message}
+              {message}
             </p>
           </div>
           <p className="mt-4 text-sm text-muted-foreground">
@@ -35,7 +43,7 @@ export default function ProtectedError({
             back to this page.
           </p>
           <div className="mt-4 flex gap-2">
-            <Button onClick={reset}>Try again</Button>
+            <Button onClick={() => retry()}>Try again</Button>
             <Button variant="outline" asChild>
               <Link href="/">Go home</Link>
             </Button>
@@ -54,13 +62,13 @@ export default function ProtectedError({
         <p className="mt-2 text-muted-foreground">
           We couldn&apos;t load this page. This might be a temporary issue.
         </p>
-        {error.digest && (
+        {digest && (
           <p className="mt-2 text-xs text-muted-foreground font-mono">
-            Error ID: {error.digest}
+            Error ID: {digest}
           </p>
         )}
         <div className="mt-4 flex gap-2 justify-center">
-          <Button onClick={reset}>Try again</Button>
+          <Button onClick={() => retry()}>Try again</Button>
           <Button variant="outline" asChild>
             <Link href="/protected">Go to Account</Link>
           </Button>

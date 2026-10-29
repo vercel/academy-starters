@@ -8,7 +8,7 @@ import { createOrRetrieveCustomer } from "@/utils/supabase/admin";
 function getURL(path: string = "") {
   let url =
     process.env.NEXT_PUBLIC_SITE_URL ??
-    process.env.VERCEL_URL ??
+    process.env.VERCEL_PROJECT_PRODUCTION_URL ??
     "http://localhost:3000";
 
   url = url.startsWith("http") ? url : `https://${url}`;
