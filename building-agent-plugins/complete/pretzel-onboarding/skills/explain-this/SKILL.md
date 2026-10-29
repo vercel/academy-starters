@@ -1,8 +1,9 @@
 ---
-description: Explain a Pretzel Logic file or concept with the right tribal-knowledge context applied.
+name: explain-this
+description: Explain a Pretzel Logic file or concept with the right tribal-knowledge context applied. Use when the user runs /explain-this with a file path or concept, or asks what a pretzel-logic file does.
 ---
 
-When the user runs `/explain-this <file path or concept>`, do the following:
+The user names a file path or a concept after the command. Do the following:
 
 **If they named a file path:**
 
@@ -20,7 +21,7 @@ When the user runs `/explain-this <file path or concept>`, do the following:
 2. Name the files that define it.
 3. Offer to open one of them.
 
-**If they ran the command with no argument:**
+**If they gave no file or concept:**
 
 Ask: "What file or concept do you want explained?"
 
