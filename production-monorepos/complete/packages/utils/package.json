@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "@geniusgarage/config": "workspace:*",
-    "eslint": "^8",
+    "eslint": "^9",
     "vitest": "^5.0.5",
     "typescript": "^5",
     "vite": "^8.3.5"
