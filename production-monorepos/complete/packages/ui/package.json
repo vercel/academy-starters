@@ -16,6 +16,7 @@
   "devDependencies": {
     "@geniusgarage/config": "workspace:*",
     "@testing-library/react": "^14.3.1",
+    "@testing-library/dom": "^10.4.2",
     "@testing-library/jest-dom": "^6.10.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",

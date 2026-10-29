@@ -1,9 +1,11 @@
 {
   "name": "@geniusgarage/config",
   "version": "1.0.0",
+  "type": "module",
   "main": "./index.js",
   "exports": {
     "./tsconfig.json": "./tsconfig.json",
+    "./eslint": "./eslint.js",
     "./env": "./src/env.ts"
   },
   "files": [
@@ -15,6 +17,9 @@
     "zod": "^4.6.7"
   },
   "devDependencies": {
+    "eslint": "^9",
+    "eslint-config-next": "^16.4.3",
+    "eslint-config-prettier": "^10.1.8",
     "typescript": "^5"
   }
 }
