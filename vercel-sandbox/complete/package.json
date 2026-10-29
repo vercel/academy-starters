@@ -8,7 +8,7 @@
     "node": ">=22.12"
   },
   "scripts": {
-    "review": "tsx src/cli.ts review",
+    "review": "tsx --env-file=.env src/cli.ts review",
     "build": "tsc --noEmit",
     "type-check": "tsc --noEmit"
   },
