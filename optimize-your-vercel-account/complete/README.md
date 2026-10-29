@@ -12,13 +12,13 @@ This repo is what you'd have at the end of the course, code-wise. The dashboard 
 | `app/layout.tsx` | Added `<Analytics>` and `<SpeedInsights>` with sampling and admin filtering | 4.4 |
 | `app/products/[slug]/page.tsx` | Set `quality={75}` and `sizes` on `<Image>` | 4.1 |
 | `app/drops/page.tsx` | Replaced `revalidate = 60` with `'use cache'` + `cacheTag('drops')` | 3.3 |
-| `app/api/stock-check/route.ts` | Wrapped warehouse fetch with `'use cache'` + `cacheTag('stock-${sku}')` + `cacheLife` | 3.2 |
-| `app/api/drop-launch/route.ts` | `revalidateTag('drops')` replaces `revalidatePath('/drops')` | 3.3 |
+| `app/api/stock-check/route.ts` | Wrapped warehouse fetch with `'use cache: remote'` + `cacheTag('stock-${sku}')` + `cacheLife` | 3.2 |
+| `app/api/drop-launch/route.ts` | `revalidateTag('drops', 'max')` replaces `revalidatePath('/drops')` | 3.3 |
 | `ignore-build-step.sh` | New script for Vercel's Ignored Build Step | 4.3 |
 
 Dashboard-only changes (no code diff) include:
 
-- Sensitive `DROP_WEBHOOK_SECRET` env var (Lesson 2.1)
+- `DROP_WEBHOOK_SECRET` stored as a Secret with a separate Production value, plus the Separate Production Secret Values team policy (Lesson 2.1)
 - Deployment Protection enabled for previews (Lesson 2.2)
 - Custom firewall rule rate-limiting `/api/stock-check` (Lesson 2.3)
 - Bot Protection in log mode (Lesson 2.4)

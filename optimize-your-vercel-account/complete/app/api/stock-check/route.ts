@@ -13,12 +13,12 @@ async function fetchStockFromWarehouse(
   sku: string,
   size: number
 ): Promise<StockCheckResponse> {
-  "use cache";
+  "use cache: remote";
   cacheTag(`stock-${sku}`);
   cacheLife({ revalidate: 60, expire: 300 });
 
   // Simulates a slow upstream inventory lookup.
-  // The 'use cache' directive above stores the result in Runtime Cache
+  // The 'use cache: remote' directive above stores the result in Runtime Cache
   // so repeat requests in the same region skip this call.
   await new Promise((resolve) => setTimeout(resolve, 800));
 
