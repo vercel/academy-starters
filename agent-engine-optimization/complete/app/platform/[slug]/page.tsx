@@ -44,7 +44,7 @@ export default async function CapabilityPage({ params }: { params: Promise<{ slu
     <article className="max-w-4xl">
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareJsonLd).replace(/</g, "\\u003c") }}
       />
 
       <header className="mb-12">

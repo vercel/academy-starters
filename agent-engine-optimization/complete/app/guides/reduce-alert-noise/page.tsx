@@ -28,7 +28,7 @@ export default function ReduceAlertNoisePage() {
 
   return (
     <article className="max-w-3xl">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd).replace(/</g, "\\u003c") }} />
       <header className="mb-10">
         <p className="text-sm text-accent font-medium mb-3">Incident response guide</p>
         <h1 className="text-5xl font-semibold mb-5">Reduce alert noise without hiding incidents</h1>

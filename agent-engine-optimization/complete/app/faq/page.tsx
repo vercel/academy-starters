@@ -26,7 +26,7 @@ export default function FaqPage() {
 
   return (
     <div className="max-w-4xl">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd).replace(/</g, "\\u003c") }} />
       <header className="mb-12">
         <p className="text-sm text-accent font-medium mb-3">Buyer questions</p>
         <h1 className="text-5xl font-semibold mb-4">Frequently asked questions</h1>

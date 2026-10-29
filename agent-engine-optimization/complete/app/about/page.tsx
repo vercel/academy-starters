@@ -29,7 +29,7 @@ export default function AboutPage() {
 
   return (
     <div className="max-w-4xl">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd).replace(/</g, "\\u003c") }} />
       <header className="mb-12">
         <p className="text-sm text-accent font-medium mb-3">Company and authors</p>
         <h1 className="text-5xl font-semibold mb-5">About SignalArc</h1>
@@ -75,7 +75,7 @@ export default function AboutPage() {
             };
             return (
               <article key={author.slug} id={author.slug} className="border border-line bg-panel rounded-xl p-7">
-                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }} />
+                <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd).replace(/</g, "\\u003c") }} />
                 <h3 className="text-2xl font-semibold mb-1">{author.name}</h3>
                 <p className="text-accent mb-4">{author.jobTitle}</p>
                 <p className="mb-4">{author.bio}</p>
