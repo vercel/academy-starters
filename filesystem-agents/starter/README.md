@@ -54,7 +54,7 @@ The `final` branch of the repo is the completed code if you need to reference.
 
 For this project, you'll need:
 
-- [Node.js](https://nodejs.org/) 18+ installed
+- [Node.js](https://nodejs.org/) 22+ installed
 - [pnpm](https://pnpm.io/) package manager
 - Vercel account
 - [Vercel CLI](https://vercel.com/docs/cli)
