@@ -1,10 +1,9 @@
 import { tool } from "ai";
 import { z } from "zod";
 import { app } from "~/app";
-import type { ExperimentalContext } from "../respond-to-message";
+import { slackContextSchema } from "../context";
 
 export const updateAgentStatusTool = tool({
-  name: "update_agent_status",
   description: "Update the status of the agent",
   inputSchema: z.object({
     status: z
@@ -16,10 +15,10 @@ export const updateAgentStatusTool = tool({
       .min(15)
       .max(30),
   }),
-  execute: ({ status }, { experimental_context }) => {
+  contextSchema: slackContextSchema,
+  execute: ({ status }, { context }) => {
     try {
-      const { channel, thread_ts } =
-        experimental_context as ExperimentalContext;
+      const { channel, thread_ts } = context;
 
       if (!channel || !thread_ts) {
         app.logger.warn(

@@ -2,17 +2,17 @@ import { tool } from "ai";
 import { z } from "zod";
 import { app } from "~/app";
 import { getThreadContextAsModelMessage } from "~/lib/slack/utils";
-import type { ExperimentalContext } from "../respond-to-message";
+import { slackContextSchema } from "../context";
 
 export const getThreadMessagesTool = tool({
-  name: "get_thread_messages",
   description:
     "Get the messages from a Slack thread. This will help you understand the context of the thread conversation.",
   inputSchema: z.object({}),
-  execute: async (_, { experimental_context }) => {
+  contextSchema: slackContextSchema,
+  execute: async (_, { context }) => {
     try {
-      const { channel, thread_ts, botId } =
-        experimental_context as ExperimentalContext;
+      const { channel, thread_ts, botId } = context;
+      if (!channel || !thread_ts) return [];
 
       return await getThreadContextAsModelMessage({
         channel,

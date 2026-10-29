@@ -14,6 +14,7 @@ export const feedbackButtonsCallback = async ({
   SlackActionMiddlewareArgs<BlockFeedbackButtonsAction>) => {
   try {
     await ack();
+    if (!body.channel) return;
     // Send to your API or database
     const { value } = action;
     const [thread_ts, feedback_type] = value.split(":");

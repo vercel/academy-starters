@@ -1,6 +1,7 @@
 import type { KnownEventFromType } from "@slack/bolt";
-import { type ModelMessage, stepCountIs, streamText } from "ai";
+import { isStepCount, type ModelMessage, streamText } from "ai";
 import { app } from "~/app";
+import type { SlackContext } from "./context";
 import {
   getActiveTools,
   getChannelMessagesTool,
@@ -17,12 +18,6 @@ interface RespondToMessageOptions {
   botId?: string;
 }
 
-export type ExperimentalContext = {
-  channel?: string;
-  thread_ts?: string;
-  botId?: string;
-};
-
 export const createTextStream = async ({
   messages,
   event,
@@ -30,10 +25,12 @@ export const createTextStream = async ({
   thread_ts,
   botId,
 }: RespondToMessageOptions) => {
+  const slackContext: SlackContext = { channel, thread_ts, botId };
+
   try {
     const { textStream } = streamText({
       model: "openai/gpt-4o-mini",
-      system: `
+      instructions: `
 			You are Slack Agent, a friendly and professional agent for Slack.
       Always gather context from Slack before asking the user for clarification.
 
@@ -100,7 +97,7 @@ export const createTextStream = async ({
         └─ End
 			`,
       messages,
-      stopWhen: stepCountIs(5),
+      stopWhen: isStepCount(5),
       tools: {
         updateChatTitleTool,
         getThreadMessagesTool,
@@ -112,7 +109,7 @@ export const createTextStream = async ({
           activeTools: getActiveTools(event),
         };
       },
-      onStepFinish: ({ toolCalls }) => {
+      onStepEnd: ({ toolCalls }) => {
         if (toolCalls.length > 0) {
           app.logger.debug(
             "tool call args:",
@@ -120,11 +117,12 @@ export const createTextStream = async ({
           );
         }
       },
-      experimental_context: {
-        channel,
-        thread_ts,
-        botId,
-      } as ExperimentalContext,
+      toolsContext: {
+        updateChatTitleTool: slackContext,
+        getThreadMessagesTool: slackContext,
+        getChannelMessagesTool: slackContext,
+        updateAgentStatusTool: slackContext,
+      },
     });
     return textStream;
   } catch (error) {

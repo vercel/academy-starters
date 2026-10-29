@@ -1,8 +1,10 @@
 # Slack Bolt with Nitro Template
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?demo-description=This%20is%20a%20Slack%20Agent%20template%20built%20with%20Bolt%20for%20JavaScript%20(TypeScript)%20and%20the%20Nitro%20server%20framework.&demo-image=%2F%2Fimages.ctfassets.net%2Fe5382hct74si%2FSs9t7RkKlPtProrbDhZFM%2F0d11b9095ecf84c87a68fbdef6f12ad1%2FFrame__1_.png&demo-title=Slack%20Agent%20Template&demo-url=https%3A%2F%2Fgithub.com%2Fvercel-partner-solutions%2Fslack-agent-template&env=SLACK_SIGNING_SECRET%2CSLACK_BOT_TOKEN&envDescription=These%20environment%20variables%20are%20required%20to%20deploy%20your%20Slack%20app%20to%20Vercel&envLink=https%3A%2F%2Fapi.slack.com%2Fapps&from=templates&project-name=Slack%20Agent%20Template&project-names=Comma%20separated%20list%20of%20project%20names%2Cto%20match%20the%20root-directories&repository-name=slack-agent-template&repository-url=https%3A%2F%2Fgithub.com%2Fvercel-partner-solutions%2Fslack-agent-template&root-directories=List%20of%20directory%20paths%20for%20the%20directories%20to%20clone%20into%20projects&skippable-integrations=1)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Facademy-starters%2Ftree%2Fmain%2Fslack-agents%2Fstarter&project-name=slack-agent-template&repository-name=slack-agent-template&env=SLACK_SIGNING_SECRET%2CSLACK_BOT_TOKEN&envDescription=These%20environment%20variables%20are%20required%20to%20deploy%20your%20Slack%20app%20to%20Vercel&envLink=https%3A%2F%2Fapi.slack.com%2Fapps)
 
-This is a Slack Agent template built with Bolt for JavaScript (TypeScript) and the Nitro server framework.
+This is a Slack Agent template built with Bolt for JavaScript (TypeScript), the AI SDK, and the Nitro server framework. It's the starter for the [Building Slack Agents](https://vercel.com/academy/slack-agents) course on Vercel Academy.
+
+It began as a copy of [vercel-partner-solutions/slack-agent-template](https://github.com/vercel-partner-solutions/slack-agent-template) at commit `2c6a909`, the version the course lessons teach, and has since moved to AI SDK 7 and Bolt 5. It needs Node.js 22 or later.
 
 Before getting started, make sure you have a development workspace where you have permissions to install apps. You can use a [developer sandbox](https://api.slack.com/developer-program) or [create a workspace](https://slack.com/create)
 
@@ -10,7 +12,7 @@ Before getting started, make sure you have a development workspace where you hav
 
 ### Clone and install dependencies
 ```bash
-git clone https://github.com/vercel-partner-solutions/slack-agent-template && cd slack-agent-template && pnpm install
+npx degit vercel/academy-starters/slack-agents/starter slack-agent && cd slack-agent && pnpm install
 ```
 
 ### Create a Slack App

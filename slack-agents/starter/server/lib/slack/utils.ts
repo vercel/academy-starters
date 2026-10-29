@@ -53,7 +53,8 @@ export const updateAgentStatus = async ({
       channel_id,
       thread_ts,
       status,
-      loading_messages: formatLoadingMessages(loading_messages),
+      loading_messages:
+        loading_messages && formatLoadingMessages(loading_messages),
     });
   } catch (error) {
     app.logger.error("Failed to update agent status", {
@@ -77,7 +78,7 @@ const getThreadContext = async (args: ConversationsRepliesArguments) => {
 };
 
 export const getThreadContextAsModelMessage = async (
-  args: ConversationsRepliesArguments & { botId: string },
+  args: ConversationsRepliesArguments & { botId?: string },
 ): Promise<SlackUIMessage[]> => {
   const { botId } = args;
   const messages = await getThreadContext(args);
@@ -86,10 +87,10 @@ export const getThreadContextAsModelMessage = async (
     const { bot_id, text, user, ts, thread_ts, type } = message;
     return {
       role: bot_id === botId ? "assistant" : "user",
-      content: text,
+      content: text ?? "",
       metadata: {
-        user: user || null,
-        bot_id: bot_id || null,
+        user,
+        bot_id,
         ts,
         thread_ts,
         type,
@@ -104,7 +105,7 @@ const getChannelContext = async (args: ConversationsHistoryArguments) => {
 };
 
 export const getChannelContextAsModelMessage = async (
-  args: ConversationsHistoryArguments & { botId: string },
+  args: ConversationsHistoryArguments & { botId?: string },
 ): Promise<SlackUIMessage[]> => {
   const { botId } = args;
   const messages = await getChannelContext(args);
@@ -113,10 +114,10 @@ export const getChannelContextAsModelMessage = async (
     const { bot_id, text, user, ts, thread_ts, type } = message;
     return {
       role: bot_id === botId ? "assistant" : "user",
-      content: text,
+      content: text ?? "",
       metadata: {
-        user: user || null,
-        bot_id: bot_id || null,
+        user,
+        bot_id,
         ts,
         thread_ts,
         type,

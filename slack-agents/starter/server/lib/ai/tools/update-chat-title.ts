@@ -1,18 +1,17 @@
 import { tool } from "ai";
 import { z } from "zod";
 import { app } from "~/app";
-import type { ExperimentalContext } from "../respond-to-message";
+import { slackContextSchema } from "../context";
 
 export const updateChatTitleTool = tool({
-  name: "update_chat_title",
   description: "Update the title of the chat",
   inputSchema: z.object({
     title: z.string().describe("The new title of the chat"),
   }),
-  execute: ({ title }, { experimental_context }) => {
+  contextSchema: slackContextSchema,
+  execute: ({ title }, { context }) => {
     try {
-      const { channel, thread_ts } =
-        experimental_context as ExperimentalContext;
+      const { channel, thread_ts } = context;
 
       if (!channel || !thread_ts) {
         app.logger.warn("update_chat_title skipped: missing channel/thread_ts");
