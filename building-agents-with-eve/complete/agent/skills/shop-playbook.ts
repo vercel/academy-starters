@@ -19,19 +19,17 @@ const PLAYBOOKS: Record<string, { title: string; markdown: string }> = {
   },
 };
 
-export default defineDynamic({
-  events: {
-    "session.started": async (_event, ctx) => {
-      const tier = ctx.session.auth.current?.attributes.tier;
-      const key = Array.isArray(tier) ? tier[0] : tier;
-      const playbook = key ? PLAYBOOKS[key] : undefined;
-      if (!playbook) return null; // no tier → no playbook, just the standard desk
-      return defineSkill({
-        description:
-          `Use when serving a ${key}-tier customer. ` +
-          `Contains that tier's standing conventions.`,
-        markdown: `# ${playbook.title}\n\n${playbook.markdown}`,
-      });
-    },
-  },
+// eve runs this function before every model call and reads the current caller,
+// so the playbook always matches whoever is at the counter right now.
+export default defineDynamic((ctx) => {
+  const tier = ctx.session.auth.current?.attributes.tier;
+  const key = Array.isArray(tier) ? tier[0] : tier;
+  const playbook = typeof key === "string" ? PLAYBOOKS[key] : undefined;
+  if (!playbook) return null; // no tier → no playbook, just the standard desk
+  return defineSkill({
+    description:
+      `Use when serving a ${key}-tier customer. ` +
+      `Contains that tier's standing conventions.`,
+    content: `# ${playbook.title}\n\n${playbook.markdown}`,
+  });
 });

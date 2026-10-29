@@ -21,7 +21,7 @@ const mono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Spoke & Mirror Dispatcher",
-  description: "An Eve-powered bike maintenance dispatcher.",
+  description: "Book bike repairs at Spoke & Mirror Cyclery.",
 };
 
 export default function RootLayout({ children }: { readonly children: ReactNode }) {

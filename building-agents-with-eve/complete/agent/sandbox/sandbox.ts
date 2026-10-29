@@ -1,10 +1,10 @@
-import { defineSandbox, defaultBackend } from "eve/sandbox";
+import { DefaultSandbox, defineSandbox } from "eve/sandbox";
 
-// defaultBackend() picks the right sandbox for the environment on its own:
-// Vercel Sandbox on hosted builds, a local backend during `eve dev`. One
-// definition, both environments. The workspace/ seed (torque-specs.md) mounts
-// either way. To pin Vercel explicitly instead, use vercel() from
-// "eve/sandbox/vercel".
-export default defineSandbox({
-  backend: defaultBackend(),
-});
+// DefaultSandbox picks the right sandbox for the environment on its own:
+// Vercel Sandbox on hosted builds, Docker or just-bash during `eve dev`. One
+// definition, both environments. The workspace/ seed (torque-specs.md) lands
+// in /workspace either way. To pin Vercel explicitly instead, use
+// VercelSandbox.environment() from "eve/sandbox/vercel".
+export const environment = DefaultSandbox.environment();
+
+export default defineSandbox(() => environment.open());

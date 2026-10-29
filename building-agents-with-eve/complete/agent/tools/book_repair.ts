@@ -17,10 +17,16 @@ export default defineTool({
     bikeLabel: z.string().optional().describe("Which of the customer's bikes this is for."),
   }),
   // Cost-based gate: cheap jobs run straight through, big-ticket bookings park
-  // on an approval request. `approval` runs before `execute` and sees the
-  // tool input, so we re-derive the quote here the same way execute will.
-  approval: ({ toolInput }) =>
-    quoteCents(toolInput?.serviceIds ?? []) > APPROVAL_THRESHOLD_CENTS,
+  // on an approval request. `request` runs before `execute` and sees the tool
+  // input, so we re-derive the quote here the same way execute will. `prompt`
+  // replaces the default "Approve Book repair?" text with the actual job.
+  approval: {
+    request: ({ toolInput }) =>
+      quoteCents(toolInput?.serviceIds ?? []) > APPROVAL_THRESHOLD_CENTS,
+    prompt: ({ input }) =>
+      `Book ${input.serviceIds.map((id) => getService(id)?.name ?? id).join(" + ")} ` +
+      `for ${formatUsd(quoteCents(input.serviceIds))}?`,
+  },
   async execute({ serviceIds, slotId, bikeLabel }) {
     const names = serviceIds.map((id) => getService(id)?.name ?? id);
     const total = quoteCents(serviceIds);
