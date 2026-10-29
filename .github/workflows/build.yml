@@ -6,6 +6,13 @@ on:
   pull_request:
   push:
     branches: [main]
+  # The weekly bump dispatches this on its branch, because PRs a workflow opens don't trigger pull_request runs.
+  workflow_dispatch:
+    inputs:
+      base:
+        description: Commit to compare against (blank builds every folder)
+        required: false
+        default: ''
 
 permissions:
   contents: read
@@ -21,7 +28,7 @@ jobs:
           fetch-depth: 0
       - id: find
         env:
-          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+          BASE: ${{ github.event.pull_request.base.sha || inputs.base || github.event.before }}
         run: |
           # An app is the nearest package.json in a course folder: <course>/<folder>/package.json, or one level
           # down when the folder holds more than one service (python-on-vercel/starter/frontend).

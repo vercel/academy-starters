@@ -1,0 +1,79 @@
+# Every Monday, moves each course folder to the latest release within its current majors and opens one PR.
+# Majors still need a person: they change the code the lessons teach, so the drift check files those as tickets.
+# Only versions published at least two days ago are used, matching the release-age rule on the maintainer's machine.
+name: Weekly dependency bump
+
+on:
+  schedule:
+    - cron: '7 13 * * 1' # Mondays 13:07 UTC, an hour before course maintenance
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+  actions: write
+
+concurrency:
+  group: weekly-bump
+  cancel-in-progress: true
+
+jobs:
+  bump:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - run: corepack enable
+
+      - name: Bump within majors
+        run: |
+          files=$(find . -mindepth 3 -name package.json -not -path '*/node_modules/*' | sort)
+          node .github/scripts/bump-within-major.mjs $files | tee "$RUNNER_TEMP/bumps.txt"
+
+      - name: Relock changed folders
+        run: |
+          before=$(date -u -d '2 days ago' +%Y-%m-%dT%H:%M:%SZ)
+          for lock in $(find . -mindepth 3 \( -name pnpm-lock.yaml -o -name package-lock.json \) -not -path '*/node_modules/*' | sort); do
+            dir=$(dirname "$lock")
+            git diff --quiet -- "$dir" && continue   # nothing bumped in this folder
+            echo "::group::$dir"
+            if [ "$(basename "$lock")" = pnpm-lock.yaml ]; then
+              (cd "$dir" && pnpm install --lockfile-only --ignore-scripts --config.minimum-release-age=2880)
+            else
+              (cd "$dir" && npm install --package-lock-only --ignore-scripts --engine-strict=false --before="$before")
+            fi
+            echo "::endgroup::"
+          done
+
+      - name: Write the PR body
+        run: |
+          {
+            echo "Moves every course folder to the latest release within its current major (minor and patch only, published at least two days ago)."
+            echo
+            echo "CI builds every folder on this branch. If \`builds-pass\` is green, it's safe to merge. Major upgrades aren't included: the drift check files them as tickets."
+            echo
+            echo '```'
+            cat "$RUNNER_TEMP/bumps.txt"
+            echo '```'
+          } > "$RUNNER_TEMP/body.md"
+
+      # Commits go through the API, so they're signed, which the org requires.
+      - id: pr
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: chore/weekly-bump
+          title: "Weekly dependency bump"
+          commit-message: "Bump every folder within its current majors"
+          body-path: ${{ runner.temp }}/body.md
+          sign-commits: true
+          delete-branch: true
+
+      - name: Build the branch
+        if: steps.pr.outputs.pull-request-operation == 'created' || steps.pr.outputs.pull-request-operation == 'updated'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run build.yml --ref chore/weekly-bump -f base="$(git rev-parse origin/main)"
