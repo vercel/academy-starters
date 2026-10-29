@@ -1,7 +1,7 @@
 import type { RequestHandler } from './$types';
 
 // TODO: Import AI SDK dependencies
-// import { createGateway, streamText, tool, stepCountIs } from 'ai';
+// import { createGateway, streamText, tool, isStepCount } from 'ai';
 // import { valibotSchema } from '@ai-sdk/valibot';
 
 // TODO: Import resort data for the system prompt
@@ -33,10 +33,10 @@ export const POST: RequestHandler = async ({ request }) => {
 	const { message } = await request.json();
 
 	// TODO: Implement streaming chat with AI SDK
-	// 1. Create a system prompt that lists available resorts
+	// 1. Pass instructions that list available resorts
 	// 2. Use streamText() with the create_alert tool
-	// 3. Use stopWhen: stepCountIs(3) to allow multi-step tool use
-	// 4. Iterate result.fullStream — handle 'text-delta' and 'tool-result' events
+	// 3. Use stopWhen: isStepCount(3) to allow multi-step tool use
+	// 4. Iterate result.stream — handle 'text-delta' and 'tool-result' events
 	//    - part.type === 'text-delta' → part.text (the token content)
 	//    - part.type === 'tool-result' → part.output (the tool result)
 	// 5. Return a streaming response with SSE format

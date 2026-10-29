@@ -74,7 +74,7 @@ git checkout complete
 ## Tech Stack
 
 - [SvelteKit](https://svelte.dev/) with [adapter-vercel](https://github.com/sveltejs/kit/tree/main/packages/adapter-vercel)
-- [AI SDK v6](https://sdk.vercel.ai/) for streaming chat and tool calling
+- [AI SDK 7](https://ai-sdk.dev/docs) for streaming chat and tool calling
 - [Valibot](https://valibot.dev/) for schema validation
 - [Tailwind CSS v4](https://tailwindcss.com/)
 - [Open-Meteo](https://open-meteo.com/) for weather data

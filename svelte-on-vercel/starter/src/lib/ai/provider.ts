@@ -12,11 +12,12 @@
 // const FALLBACK_MODEL = 'anthropic/claude-haiku-4.5';
 
 // TODO: Create a withUsageTracking wrapper using wrapLanguageModel
-// The middleware object needs specificationVersion: 'v3'
+// The middleware object needs specificationVersion: 'v4'
 // The middleware should:
 // 1. Use the wrapGenerate hook to intercept generate calls
 // 2. Call doGenerate(), then log usage with result.usage.inputTokens.total and result.usage.outputTokens.total
-// 3. Return the result
+// 3. Use the wrapStream hook to intercept stream calls, and log the usage from the 'finish' chunk
+// 4. Return the result
 
 // TODO: Export getModel() and getFallbackModel() functions
 // Both should return a model wrapped with usage tracking
