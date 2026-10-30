@@ -1,0 +1,15 @@
+# Patterns that must never appear in this public repo: not in code, not in PR descriptions.
+# One extended regex per line (grep -E, case-insensitive). Lines starting with # are ignored.
+# Add internal project names or people's names here as needed.
+
+# Internal ticket IDs and trackers
+\bEDU-[0-9]+\b
+linear\.app/
+# Internal chat, docs and dashboards
+\bvercel[a-z0-9-]*\.slack\.com
+slack\.com/archives/
+notion\.so/
+notion\.site/
+docs\.google\.com/
+# Internal Vercel hosts
+\.vercel\.tools\b
