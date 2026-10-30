@@ -8,7 +8,7 @@ export default defineEval({
       "Submit Acme Analytics for customer-support analysis. It costs $60,000 per year and handles restricted data."
     );
 
-    t.parked();
+    t.awaitingInput();
     t.calledTool("request_vendor_review", { status: "pending", count: 1 });
   },
 });
