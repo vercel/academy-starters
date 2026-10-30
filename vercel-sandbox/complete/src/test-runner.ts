@@ -32,8 +32,9 @@ export async function detectPackageManager(
       file: 'yarn.lock',
       commands: {
         name: 'yarn',
-        install: { cmd: 'yarn', args: ['install'], cwd: repoDir },
-        test: { cmd: 'yarn', args: ['test'], cwd: repoDir }
+        // The default Sandbox image has no yarn binary, so Corepack runs it
+        install: { cmd: 'corepack', args: ['yarn', 'install'], cwd: repoDir },
+        test: { cmd: 'corepack', args: ['yarn', 'test'], cwd: repoDir }
       }
     },
     {
