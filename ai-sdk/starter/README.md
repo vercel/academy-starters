@@ -1,150 +1,77 @@
-# Vercel AI SDK Tutorial - Starter Project
+# Builders Guide to the AI SDK: starter
 
-This is the starter project for the [Vercel AI SDK Academy Course](https://vercel.com/academy/ai-sdk), a comprehensive tutorial for building AI-powered applications using the Vercel AI SDK.
+> This is the starter for **[Builders Guide to the AI SDK](https://vercel.com/academy/ai-sdk)** on Vercel Academy. Start at [lesson 1.3, AI SDK Dev Setup](https://vercel.com/academy/ai-sdk/ai-sdk-dev-setup).
 
-## About the Course
+## Run it locally
 
-The Vercel AI SDK is a free, open-source library for building AI-powered products. Created by Vercel, it enables developers to quickly integrate AI features into their projects.
+### Prerequisites
 
-### What You'll Learn
+- Node.js 22 or later
+- pnpm, to match the `pnpm-lock.yaml` in this folder
+- A Vercel account with AI Gateway access
+- The [Vercel CLI](https://vercel.com/docs/cli) if you use OIDC instead of an API key
 
-This 12-hour course is divided into three sections:
+### Environment variables
 
-- **Foundations**: Understand LLMs, prompting techniques, and basic AI SDK usage
-- **Invisible AI**: Build seamless AI features like classification and summarization
-- **Conversational AI**: Create interactive chatbots with advanced features
+Put one of these in `.env.local`. You only need one.
 
-## Prerequisites
+- `AI_GATEWAY_API_KEY`: an AI Gateway API key from the Vercel dashboard. The simplest option for local work.
+- `VERCEL_OIDC_TOKEN`: written for you by `vercel link` and `vercel env pull`. It expires after 12 hours; `vercel dev` refreshes it while it runs, or run `vercel env pull` again.
 
-- JavaScript/TypeScript knowledge
-- React familiarity
-- Node.js v20 or later (LTS recommended)
-- pnpm package manager
-- Vercel account (free)
+`.env.example` lists both, plus an optional `VERCEL_AI_GATEWAY_URL` override. Provider keys (OpenAI, Anthropic and so on) belong in the AI Gateway settings in the Vercel dashboard, not in this file.
 
-## Getting Started
-
-### 1. Clone the Repository
-
-```bash
-git clone https://github.com/vercel/ai-sdk-fundamentals-starter.git
-cd ai-sdk-fundamentals-starter
-```
-
-### 2. Install Dependencies
+### Commands
 
 ```bash
 pnpm install
-```
-
-### 3. Set Up Vercel AI Gateway
-
-This project uses [Vercel AI Gateway](https://vercel.com/docs/ai-gateway) for unified AI model access with built-in reliability, monitoring, and load balancing.
-
-#### Link Your Project to Vercel
-
-```bash
-pnpm install -g vercel
-vercel link
-```
-
-#### Deploy and Pull Environment Variables
-
-```bash
-vercel deploy
-vercel env pull
-```
-
-This will create a `.env.local` file with your `VERCEL_OIDC_TOKEN` which is valid for 12 hours.
-
-#### Configure AI Provider Keys
-
-1. Go to your [Vercel Dashboard](https://vercel.com/dashboard)
-2. Navigate to AI Gateway → Integrations
-3. Add your AI provider API keys (e.g., OpenAI, Anthropic)
-4. Keys are securely stored and scoped to your Vercel team
-
-### 4. Run the Development Server
-
-```bash
-# Use Vercel CLI for automatic OIDC token refresh
-vercel dev
-
-# Or use standard Next.js dev (manual token refresh required)
+pnpm tsx env-check.ts   # confirms your key or token is found
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) to see the tutorial navigation page.
+Open http://localhost:3000 to see the lesson navigation page.
 
-## Available Lessons
+## Lesson code
 
-This starter includes code for all course lessons:
+### Command-line lessons
 
-### Command-Line Lessons
+Run these with the scripts in `package.json`:
 
-Run these lessons using the provided npm scripts:
+- **1.4 Data Extraction**: `pnpm extraction`
+- **2.1 Introduction to Invisible AI**: `pnpm invisible-ai:compare` and `pnpm invisible-ai:demo`
+- **2.2 Text Classification**: `pnpm classification`
 
-- **Lesson 1: Extraction** - Extract structured data from text
+### Web lessons
 
-  ```bash
-  pnpm run extraction
-  ```
+Open these from the home page at http://localhost:3000:
 
-- **Lesson 2: Classification** - Classify support requests
-  ```bash
-  pnpm run classification
-  ```
+- **2.3 Automatic Summarization**: `/summarization`
+- **2.4 Structured Data Extraction**: `/extraction`
+- **3.1 Basic Chatbot** and the rest of Section 3: `/chat`
 
-### Interactive Lessons
-
-Access these through the web interface at [http://localhost:3000](http://localhost:3000):
-
-- **Lesson 3: Summarization** - Summarize message conversations
-- **Lesson 4: Extraction (Advanced)** - Extract calendar appointments from emails
-- **Lesson 5: Chatbot** - Build an interactive AI chatbot
-
-## Project Structure
+## Project structure
 
 ```
 ├── app/
 │   ├── (1-extraction)/        # CLI extraction lesson
 │   ├── (2-classification)/    # CLI classification lesson
+│   ├── (2-invisible-ai)/      # CLI invisible AI demos
 │   ├── (3-summarization)/     # Web summarization lesson
 │   ├── (4-extraction)/        # Web extraction lesson
-│   ├── (5-chatbot)/          # Web chatbot lesson
-│   └── page.tsx              # Navigation homepage
-├── components/ui/            # Reusable UI components
-└── lib/                      # Utility functions
+│   ├── (5-chatbot)/           # Web chatbot lesson
+│   └── page.tsx               # Navigation homepage
+├── components/ui/             # Reusable UI components
+├── lib/                       # Utility functions
+└── env-check.ts               # Checks your AI Gateway credentials
 ```
 
-## About Vercel AI Gateway
+## Technologies used
 
-Vercel AI Gateway provides:
-
-- **Unified API** - Switch between AI providers without code changes
-- **High Reliability** - Automatic request retries and failover
-- **Monitoring** - Track usage and spending across providers
-- **Security** - Securely manage API keys at the team level
-- **Load Balancing** - Distribute requests across multiple providers
-
-## Technologies Used
-
-- [Next.js 15](https://nextjs.org) - React framework
-- [Vercel AI SDK](https://sdk.vercel.ai) - AI integration library
-- [Vercel AI Gateway](https://vercel.com/docs/ai-gateway) - AI proxy service
-- [Tailwind CSS v4](https://tailwindcss.com) - Styling
-- [shadcn/ui](https://ui.shadcn.com) - UI components
-- [TypeScript](https://www.typescriptlang.org) - Type safety
-
-## Learn More
-
-- [Full Tutorial](https://vercel.com/academy/ai-sdk) - Complete the entire AI SDK course
-- [AI SDK Documentation](https://sdk.vercel.ai/docs) - Detailed SDK documentation
-- [Vercel AI Gateway Docs](https://vercel.com/docs/ai-gateway) - Gateway documentation
-- [Vercel AI Playground](https://sdk.vercel.ai/playground) - Experiment with AI models
+- [Next.js 16](https://nextjs.org) for the app
+- [AI SDK 7](https://ai-sdk.dev/docs) for model calls
+- [Vercel AI Gateway](https://vercel.com/docs/ai-gateway) for model access
+- [Tailwind CSS v4](https://tailwindcss.com) and [shadcn/ui](https://ui.shadcn.com) for styling
+- [TypeScript](https://www.typescriptlang.org)
 
 ## Deploy on Vercel
 
-The easiest way to deploy your AI application is using the [Vercel Platform](https://vercel.com).
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/vercel/ai-sdk-fundamentals-starter)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Facademy-starters%2Ftree%2Fmain%2Fai-sdk%2Fstarter)

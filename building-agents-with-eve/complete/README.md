@@ -1,4 +1,32 @@
-# Bike Maintenance Dispatcher
+# Building Agents with eve: complete
+
+> This is the finished app for **[Building Agents with eve](https://vercel.com/academy/building-agents-with-eve)** on Vercel Academy. Use it to check your work as you go through the course.
+
+## Run it locally
+
+### Prerequisites
+
+- Node.js 24 (`engines` asks for `24.x`, and `.nvmrc` pins `24`)
+- npm, to match the `package-lock.json` in this folder
+- A Vercel account with AI Gateway access, for the model connection
+
+### Environment variables
+
+There's no `.env.example`. The agent needs a model connection, and eve stores that for you:
+
+- Run `/login` inside the terminal UI, or set `AI_GATEWAY_API_KEY` in your shell. eve keeps logins in your operating system's secret store, not in a project file.
+- `SLACK_CONNECTOR` (optional): the Vercel Connect client UID for the Slack channel. See [Web and deployment](#web-and-deployment).
+
+### Commands
+
+```bash
+npm install
+npm run dev:eve
+```
+
+`npm run dev:eve` opens the eve terminal UI. Run `npm run dev` instead for the Next.js dashboard.
+
+## Spoke & Mirror Cyclery
 
 A sample [Eve](https://eve.dev) agent: the front desk at **Spoke & Mirror Cyclery**.
 Customers describe what their bike is doing, the agent diagnoses, quotes from a real
@@ -19,15 +47,6 @@ Vercel Connect.
 | Web dashboard        | `app/`                                  | Streams sessions through Eve's current React API.         |
 | Slack channel        | `agent/channels/slack.ts`                | Receives mentions and replies through Vercel Connect.     |
 | Sandbox seed         | `agent/sandbox/workspace/torque-specs.md` | Reference file mounted into `/workspace`.               |
-
-## Run it
-
-```bash
-npm install
-npm run dev:eve
-```
-
-Then talk to it in the TUI.
 
 ## Things to try
 

@@ -1,66 +1,50 @@
-# Visual Workflow Builder Starter
+# Build Visual Workflow Plugins on Vercel: starter
 
-A visual workflow builder for learning durable workflow patterns on Vercel.
+> This is the starter for **[Build Visual Workflow Plugins on Vercel](https://vercel.com/academy/visual-workflow-builder-on-vercel)** on Vercel Academy. Start at [lesson 1, Hello Workflow](https://vercel.com/academy/visual-workflow-builder-on-vercel/hello-workflow).
 
-## Quick Start
+## Run it locally
 
-### Option 1: Deploy to Vercel (Recommended)
+### Prerequisites
 
-Click the deploy button in the course. Database is provisioned automatically.
+- Node.js 22 or later. `package.json` doesn't pin a version, and some dependencies need 22.
+- pnpm, to match the `pnpm-lock.yaml` in this folder
+- A Vercel account and the Vercel CLI (`npm i -g vercel`)
+- A Postgres database. The course's deploy button provisions one on Neon, or you can run one locally with `docker compose up -d`.
 
-### Option 2: Local Development
+### Environment variables
 
-After deploying, set up local dev:
-
-**1. Install Vercel CLI** (if not installed)
-
-```bash
-npm i -g vercel
-```
-
-**2. Clone your deployed repo**
-
-```bash
-git clone <your-repo-url>
-cd workflow-builder-starter
-pnpm install
-```
-
-**3. Link to your Vercel project**
+Deploy with the button in lesson 1 first, then link this folder and pull the project's variables into `.env.local`:
 
 ```bash
 vercel link
+vercel env pull .env.local
 ```
 
-Select your project when prompted.
+`.env.example` lists what the app reads:
 
-**4. Pull environment variables**
+- `DATABASE_URL`: the Postgres connection string. It should start with `postgres://` or `postgresql://`.
+- `BETTER_AUTH_SECRET`: signs auth sessions. Generate one with `openssl rand -base64 32`.
+- `RESEND_API_KEY` (optional): powers the email plugin.
 
-```bash
-vercel env pull .env
-```
-
-This pulls DATABASE_URL and other env vars from your Vercel project.
-
-**5. Push database schema**
+### Commands
 
 ```bash
+pnpm install
 pnpm db:push
-```
-
-**6. Run dev server**
-
-```bash
 pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
+`pnpm db:push` creates the tables the app needs. Open [http://localhost:3000](http://localhost:3000).
+
+## Visual Workflow Builder
+
+A visual workflow builder for learning durable workflow patterns on Vercel.
 
 ## What You'll See
 
-- **Visual workflow canvas** — Drag-and-drop nodes connected by edges
-- **Sample workflows** — "Hello Workflow" and "Data Pipeline" load automatically on first visit
-- **Execution logs** — Watch each step run with timing and output
+- **Visual workflow canvas**: Drag-and-drop nodes connected by edges
+- **Sample workflows**: "Hello Workflow" and "Data Pipeline" load automatically on first visit
+- **Execution logs**: Watch each step run with timing and output
 
 ## Run the Workflow
 
@@ -73,11 +57,11 @@ Open [http://localhost:3000](http://localhost:3000).
 
 ```bash
 pnpm dev          # Start development server
-pnpm build        # Build for production (runs db:push first)
+pnpm build        # Run production migrations, discover plugins, then build
 pnpm db:push      # Push schema to database
 pnpm db:studio    # Open Drizzle Studio
 ```
 
 ## Learn More
 
-- [Vercel Workflow Documentation](https://useworkflow.dev/docs/introduction)
+- [Workflow SDK documentation](https://workflow-sdk.dev/docs/introduction)

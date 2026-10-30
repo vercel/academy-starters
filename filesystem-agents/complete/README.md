@@ -1,36 +1,32 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Building Filesystem Agents: complete
 
-## Getting Started
+> This is the finished app for **[Building Filesystem Agents](https://vercel.com/academy/filesystem-agents)** on Vercel Academy. Use it to check your work as you go through the course.
 
-First, run the development server:
+## Run it locally
+
+### Prerequisites
+
+- Node.js 22 or later
+- pnpm 10.24.0, from `packageManager` in `package.json`
+- A Vercel account, the [Vercel CLI](https://vercel.com/docs/cli), and an [AI Gateway API key](https://vercel.com/d?to=%2F%5Bteam%5D%2F%7E%2Fai-gateway%2Fapi-keys&title=AI+Gateway+API+Keys)
+
+### Environment variables
+
+There's no `.env.example`. Link the folder to a Vercel project, then pull its variables into `.env.local`:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+vc link
+vc env pull
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- `VERCEL_OIDC_TOKEN`: written by `vc env pull`. It authenticates Vercel Sandbox and is short-lived, so run `vc env pull` again if Sandbox calls start failing with authentication errors.
+- `AI_GATEWAY_API_KEY`: add it to `.env.local` yourself. It authenticates the agent's model calls.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Commands
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+pnpm install
+pnpm dev
+```
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Open http://localhost:3000 and ask a question about the call transcripts in `lib/calls/`, like `did they mention pricing?`

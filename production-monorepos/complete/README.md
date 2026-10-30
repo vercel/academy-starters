@@ -1,39 +1,60 @@
-# GeniusGarage - Production Monorepo
+# Production Monorepos with Turborepo: complete
+
+> This is the finished app for **[Production Monorepos with Turborepo](https://vercel.com/academy/production-monorepos)** on Vercel Academy. Use it to check your work as you go through the course.
+
+## Run it locally
+
+### Prerequisites
+
+- Node.js 20.19 or later in the 20 line, 22.13 or later in the 22 line, or 24 and up (from `engines` in `package.json`)
+- pnpm 9.1.0, from `packageManager` in `package.json`
+- A Vercel account for the deploy and Remote Caching lessons
+
+### Environment variables
+
+Each app has its own `.env.example`. Copy each one to `.env.local` in the same app folder:
+
+```bash
+cp apps/web/.env.example apps/web/.env.local
+cp apps/app/.env.example apps/app/.env.local
+cp apps/docs/.env.example apps/docs/.env.local
+cp apps/admin/.env.example apps/admin/.env.local
+```
+
+- `NEXT_PUBLIC_API_URL` (web, app, admin): the base URL of the snippet manager app. The web app falls back to `http://localhost:3001`.
+- `NEXT_PUBLIC_APP_NAME` (every app): the display name for that app.
+
+Shared validation is available via `@geniusgarage/config/env`.
+
+### Commands
+
+```bash
+pnpm install
+pnpm dev
+```
+
+`pnpm dev` runs every app at once. `pnpm build` builds everything, and `pnpm test` runs the tests.
+
+## GeniusGarage
 
 A complete developer platform for storing and sharing code snippets, built with Turborepo.
 
 ## What's Inside?
 
-This monorepo includes **4 deployed apps** and **3 shared packages**:
+This monorepo includes **4 apps** and **3 shared packages**:
 
 ### Apps
 
-- **web**: Marketing site (Next.js) - [geniusgarage.com](https://geniusgarage.com)
-- **app**: Snippet manager (Next.js) - [app.geniusgarage.com](https://app.geniusgarage.com)
-- **docs**: API documentation (Nextra) - [docs.geniusgarage.com](https://docs.geniusgarage.com)
-- **admin**: Internal dashboard (Next.js) - [admin.geniusgarage.com](https://admin.geniusgarage.com)
+- **web**: Marketing site (Next.js), on port 3000
+- **app**: Snippet manager (Next.js), on port 3001
+- **docs**: API documentation (Next.js), on port 3002
+- **admin**: Internal dashboard (Next.js), on port 3003
 
 ### Packages
 
 - **@geniusgarage/ui**: Shared React components (Button, Card, CodeBlock, SnippetCard)
 - **@geniusgarage/config**: ESLint, TypeScript, and Tailwind configs
 - **@geniusgarage/utils**: Formatters, validators, and helpers
-
-## Quick Start
-
-```bash
-# Install dependencies
-pnpm install
-
-# Run all apps in dev mode
-pnpm dev
-
-# Build everything
-pnpm build
-
-# Run tests
-pnpm test
-```
 
 ## Working with Specific Apps
 
@@ -116,67 +137,20 @@ pnpm gen:component
 pnpm gen:package
 ```
 
-## Environment Variables
-
-Each app has its own environment configuration:
-
-```bash
-# Copy example env files
-cp apps/web/.env.example apps/web/.env.local
-cp apps/app/.env.example apps/app/.env.local
-cp apps/admin/.env.example apps/admin/.env.local
-```
-
-Apps automatically load their `.env.local` files. Shared validation is available via `@geniusgarage/config/env`.
-
 ## Remote Caching
 
-This project uses Vercel Remote Cache for lightning-fast builds:
+Turborepo can share its build cache through Vercel Remote Cache, so a task that already ran on another machine (or in CI) is restored instead of rebuilt. [Lesson 6.3, Remote Caching Setup](https://vercel.com/academy/production-monorepos/remote-caching) walks through it:
 
 ```bash
-# First build (cold cache)
-pnpm build  # ~45s
-
-# Second build (hot cache)
-pnpm build  # ~200ms ⚡️
+pnpm dlx turbo login
+pnpm dlx turbo link
 ```
 
-### Setup Remote Cache
-
-1. Create a Vercel account and generate a token
-2. Create `.turbo/config.json`:
-
-```json
-{
-  "teamId": "your-team-id",
-  "apiUrl": "https://api.vercel.com"
-}
-```
-
-3. Set environment variables:
-
-```bash
-export TURBO_TOKEN="your-token"
-export TURBO_TEAM="your-team-slug"
-```
-
-4. Run builds and see cache hits:
-
-```bash
-turbo run build
-# Cache miss - builds from scratch
-
-turbo run build
-# Cache hit - completes in <1s
-```
+Run `turbo run build` twice and the second run reports cache hits. In CI, set `TURBO_TOKEN` and `TURBO_TEAM` so the pipeline can reach the same cache.
 
 ## CI/CD
 
-GitHub Actions workflow automatically:
-- Runs tests on every PR
-- Builds all apps and packages
-- Uses remote caching for fast builds
-- Deploys to Vercel on merge to main
+`.github/workflows/ci.yml` runs on pushes and pull requests to `main`. It installs dependencies, then builds, lints, and tests every app and package.
 
 ## Code Ownership
 
@@ -204,7 +178,7 @@ pnpm changeset publish
 │                    Apps Layer                    │
 ├──────────┬──────────┬──────────┬────────────────┤
 │   web    │   app    │   docs   │     admin      │
-│ Next.js  │ Next.js  │  Nextra  │    Next.js     │
+│ Next.js  │ Next.js  │ Next.js  │    Next.js     │
 └────┬─────┴────┬─────┴────┬─────┴────────┬───────┘
      │          │          │              │
      └──────────┴──────────┴──────────────┘
@@ -221,4 +195,3 @@ pnpm changeset publish
 - [Turborepo Docs](https://turbo.build/repo/docs)
 - [pnpm Workspaces](https://pnpm.io/workspaces)
 - [Next.js Documentation](https://nextjs.org/docs)
-- [Nextra](https://nextra.site)
