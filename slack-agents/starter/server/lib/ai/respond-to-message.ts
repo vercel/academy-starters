@@ -29,7 +29,7 @@ export const createTextStream = async ({
 
   try {
     const { textStream } = streamText({
-      model: "openai/gpt-4o-mini",
+      model: "openai/gpt-5.4-mini",
       instructions: `
 			You are Slack Agent, a friendly and professional agent for Slack.
       Always gather context from Slack before asking the user for clarification.
