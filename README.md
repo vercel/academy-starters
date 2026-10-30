@@ -23,3 +23,8 @@ git clone https://github.com/vercel/academy-starters.git
 cd academy-starters
 diff -r optimize-your-vercel-account/starter optimize-your-vercel-account/complete
 ```
+
+## This repo is public
+
+Every PR runs **Public repo guard**: `gitleaks` scans the PR's commits for secrets, and a second check fails if an added line or the PR's title or description matches a pattern in [`.github/internal-terms.txt`](.github/internal-terms.txt) (internal ticket IDs, internal chat and docs links). Keep PR descriptions to facts about the code. Add a pattern to that file to block it everywhere.
+

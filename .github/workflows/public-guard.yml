@@ -1,0 +1,60 @@
+# This repo is public. Every PR's added lines and its description are checked for secrets and for
+# internal references (tickets, internal links), so nothing internal ships with a starter.
+name: Public repo guard
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: read
+
+jobs:
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Scan the PR's commits for secrets
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+        run: |
+          docker run --rm -v "$PWD:/repo" -w /repo zricethezav/gitleaks:v8.18.4 \
+            detect --source /repo --log-opts "$BASE..$HEAD" --redact --no-banner --exit-code 1
+
+  internal-references:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check added lines and the PR description
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}
+          # Passed through env, never interpolated into the script, so a PR body can't inject shell.
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          PR_BODY: ${{ github.event.pull_request.body }}
+        run: |
+          patterns=$(grep -vE '^\s*(#|$)' .github/internal-terms.txt)
+          fail=0
+          added=$(git diff "$BASE" "$HEAD" --unified=0 -- . ':!.github/internal-terms.txt' | grep -E '^\+[^+]' || true)
+          hits=$(printf '%s\n' "$added" | grep -inE -f <(printf '%s\n' "$patterns") || true)
+          if [ -n "$hits" ]; then echo "::error::Internal references in added lines:"; printf '%s\n' "$hits" | head -20; fail=1; fi
+          desc=$(printf '%s\n%s\n' "$PR_TITLE" "$PR_BODY" | grep -inE -f <(printf '%s\n' "$patterns") || true)
+          if [ -n "$desc" ]; then echo "::error::Internal references in the PR title or description:"; printf '%s\n' "$desc" | head -20; fail=1; fi
+          [ "$fail" = 0 ] && echo "No internal references found."
+          exit $fail
+
+  # One fixed name to require in the repo's rules.
+  public-guard:
+    needs: [secrets, internal-references]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          if [ "${{ needs.secrets.result }}" != success ] || [ "${{ needs.internal-references.result }}" != success ]; then
+            echo "The public repo guard failed."; exit 1
+          fi
