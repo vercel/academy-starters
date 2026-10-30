@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "description": "Forager's Guild - A subscription-based field guide for wild edibles, mushrooms, and survival knowledge",
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "scripts": {
     "dev": "next dev",
     "build": "next build",
