@@ -29,7 +29,7 @@ export default async function ProductPage({
             quality={75}
             sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover"
-            priority
+            preload
           />
         </div>
         <div className="md:pt-8">

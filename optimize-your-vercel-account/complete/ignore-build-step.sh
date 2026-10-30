@@ -1,6 +1,6 @@
 #!/bin/bash
 # Vercel Ignored Build Step script for Saturday.
-# Configured under Project Settings > Git > Ignored Build Step.
+# Configured under Project Settings > Build and Deployment > Ignored Build Step.
 #
 # Exit 0 = skip build (proceed without deploying)
 # Exit 1 = proceed with build

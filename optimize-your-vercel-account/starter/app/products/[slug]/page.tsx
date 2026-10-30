@@ -27,7 +27,7 @@ export default async function ProductPage({
             alt={`${product.name} ${product.colorway}`}
             fill
             className="object-cover"
-            priority
+            preload
           />
         </div>
         <div className="md:pt-8">

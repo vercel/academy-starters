@@ -101,7 +101,7 @@ async function NextDrop() {
               alt={`${nextProduct.name} ${nextProduct.colorway}`}
               fill
               className="object-cover"
-              priority
+              preload
             />
           </div>
         </div>
