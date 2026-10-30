@@ -1,7 +1,4 @@
-import {
-  Experimental_EvaluationMockModelV4,
-  MockLanguageModelV4,
-} from "ai/test";
+import { Experimental_DecisionMockModelV4, MockLanguageModelV4 } from "ai/test";
 import { describe, expect, it, vi } from "vitest";
 
 import { examples } from "./examples";
@@ -21,8 +18,8 @@ const mockJev = (
   );
   probabilities.billing_refunds = probability;
   probabilities.billing_invoices = 1 - probability;
-  const model = new Experimental_EvaluationMockModelV4({
-    doEvaluate: () =>
+  const model = new Experimental_DecisionMockModelV4({
+    doDecide: () =>
       Promise.resolve({
         answers: {
           destination: {
@@ -122,8 +119,8 @@ describe("routing policy", () => {
   });
 
   it("uses Luna after a Jev failure", async () => {
-    const jev = new Experimental_EvaluationMockModelV4({
-      doEvaluate: () => {
+    const jev = new Experimental_DecisionMockModelV4({
+      doDecide: () => {
         throw new Error("Unavailable");
       },
     });
@@ -145,8 +142,8 @@ describe("routing policy", () => {
   });
 
   it("fails when both providers fail", async () => {
-    const jev = new Experimental_EvaluationMockModelV4({
-      doEvaluate: () => {
+    const jev = new Experimental_DecisionMockModelV4({
+      doDecide: () => {
         throw new Error("Jev unavailable");
       },
     });
@@ -162,19 +159,22 @@ describe("routing policy", () => {
 
   it("passes identical state and criteria to the independent review without Jev’s answer", async () => {
     const original = mockJev(0.8).model;
-    const evaluateCall = vi.fn(original.doEvaluate);
-    const jev = new Experimental_EvaluationMockModelV4({
-      doEvaluate: evaluateCall,
+    const decideCall = vi.fn(original.doDecide);
+    const jev = new Experimental_DecisionMockModelV4({
+      doDecide: decideCall,
     });
     const luna = mockLuna("contact_triage");
     const result = await routeSubmission(example, submission, { jev, luna });
-    const [[evaluation]] = evaluateCall.mock.calls;
+    const [[decision]] = decideCall.mock.calls;
+    // The SDK hands Jev the state as a JSON part; Luna gets the raw value.
+    const [statePart] = decision.state;
+    const state = statePart?.type === "json" ? statePart.value : null;
     const prompt = JSON.stringify(luna.doGenerateCalls[0].prompt);
     expect(prompt).toContain(
       JSON.stringify(
         JSON.stringify({
-          questions: evaluation.questions,
-          state: evaluation.state,
+          questions: decision.questions,
+          state,
         })
       ).slice(1, -1)
     );

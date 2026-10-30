@@ -71,7 +71,7 @@ Open [localhost:3000](http://localhost:3000). The home page redirects to `/leads
 ## How Routing Works
 
 1. Zod validates the submission against the fields in [lib/examples.ts](lib/examples.ts).
-2. Jev evaluates the complete submission using AI SDK’s `experimental_evaluate` and selects an allowed team/specialty combination.
+2. Jev decides on the complete submission using AI SDK’s `experimental_decide` and selects an allowed team/specialty combination.
 3. The app accepts Jev’s choice when its confidence is **at least 95%**.
 4. If confidence is lower, missing, or invalid, or Jev fails, `openai/gpt-5.6-luna-fast` independently evaluates the same submission and criteria using `generateText` and `Output.object`. Its choice becomes final.
 5. The result includes the destination, deciding model, Jev statistics, model timings, and an email preview.
@@ -150,5 +150,5 @@ Tests mock the model providers and Resend. They make no external calls. Coverage
 
 - [Jev documentation](https://docs.typesafe.ai/introduction)
 - [Jev and AI SDK guide](https://vercel.com/kb/guide/typesafe-jev-and-ai-sdk)
-- [AI SDK evaluation](https://ai-sdk.dev/docs/ai-sdk-core/evaluation)
+- [AI SDK decisions](https://ai-sdk.dev/docs/ai-sdk-core/decisions)
 - [React Email](https://react.email/docs/introduction)

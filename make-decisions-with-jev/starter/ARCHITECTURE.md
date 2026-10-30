@@ -70,7 +70,7 @@ The registry supplies one choice per team/specialty combination. Both models rec
 
 ### Routing policy
 
-Jev uses AI SDK's `experimental_evaluate` with `typesafe-ai/jev`. The app accepts a registered destination only when `providerMetadata.typesafe.confidence.destination` is a valid number from 0 to 1 and its unrounded value is at least `0.95`.
+Jev uses AI SDK's `experimental_decide` with `typesafe-ai/jev`. The app accepts a registered destination only when `providerMetadata.typesafe.confidence.destination` is a valid number from 0 to 1 and its unrounded value is at least `0.95`.
 
 Low, missing, or invalid confidence, or a failed Jev evaluation, invokes `openai/gpt-5.6-luna-fast` through `generateText` and `Output.object`. Its schema allows only the current example's destinations. That answer becomes final even if it disagrees with Jev. There is no generated fallback confidence or further review loop.
 
@@ -118,7 +118,7 @@ Vercel is supported by the authentication and Marketplace setup documented in th
 
 Use Node.js 22+ and pnpm. [Getting started](README.md#getting-started) covers cloning, dependencies, credentials, and local development. The experimental AI SDK dependency is pinned in `package.json`.
 
-Vitest tests live beside the server modules. Routing tests inject AI SDK evaluation and language-model mocks. Workflow tests inject routing and recipient configuration and mock Resend and the `server-only` marker. Authentication tests exercise the real Gateway provider with mocked HTTP responses and a synthetic Vercel request context, covering API keys, local OIDC, and deployed OIDC through both models. Tests also cover confidence boundaries, independent fallback behavior, validation, email escaping, recipient selection, and delivery retries without external calls. Mock decisions verify application policy, not real model classification accuracy.
+Vitest tests live beside the server modules. Routing tests inject AI SDK decision and language-model mocks. Workflow tests inject routing and recipient configuration and mock Resend and the `server-only` marker. Authentication tests exercise the real Gateway provider with mocked HTTP responses and a synthetic Vercel request context, covering API keys, local OIDC, and deployed OIDC through both models. Tests also cover confidence boundaries, independent fallback behavior, validation, email escaping, recipient selection, and delivery retries without external calls. Mock decisions verify application policy, not real model classification accuracy.
 
 Ultracite configures Oxfmt and Oxlint, including Next.js, React, and shadcn rules. `pnpm validate` runs formatting/lint checks, TypeScript, Knip, and tests. `pnpm build` checks the production bundle. Browser accessibility and layout checks are manual, with no checked-in browser test suite.
 
