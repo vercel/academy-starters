@@ -8,6 +8,7 @@ import {
   REPO_DIR,
   validateBranch,
 } from "../../../lib/github/git-remote.js";
+import { environment } from "../sandbox.js";
 
 export default defineTool({
   description:
@@ -17,7 +18,7 @@ export default defineTool({
     if (refusal) {
       return { error: refusal, success: false as const };
     }
-    const sandbox = await ctx.getSandbox();
+    const sandbox = await ctx.getSandbox(environment);
     const token = await mintInstallationToken(githubCredentials);
     await sandbox.setNetworkPolicy(brokerPolicy(token));
     try {
