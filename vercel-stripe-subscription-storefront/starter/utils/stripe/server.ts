@@ -18,7 +18,7 @@ function getURL(path: string = "") {
 }
 
 export type CheckoutResponse = {
-  sessionId?: string;
+  url?: string;
   errorRedirect?: string;
 };
 
@@ -27,13 +27,12 @@ export type CheckoutResponse = {
 // 1. Get the authenticated user from Supabase
 // 2. Get or create a Stripe customer using createOrRetrieveCustomer
 // 3. Create a Stripe checkout session with:
-//    - payment_method_types: ["card"]
 //    - billing_address_collection: "required"
 //    - customer (from step 2)
 //    - line_items with the priceId and quantity: 1
 //    - mode: "subscription"
 //    - success_url and cancel_url using getURL()
-// 4. Return { sessionId: session.id } or { errorRedirect } on error
+// 4. Return { url: session.url } or { errorRedirect } on error
 
 export async function checkoutWithStripe(
   priceId: string,

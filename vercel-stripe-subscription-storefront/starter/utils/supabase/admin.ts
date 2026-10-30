@@ -2,11 +2,11 @@ import { createClient } from "@supabase/supabase-js";
 import { stripe } from "@/utils/stripe/config";
 import Stripe from "stripe";
 
-// Admin client with service role key for webhook operations
+// Admin client with the secret key for webhook operations
 // This bypasses Row Level Security for admin operations
 const supabaseAdmin = createClient(
   process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!,
+  process.env.SUPABASE_SECRET_KEY!,
   {
     auth: {
       autoRefreshToken: false,
