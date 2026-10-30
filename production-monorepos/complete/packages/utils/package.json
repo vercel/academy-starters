@@ -9,7 +9,7 @@
   "scripts": {
     "check-types": "tsc --noEmit",
     "lint": "eslint .",
-    "test": "vitest"
+    "test": "vitest run --passWithNoTests"
   },
   "devDependencies": {
     "@geniusgarage/config": "workspace:*",
