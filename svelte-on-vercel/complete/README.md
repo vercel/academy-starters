@@ -1,16 +1,35 @@
-# Ski Alerts (Complete)
+# Svelte on Vercel: complete
 
-This is the `complete` branch with the finished implementation for the [Svelte on Vercel](https://vercel.com/academy) course. Switch to `main` for the starter code.
+> This is the finished app for **[Svelte on Vercel](https://vercel.com/academy/svelte-on-vercel)** on Vercel Academy. Use it to check your work as you go through the course.
 
-## Getting Started
+## Run it locally
 
-Use Node.js 24. This project uses SvelteKit 3, Svelte 5, Vite 8, and the Vercel adapter 7. SvelteKit and adapter options live in `vite.config.ts`.
+### Prerequisites
+
+- Node.js 22 or later
+- npm, to match the `package-lock.json` in this folder
+- A Vercel account with AI Gateway access
+
+### Environment variables
+
+Copy `.env.example` to `.env`, then fill in:
+
+- `AI_GATEWAY_API_KEY`: authenticates the AI features through AI Gateway. The weather data comes from Open-Meteo and needs no key.
+
+### Commands
 
 ```bash
 npm install
-cp .env.example .env  # Add your AI_GATEWAY_API_KEY
 npm run dev
 ```
+
+Open [http://localhost:5173](http://localhost:5173) to see the app.
+
+## Ski Alerts, complete
+
+The finished implementation. The starter lives in the [`starter`](../starter) folder next to this one.
+
+This project uses SvelteKit 3, Svelte 5, Vite 8, and the Vercel adapter 7. SvelteKit and adapter options live in `vite.config.ts`.
 
 ## What's Implemented
 
@@ -31,9 +50,3 @@ npm run dev
 | `/api/evaluate` | GET, POST | Alert evaluation against live weather |
 | `/api/workflow` | POST | Durable background workflow |
 | `/api/health` | GET | Node.js runtime health check |
-
-## Environment Variables
-
-| Variable | Description |
-|----------|-------------|
-| `AI_GATEWAY_API_KEY` | API key for the AI Gateway |

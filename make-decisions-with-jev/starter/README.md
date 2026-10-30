@@ -1,60 +1,30 @@
-# Jev x AI SDK Form Router
+# Make Decisions with Jev: starter
 
-Three forms use [Jev](https://vercel.com/i/what-is-jev) to route submissions by context, with `openai/gpt-5.6-luna-fast` handling uncertain or failed evaluations. Includes editable samples, routing details, and optional email delivery.
+> This is the starter for **[Make Decisions with Jev](https://vercel.com/academy/make-decisions-with-jev)** on Vercel Academy. Start at [lesson 1.1, Meet Jev](https://vercel.com/academy/make-decisions-with-jev/run-the-template).
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel-labs%2Fjev-ai-sdk-form-router)
-
-## Tech Stack
-
-| Technology | Purpose |
-| --- | --- |
-| Next.js 16 and React 19 | App Router, shared form UI, and Server Actions |
-| AI SDK 7 and Vercel AI Gateway | Typed model calls and provider access |
-| shadcn/ui, Base UI, and Tailwind CSS 4 | Components and styling |
-| React Email and Resend | Email previews and optional delivery |
-
-## Getting Started
+## Run it locally
 
 ### Prerequisites
 
-- Node.js 22+
-- pnpm package manager
+- Node.js 22 or later. `package.json` doesn't pin a version, and some dependencies need 22.
+- pnpm, to match the `pnpm-lock.yaml` in this folder
+- A Vercel account with AI Gateway access to `typesafe-ai/jev` and `openai/gpt-5.6-luna-fast`
+- A Resend account, only if you want email delivery
 
-### 1. Clone and install
+### Environment variables
 
-```sh
-git clone https://github.com/vercel-labs/jev-ai-sdk-form-router.git
-cd jev-ai-sdk-form-router
+Copy `.env.example` to `.env.local`, then fill in:
+
+- `AI_GATEWAY_API_KEY`: authenticates the routing calls. Create a [Vercel AI Gateway key](https://vercel.com/d?to=%2F%5Bteam%5D%2F~%2Fai-gateway%2Fapi-keys), or skip it and use Vercel OIDC with `vercel link` and `vercel env pull .env.local`.
+- `RESEND_API_KEY` (optional): sends routed submissions by email. The setup is under **Optional email delivery** in [How Routing Works](#how-routing-works).
+- `RESEND_FROM` (optional): the sender address, on a domain you've verified in Resend.
+
+Without AI Gateway access, you can still explore the forms and load sample inputs. Routing a submission makes live model calls.
+
+### Commands
+
+```bash
 pnpm install
-```
-
-### 2. Configure AI Gateway
-
-Routing a submission, including a sample, makes live model calls and requires AI Gateway access to both `typesafe-ai/jev` and `openai/gpt-5.6-luna-fast`. Choose one of the authentication options below, or skip this step to explore the forms and load sample inputs without generating routing results.
-
-**API Key**
-
-Copy the environment example:
-
-```sh
-cp .env.example .env.local
-```
-
-Create a [Vercel AI Gateway key](https://vercel.com/d?to=%2F%5Bteam%5D%2F~%2Fai-gateway%2Fapi-keys) and set `AI_GATEWAY_API_KEY` in `.env.local`.
-
-**Vercel OIDC**
-
-Vercel deployments use automatic OIDC authentication through the SDK, without an API key. To use OIDC locally, install the Vercel CLI if needed, then link the project and pull its environment variables:
-
-```sh
-npm install --global vercel
-vercel link
-vercel env pull .env.local
-```
-
-### 3. Start the app
-
-```sh
 pnpm dev
 ```
 
@@ -65,6 +35,21 @@ Open [localhost:3000](http://localhost:3000). The home page redirects to `/leads
 | Lead | `/leads` | Startup, growth, enterprise, or sales teams |
 | Contact | `/contact` | Billing, support, or general inquiries |
 | Issue Report | `/issues` | Frontend, platform, infrastructure, identity, or engineering teams |
+
+## Jev x AI SDK Form Router
+
+Three forms use [Jev](https://vercel.com/i/what-is-jev) to route submissions by context, with `openai/gpt-5.6-luna-fast` handling uncertain or failed evaluations. Includes editable samples, routing details, and optional email delivery.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Facademy-starters%2Ftree%2Fmain%2Fmake-decisions-with-jev%2Fstarter&project-name=jev-form-router&repository-name=jev-form-router)
+
+## Tech Stack
+
+| Technology | Purpose |
+| --- | --- |
+| Next.js 16 and React 19 | App Router, shared form UI, and Server Actions |
+| AI SDK 7 and Vercel AI Gateway | Typed model calls and provider access |
+| shadcn/ui, Base UI, and Tailwind CSS 4 | Components and styling |
+| React Email and Resend | Email previews and optional delivery |
 
 ## How Routing Works
 

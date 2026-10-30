@@ -1,4 +1,37 @@
-# Enterprise Apps and Agents course project
+# Enterprise Apps and Agents: complete
+
+> This is the finished app for **[Enterprise Apps and Agents](https://vercel.com/academy/enterprise-apps-agents)** on Vercel Academy. Use it to check your work as you go through the course.
+
+## Run it locally
+
+### Prerequisites
+
+- Node.js 24 or later
+- pnpm, to match the `pnpm-lock.yaml` in this folder
+- A Vercel account with AI Gateway access
+- A [Neon](https://neon.tech) Postgres database
+
+### Environment variables
+
+Copy `.env.example` to `.env.local`, then fill in:
+
+- `AI_GATEWAY_API_KEY`: authenticates model calls through AI Gateway.
+- `DATABASE_URL`: the Neon Postgres connection string. Run `scripts/schema.sql` against that database first.
+- `VENDOR_REVIEW_URL`: the base URL of the running Vendor Review app, where the eve intake agent submits requests.
+- `VENDOR_REVIEW_REQUESTER_EMAIL`: the requester email the intake agent submits requests as.
+- `ALLOW_DEMO_IDENTITY` and `NEXT_PUBLIC_DEMO_IDENTITY`: turn on the development-only demo identity, which the UI marks with a warning. See [Identity boundary](#identity-boundary).
+- `VERIFIED_USER_EMAIL_HEADER`, `VERIFIED_USER_SUBJECT_HEADER`, `VERIFIED_USER_GROUPS_HEADER`: for a real deployment, the headers a trusted identity proxy sets with the user's email, subject, and groups.
+
+### Commands
+
+```bash
+pnpm install
+pnpm dev
+```
+
+`pnpm workflow:web` opens the local workflow dashboard.
+
+## About this folder
 
 This `complete` folder is the canonical implementation for the Vercel Academy course **Enterprise Apps and Agents**. It demonstrates:
 
@@ -11,20 +44,6 @@ This `complete` folder is the canonical implementation for the Vercel Academy co
 - A development-only identity adapter that is visibly unsafe for real deployment
 
 It does not claim to configure enterprise identity, Connect, Secure Compute, or BYOC. The course teaches those as demonstrated, planned, conditional, or not applicable controls depending on the learner's environment.
-
-## Run locally
-
-1. Create a Neon database and run `scripts/schema.sql`.
-2. Copy `.env.example` to `.env.local` and add the required database and local model credentials.
-3. Install dependencies and start the app.
-
-```bash
-pnpm install
-cp .env.example .env.local
-pnpm dev
-```
-
-`pnpm workflow:web` opens the local workflow dashboard.
 
 ## Run the eve agent
 

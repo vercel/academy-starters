@@ -1,26 +1,37 @@
-# repo-review (complete)
+# Vercel Sandbox: complete
 
-The finished implementation for the [Vercel Sandbox course on Vercel Academy](https://vercel.com/academy/vercel-sandbox). Matches the end of lesson 5.4.
+> This is the finished app for **[Vercel Sandbox](https://vercel.com/academy/vercel-sandbox)** on Vercel Academy. Use it to check your work as you go through the course.
 
-Following the course? Start from [`../starter`](../starter) and build this yourself.
+## Run it locally
 
-## Setup
+### Prerequisites
 
-Requires Node.js 22.12 or later.
+- Node.js 22.12 or later
+- pnpm, to match the `pnpm-lock.yaml` in this folder
+- A Vercel account and the [Vercel CLI](https://vercel.com/docs/cli)
+
+### Environment variables
+
+Run `vercel link`, then `vercel env pull .env`. That writes the variables to `.env`, which the scripts load. `.env.example` lists them:
+
+- `VERCEL_OIDC_TOKEN`: written by `vercel env pull`. It authenticates both Vercel Sandbox and AI Gateway.
+- `AI_GATEWAY_API_KEY` (optional): an AI Gateway API key to use instead of the OIDC token for model calls.
+- `SANDBOX_SNAPSHOT_ID` (optional): a snapshot to restore for faster Sandbox cold starts. [Lesson 5.2](https://vercel.com/academy/vercel-sandbox/sandbox-snapshots-for-speed) creates one.
+
+### Commands
 
 ```bash
 pnpm install
-vercel link
-vercel env pull .env
-```
-
-`vercel env pull` writes a development OIDC token that authenticates both Sandbox and AI Gateway.
-
-## Run a review
-
-```bash
 pnpm review https://github.com/vercel/examples
 ```
+
+`pnpm review` runs the CLI against any public GitHub repository URL.
+
+## repo-review
+
+The finished implementation for the [Vercel Sandbox course on Vercel Academy](https://vercel.com/academy/vercel-sandbox). Matches the end of [lesson 5.4, Formatted Reports](https://vercel.com/academy/vercel-sandbox/formatted-reports).
+
+Following the course? Start from [`../starter`](../starter) and build this yourself.
 
 ## Architecture
 

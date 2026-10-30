@@ -1,20 +1,37 @@
-# Ski Alerts
+# Svelte on Vercel: starter
 
-A SvelteKit app that tracks ski resort conditions and creates personalized alerts using AI. This is the starter project for the [Svelte on Vercel](https://vercel.com/academy/svelte-on-vercel) course.
+> This is the starter for **[Svelte on Vercel](https://vercel.com/academy/svelte-on-vercel)** on Vercel Academy. Start at [lesson 1.1, Deploy to Vercel](https://vercel.com/academy/svelte-on-vercel/deploy-svelte-to-vercel).
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel-labs%2Fski-alerts&project-name=ski-alerts)
+## Run it locally
 
-## Getting Started
+### Prerequisites
 
-Use Node.js 24. This project uses SvelteKit 3, Svelte 5, Vite 8, and the Vercel adapter 7. SvelteKit and adapter options live in `vite.config.ts`.
+- Node.js 22 or later
+- npm, to match the `package-lock.json` in this folder
+- A Vercel account with AI Gateway access
+
+### Environment variables
+
+Copy `.env.example` to `.env`, then fill in:
+
+- `AI_GATEWAY_API_KEY`: authenticates the AI features through AI Gateway. The weather data comes from Open-Meteo and needs no key.
+
+### Commands
 
 ```bash
 npm install
-cp .env.example .env  # Add your AI_GATEWAY_API_KEY
 npm run dev
 ```
 
 Open [http://localhost:5173](http://localhost:5173) to see the app.
+
+## Ski Alerts
+
+A SvelteKit app that tracks ski resort conditions and creates personalized alerts using AI. This is the starter project for the course.
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Facademy-starters%2Ftree%2Fmain%2Fsvelte-on-vercel%2Fstarter&project-name=ski-alerts&repository-name=ski-alerts)
+
+This project uses SvelteKit 3, Svelte 5, Vite 8, and the Vercel adapter 7. SvelteKit and adapter options live in `vite.config.ts`.
 
 ## What's Already Built
 
@@ -57,19 +74,9 @@ src/
 │       └── workflow/    # Background workflow (TODO)
 ```
 
-## Environment Variables
+## Complete reference
 
-| Variable | Description |
-|----------|-------------|
-| `AI_GATEWAY_API_KEY` | API key for the AI Gateway (required for AI features) |
-
-## Complete Reference
-
-Switch to the `complete` branch to see the finished implementation:
-
-```bash
-git checkout complete
-```
+The finished implementation lives in the [`complete`](../complete) folder next to this one.
 
 ## Tech Stack
 

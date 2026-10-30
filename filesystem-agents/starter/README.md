@@ -1,4 +1,35 @@
-# File System Agent
+# Building Filesystem Agents: starter
+
+> This is the starter for **[Building Filesystem Agents](https://vercel.com/academy/filesystem-agents)** on Vercel Academy. Start at [lesson 1.1, Project Setup](https://vercel.com/academy/filesystem-agents/filesystem-project-setup).
+
+## Run it locally
+
+### Prerequisites
+
+- Node.js 22 or later
+- pnpm 10.24.0, from `packageManager` in `package.json`
+- A Vercel account, the [Vercel CLI](https://vercel.com/docs/cli), and an [AI Gateway API key](https://vercel.com/d?to=%2F%5Bteam%5D%2F%7E%2Fai-gateway%2Fapi-keys&title=AI+Gateway+API+Keys)
+
+### Environment variables
+
+There's no `.env.example`. Link the folder to a Vercel project, then pull its variables into `.env.local`:
+
+```bash
+vc link
+vc env pull
+```
+
+- `VERCEL_OIDC_TOKEN`: written by `vc env pull`. It authenticates Vercel Sandbox and is short-lived, so run `vc env pull` again if Sandbox calls start failing with authentication errors.
+- `AI_GATEWAY_API_KEY`: add it to `.env.local` yourself. It authenticates the agent's model calls.
+
+### Commands
+
+```bash
+pnpm install
+pnpm dev
+```
+
+Open http://localhost:3000. The form is ready, and the agent in `lib/agent.ts` is yours to build.
 
 ## What we'll build
 
@@ -48,47 +79,7 @@ The starter repo comes with all necessary files pre-created.
 - `lib/agent.ts` - Where we will define the agent
 - `lib/tools.ts` - Where we will define the bash tool for our agent to use
 
-The `final` branch of the repo is the completed code if you need to reference.
-
-## Prerequisites
-
-For this project, you'll need:
-
-- [Node.js](https://nodejs.org/) 22+ installed
-- [pnpm](https://pnpm.io/) package manager
-- Vercel account
-- [Vercel CLI](https://vercel.com/docs/cli)
-- [AI Gateway API Key](https://vercel.com/d?to=%2F%5Bteam%5D%2F%7E%2Fai-gateway%2Fapi-keys&title=AI+Gateway+API+Keys)
-
-## Getting started
-
-Clone this starter repository.
-
-Using the Vercel CLI, create a new project and link it to your local repository.
-
-`vc link`
-
-You'll be prompted with a few questions:
-
-```
-Set up “~/filesystem-agent”? yes
-? Which scope should contain your project? your-vercel-team
-? Link to existing project? no
-? What’s your project’s name? filesystem-agent
-? In which directory is your code located? ./
-```
-
-Once the project is created in Vercel, pull the automatically created environment variables to use locally. This handles [OIDC token authentication](https://vercel.com/docs/vercel-sandbox/concepts/authentication#vercel-oidc-token-recommended) automatically in your project.
-
-`vc env pull`
-
-You can now inspect the OIDC token in `.env.local` in your project.
-
-Add your AI Gateway API Key to `.env.local`:
-
-```
-AI_GATEWAY_API_KEY=your_ai_gateway_api_key
-```
+The [`complete`](../complete) folder next to this one has the finished code if you want to compare.
 
 ## Building the agent
 
