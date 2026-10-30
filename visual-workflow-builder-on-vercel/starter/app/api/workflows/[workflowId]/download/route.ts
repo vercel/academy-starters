@@ -213,7 +213,7 @@ export async function GET(
     const packageJson = JSON.parse(allFiles["package.json"]);
     packageJson.dependencies = {
       ...packageJson.dependencies,
-      workflow: "4.0.1-beta.7",
+      workflow: "^5.2.3",
       ...getIntegrationDependencies(workflow.nodes as WorkflowNode[]),
     };
     allFiles["package.json"] = JSON.stringify(packageJson, null, 2);
