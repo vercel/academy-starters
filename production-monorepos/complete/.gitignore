@@ -34,3 +34,6 @@ yarn-error.log*
 # Changesets
 .changeset/*.md
 !.changeset/README.md
+
+# TypeScript incremental builds (check-types)
+*.tsbuildinfo
