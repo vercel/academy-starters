@@ -11,8 +11,8 @@
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@vercel/sandbox": "3.9.0",
-    "ai": "7.0.154",
+    "@vercel/sandbox": "3.9.1",
+    "ai": "7.0.159",
     "commander": "15.0.0",
     "zod": "4.6.7"
   },
