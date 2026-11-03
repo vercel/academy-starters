@@ -66,6 +66,8 @@ Open [http://localhost:3000](http://localhost:3000) to view the app.
 | `utils/supabase/proxy.ts` | Session refresh and route protection |
 | `app/actions.ts` | Auth actions (signIn, signUp, signOut) |
 | `utils/stripe/server.ts` | Stripe checkout and subscription management |
+| `app/api/webhooks/route.ts` | Stripe webhook handler that syncs products, prices and subscriptions |
+| `utils/supabase/admin.ts` | `createOrRetrieveCustomer` (the webhook sync helpers in this file are already built) |
 | `app/api/field-guide/route.ts` | Subscription-gated API endpoint |
 
 ## Project Structure
