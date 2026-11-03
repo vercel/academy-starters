@@ -6,7 +6,7 @@ import { cookies } from "next/headers";
 // 1. Get the cookie store with: const cookieStore = await cookies()
 // 2. Call createServerClient from @supabase/ssr with:
 //    - NEXT_PUBLIC_SUPABASE_URL
-//    - NEXT_PUBLIC_SUPABASE_ANON_KEY
+//    - NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
 //    - A cookies config object with getAll() and setAll() methods
 // 3. getAll() should return cookieStore.getAll()
 // 4. setAll() should iterate cookiesToSet and call cookieStore.set()
@@ -41,7 +41,7 @@ const mockSupabaseClient = {
 
 export async function createSupabaseClient() {
   // Return mock if Supabase is not configured (allows build to succeed)
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY) {
     return mockSupabaseClient;
   }
 

@@ -6,7 +6,8 @@ import { NextResponse, type NextRequest } from "next/server";
 // 1. Create a supabaseResponse with NextResponse.next({ request })
 // 2. Create a Supabase server client with cookie handlers that:
 //    - getAll(): return request.cookies.getAll()
-//    - setAll(): update both request cookies and response cookies
+//    - setAll(cookiesToSet, headers): update request cookies, response cookies,
+//      and set the cache headers it passes on the response
 // 3. Call supabase.auth.getUser() to refresh the session
 // 4. Redirect unauthenticated users from /protected/* to /sign-in
 // 5. Redirect authenticated users from / to /protected
@@ -16,7 +17,7 @@ export async function updateSession(request: NextRequest) {
   // Skip if Supabase isn't configured yet (allows starter to run)
   if (
     !process.env.NEXT_PUBLIC_SUPABASE_URL ||
-    !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+    !process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY
   ) {
     return NextResponse.next({ request });
   }

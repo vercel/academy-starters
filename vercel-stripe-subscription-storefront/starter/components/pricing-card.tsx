@@ -3,9 +3,8 @@
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { ProductWithPrices } from "@/utils/supabase/queries";
-// TODO: Import these once implemented:
+// TODO: Import this once implemented:
 // import { checkoutWithStripe } from "@/utils/stripe/server";
-// import { getStripe } from "@/utils/stripe/client";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -40,17 +39,16 @@ export default function PricingCard({ product, isCurrentPlan }: PricingCardProps
     // TODO: Implement Stripe checkout flow:
     // 1. Call checkoutWithStripe(priceId) server action
     // 2. If errorRedirect returned, router.push(errorRedirect)
-    // 3. If sessionId returned, get Stripe client and redirectToCheckout
+    // 3. If url returned, send the browser to Stripe Checkout
     //
     // Example:
-    // const { sessionId, errorRedirect } = await checkoutWithStripe(priceId);
+    // const { url, errorRedirect } = await checkoutWithStripe(priceId);
     // if (errorRedirect) {
     //   router.push(errorRedirect);
     //   return;
     // }
-    // if (sessionId) {
-    //   const stripe = await getStripe();
-    //   await stripe?.redirectToCheckout({ sessionId });
+    // if (url) {
+    //   window.location.assign(url);
     // }
 
     console.log("TODO: Implement checkout for price:", priceId);
