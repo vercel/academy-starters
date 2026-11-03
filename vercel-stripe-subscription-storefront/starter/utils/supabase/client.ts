@@ -4,7 +4,7 @@ import { createBrowserClient } from "@supabase/ssr";
 // This function should:
 // 1. Call createBrowserClient from @supabase/ssr
 // 2. Pass NEXT_PUBLIC_SUPABASE_URL as the first argument
-// 3. Pass NEXT_PUBLIC_SUPABASE_ANON_KEY as the second argument
+// 3. Pass NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY as the second argument
 // 4. Return the client
 
 // Mock client that allows the app to build before Supabase is configured
@@ -29,7 +29,7 @@ const mockSupabaseClient = {
 
 export function createSupabaseClient() {
   // Return mock if Supabase is not configured (allows build to succeed)
-  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY) {
+  if (!process.env.NEXT_PUBLIC_SUPABASE_URL || !process.env.NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY) {
     return mockSupabaseClient;
   }
 
