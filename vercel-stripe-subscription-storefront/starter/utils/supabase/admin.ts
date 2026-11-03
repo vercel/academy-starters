@@ -20,31 +20,75 @@ const toDateTime = (secs: number): Date => {
   return new Date(secs * 1000);
 };
 
-// TODO: Implement upsertProductRecord
-// Insert or update a product record from Stripe webhook data
+// ── Webhook sync ──────────────────────────────────────────────────────────
+// These copy Stripe objects into Supabase. The webhook route you write in
+// lesson 2.1 calls them; you don't need to change them.
+
 export const upsertProductRecord = async (product: Stripe.Product) => {
-  // TODO: Map Stripe product fields to database schema
-  // TODO: Upsert to products table
-  throw new Error("upsertProductRecord not implemented");
+  const { error } = await supabaseAdmin.from("products").upsert([
+    {
+      id: product.id,
+      active: product.active,
+      name: product.name,
+      description: product.description ?? null,
+      image: product.images?.[0] ?? null,
+      metadata: product.metadata,
+    },
+  ]);
+  if (error) throw new Error(`Product insert/update failed: ${error.message}`);
+  console.log(`Product inserted/updated: ${product.id}`);
 };
 
-// TODO: Implement upsertPriceRecord
-// Insert or update a price record from Stripe webhook data
-// Note: May need retry logic for foreign key constraint (product must exist first)
-export const upsertPriceRecord = async (price: Stripe.Price) => {
-  // TODO: Map Stripe price fields to database schema
-  // TODO: Upsert to prices table
-  throw new Error("upsertPriceRecord not implemented");
+// Stripe doesn't promise event order, so price.created can arrive before the
+// product it belongs to. Wait and retry when the product row isn't there yet.
+const FOREIGN_KEY_VIOLATION = "23503";
+
+export const upsertPriceRecord = async (
+  price: Stripe.Price,
+  retryCount = 0,
+  maxRetries = 3
+): Promise<void> => {
+  const { error } = await supabaseAdmin.from("prices").upsert([
+    {
+      id: price.id,
+      product_id: typeof price.product === "string" ? price.product : price.product.id,
+      active: price.active,
+      currency: price.currency,
+      description: price.nickname ?? null,
+      type: price.type,
+      unit_amount: price.unit_amount ?? null,
+      interval: price.recurring?.interval ?? null,
+      interval_count: price.recurring?.interval_count ?? null,
+      trial_period_days: price.recurring?.trial_period_days ?? null,
+      metadata: price.metadata,
+    },
+  ]);
+
+  if (error?.code === FOREIGN_KEY_VIOLATION && retryCount < maxRetries) {
+    console.log(`Product for price ${price.id} not synced yet, retrying...`);
+    await new Promise((resolve) => setTimeout(resolve, 2000));
+    return upsertPriceRecord(price, retryCount + 1, maxRetries);
+  }
+  if (error) throw new Error(`Price insert/update failed: ${error.message}`);
+  console.log(`Price inserted/updated: ${price.id}`);
 };
 
-// TODO: Implement deleteProductRecord
 export const deleteProductRecord = async (product: Stripe.Product) => {
-  throw new Error("deleteProductRecord not implemented");
+  const { error } = await supabaseAdmin
+    .from("products")
+    .delete()
+    .eq("id", product.id);
+  if (error) throw new Error(`Product deletion failed: ${error.message}`);
+  console.log(`Product deleted: ${product.id}`);
 };
 
-// TODO: Implement deletePriceRecord
 export const deletePriceRecord = async (price: Stripe.Price) => {
-  throw new Error("deletePriceRecord not implemented");
+  const { error } = await supabaseAdmin
+    .from("prices")
+    .delete()
+    .eq("id", price.id);
+  if (error) throw new Error(`Price deletion failed: ${error.message}`);
+  console.log(`Price deleted: ${price.id}`);
 };
 
 // TODO: Implement createOrRetrieveCustomer
@@ -66,17 +110,50 @@ export const createOrRetrieveCustomer = async ({
   throw new Error("createOrRetrieveCustomer not implemented");
 };
 
-// TODO: Implement manageSubscriptionStatusChange
-// This function should:
-// 1. Look up user by Stripe customer ID in customers table
-// 2. Fetch full subscription details from Stripe
-// 3. Map subscription data to database schema
-// 4. Upsert subscription record to subscriptions table
+// Copies a subscription from Stripe into Supabase. Called for checkout and
+// every customer.subscription.* event.
 export const manageSubscriptionStatusChange = async (
   subscriptionId: string,
-  customerId: string,
-  createAction = false
+  customerId: string
 ) => {
-  // TODO: Implement this function
-  throw new Error("manageSubscriptionStatusChange not implemented");
+  // createOrRetrieveCustomer (lesson 2.3) stores which user owns this customer.
+  const { data: customer, error: customerError } = await supabaseAdmin
+    .from("customers")
+    .select("id")
+    .eq("stripe_customer_id", customerId)
+    .single();
+  if (customerError) {
+    throw new Error(`Customer lookup failed: ${customerError.message}`);
+  }
+
+  const subscription = await stripe.subscriptions.retrieve(subscriptionId, {
+    expand: ["default_payment_method"],
+  });
+  // Since API version 2025-03-31.basil, the billing period lives on each
+  // subscription item, not on the subscription.
+  const item = subscription.items.data[0];
+
+  const { error } = await supabaseAdmin.from("subscriptions").upsert([
+    {
+      id: subscription.id,
+      user_id: customer.id,
+      metadata: subscription.metadata,
+      status: subscription.status,
+      price_id: item.price.id,
+      quantity: item.quantity ?? 1,
+      cancel_at_period_end: subscription.cancel_at_period_end,
+      cancel_at: subscription.cancel_at ? toDateTime(subscription.cancel_at).toISOString() : null,
+      canceled_at: subscription.canceled_at ? toDateTime(subscription.canceled_at).toISOString() : null,
+      current_period_start: toDateTime(item.current_period_start).toISOString(),
+      current_period_end: toDateTime(item.current_period_end).toISOString(),
+      created: toDateTime(subscription.created).toISOString(),
+      ended_at: subscription.ended_at ? toDateTime(subscription.ended_at).toISOString() : null,
+      trial_start: subscription.trial_start ? toDateTime(subscription.trial_start).toISOString() : null,
+      trial_end: subscription.trial_end ? toDateTime(subscription.trial_end).toISOString() : null,
+    },
+  ]);
+  if (error) {
+    throw new Error(`Subscription insert/update failed: ${error.message}`);
+  }
+  console.log(`Subscription ${subscription.id} for user ${customer.id}: ${subscription.status}`);
 };
