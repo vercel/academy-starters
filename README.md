@@ -17,6 +17,7 @@ New here? Find your course below, open its page, and follow along from the first
 | [Building Filesystem Agents](https://vercel.com/academy/filesystem-agents) | [`starter`](filesystem-agents/starter), [`complete`](filesystem-agents/complete) |
 | [Creating a Software Factory](https://vercel.com/academy/creating-a-software-factory) | [`starter`](creating-a-software-factory/starter), [`complete`](creating-a-software-factory/complete) |
 | [Enterprise Apps and Agents](https://vercel.com/academy/enterprise-apps-agents) | [`starter`](enterprise-apps-agents/starter), [`implementation-start`](enterprise-apps-agents/implementation-start), [`agent-start`](enterprise-apps-agents/agent-start), [`complete`](enterprise-apps-agents/complete) |
+| [Launch an AI Startup on Vercel](https://vercel.com/academy/launch-an-ai-startup) | [`starter`](launch-an-ai-startup/starter), [`complete`](launch-an-ai-startup/complete) |
 | [Make Decisions with Jev](https://vercel.com/academy/make-decisions-with-jev) | [`starter`](make-decisions-with-jev/starter), [`complete`](make-decisions-with-jev/complete) |
 | [Nuxt on Vercel](https://vercel.com/academy/nuxt-on-vercel) | [`starter`](nuxt-on-vercel/starter), [`complete`](nuxt-on-vercel/complete) |
 | [Optimize Your Vercel Account](https://vercel.com/academy/optimize-your-vercel-account) | [`starter`](optimize-your-vercel-account/starter), [`complete`](optimize-your-vercel-account/complete) |

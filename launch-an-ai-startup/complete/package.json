@@ -1,0 +1,44 @@
+{
+  "name": "up-and-to-the-right",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint",
+    "db:setup": "node --env-file=.env.local scripts/setup-db.mts",
+    "eval": "tsx --env-file=.env.local evals/draft.eval.mts",
+    "channel:set": "node --env-file=.env.local scripts/set-channel.mts"
+  },
+  "dependencies": {
+    "@ai-sdk/react": "^4.0.163",
+    "@flags-sdk/vercel": "^1.6.0",
+    "@vercel/connect": "^2.7.0",
+    "@vercel/firewall": "^1.2.6",
+    "@vercel/queue": "^0.10.0",
+    "ai": "^7.0.159",
+    "better-auth": "^1.7.15",
+    "botid": "^1.5.12",
+    "eve": "^1.0.0-rc.1",
+    "flags": "^4.4.0",
+    "next": "^16.4.3",
+    "pg": "^8.23.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@tailwindcss/turbopack": "^4",
+    "@types/node": "^24.19.2",
+    "@types/pg": "^8.23.1",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "^16.4.3",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.15",
+    "typescript": "^5"
+  }
+}
