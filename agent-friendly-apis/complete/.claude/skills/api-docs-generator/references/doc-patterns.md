@@ -118,7 +118,7 @@ Workflows show agents how endpoints chain together. Endpoint docs answer "how do
 
 1. `GET /api/feedback/summary?courseSlug=knife-skills` — check the average rating and total entries
 2. `GET /api/feedback?courseSlug=knife-skills&minRating=1` — pull all low-rated entries
-3. `GET /api/feedback/fb-003` — get the full details on a specific entry
+3. `GET /api/feedback/fb-004` — get the full details on the lowest-rated entry for the course
 ```
 
 ## Anti-patterns to avoid
