@@ -22,6 +22,7 @@ New here? Find your course below, open its page, and follow along from the first
 | [Nuxt on Vercel](https://vercel.com/academy/nuxt-on-vercel) | [`starter`](nuxt-on-vercel/starter), [`complete`](nuxt-on-vercel/complete) |
 | [Optimize Your Vercel Account](https://vercel.com/academy/optimize-your-vercel-account) | [`starter`](optimize-your-vercel-account/starter), [`complete`](optimize-your-vercel-account/complete) |
 | [Production Monorepos with Turborepo](https://vercel.com/academy/production-monorepos) | [`starter`](production-monorepos/starter), [`complete`](production-monorepos/complete) |
+| [Protect Your App on Vercel](https://vercel.com/academy/vercel-firewall) | [`starter`](vercel-firewall/starter), [`complete`](vercel-firewall/complete) |
 | [Python on Vercel](https://vercel.com/academy/python-on-vercel) | [`starter`](python-on-vercel/starter), [`complete`](python-on-vercel/complete) |
 | [Slack Agents on Vercel with the AI SDK](https://vercel.com/academy/slack-agents) | [`starter`](slack-agents/starter) |
 | [Svelte on Vercel](https://vercel.com/academy/svelte-on-vercel) | [`starter`](svelte-on-vercel/starter), [`complete`](svelte-on-vercel/complete) |
