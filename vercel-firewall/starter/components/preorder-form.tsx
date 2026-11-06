@@ -36,7 +36,7 @@ export function PreorderForm({ initialRollsLeft }: { initialRollsLeft: number })
     }
 
     // TODO (3.1): A 429 means the rate limit caught this request. Tell the
-    // customer to wait a minute instead of "Something went wrong."
+    // customer to try again in a few minutes instead of "Something went wrong."
     // TODO (3.2, Advanced): Our own 429 for a reused phone number carries
     // { reason: "phone" }. Show its message.
 
