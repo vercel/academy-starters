@@ -2,7 +2,7 @@
   "name": "lobster-truck",
   "version": "1.0.0",
   "private": true,
-  "description": "The lobster roll truck site from Secure Your Site with Vercel Firewall on Vercel Academy.",
+  "description": "The lobster roll truck site from the Protect Your App on Vercel course on Vercel Academy.",
   "engines": {
     "node": ">=20.9.0"
   },

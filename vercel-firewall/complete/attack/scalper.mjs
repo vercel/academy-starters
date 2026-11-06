@@ -33,9 +33,15 @@ const modes = {
     banner(`scrape /location as ${values.disguise ? "a browser (disguised)" : "PinchyScout"}`, target, count);
     const tally = new Map();
     for (let i = 0; i < count; i++) {
-      const res = await fetch(`${target}/location`, { headers: { "user-agent": ua } });
-      console.log(`  [${String(i + 1).padStart(2, "0")}] ${res.status} GET /location`);
-      tally.set(res.status, (tally.get(res.status) ?? 0) + 1);
+      let status;
+      try {
+        const res = await fetch(`${target}/location`, { headers: { "user-agent": ua } });
+        status = res.status;
+      } catch {
+        status = "network error";
+      }
+      console.log(`  [${String(i + 1).padStart(2, "0")}] ${status} GET /location`);
+      tally.set(status, (tally.get(status) ?? 0) + 1);
       await sleep(1000);
     }
     return tally;
