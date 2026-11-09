@@ -24,10 +24,10 @@
     "seed-traffic": "node --env-file-if-exists=.env.local --import tsx scripts/seed-traffic.ts"
   },
   "dependencies": {
-    "@ai-sdk/react": "^4.0.163",
-    "ai": "^7.0.159",
-    "next": "^16.4.3",
-    "openai": "^7.45.1",
+    "@ai-sdk/react": "^4.0.168",
+    "ai": "^7.0.164",
+    "next": "^16.4.5",
+    "openai": "^7.53.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },
