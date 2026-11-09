@@ -14,8 +14,8 @@
   },
   "dependencies": {
     "@vercel/sandbox": "3.9.1",
-    "ai": "7.0.159",
-    "commander": "15.0.0",
+    "ai": "7.0.164",
+    "commander": "15.1.0",
     "zod": "4.6.7"
   },
   "devDependencies": {

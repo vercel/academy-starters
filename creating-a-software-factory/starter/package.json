@@ -14,15 +14,15 @@
   },
   "dependencies": {
     "@github-tools/eve-extension": "0.9.0",
-    "@vercel/connect": "2.7.0",
-    "ai": "7.0.159",
+    "@vercel/connect": "2.9.0",
+    "ai": "7.0.164",
     "eve": "0.83.3",
     "zod": "4.6.7"
   },
   "devDependencies": {
     "@types/node": "24.19.2",
     "typescript": "7.0.2",
-    "vitest": "5.0.5"
+    "vitest": "5.1.0"
   },
   "engines": {
     "node": "24.x"
