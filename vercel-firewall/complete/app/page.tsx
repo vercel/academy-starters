@@ -1,12 +1,14 @@
 import Link from "next/link";
 import { connection } from "next/server";
-import { getRollsLeft } from "@/lib/store";
+import { StoreSetup } from "@/components/store-setup";
+import { getRollsLeft, storeReady } from "@/lib/store";
 import { DAILY_ROLLS, MENU, todaysSpot } from "@/lib/truck";
 
 export default async function Home() {
   await connection();
   const spot = todaysSpot();
-  const rollsLeft = getRollsLeft();
+  if (!storeReady) return <StoreSetup />;
+  const rollsLeft = await getRollsLeft();
 
   return (
     <div className="space-y-10">
