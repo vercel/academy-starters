@@ -1,6 +1,6 @@
 import { checkRateLimit } from "@vercel/firewall";
 import { isValidPhone, normalizePhone } from "@/lib/phone";
-import { getRollsLeft, takeRoll } from "@/lib/store";
+import { takeRoll } from "@/lib/store";
 import { MENU, type RollStyle } from "@/lib/truck";
 
 export async function POST(request: Request) {
@@ -33,10 +33,10 @@ export async function POST(request: Request) {
     if (!(error instanceof Error && error.name === "TimeoutError")) throw error;
   }
 
-  const preorder = takeRoll({ name, phone: digits, style });
-  if (!preorder) {
+  const sale = await takeRoll({ name, phone: digits, style });
+  if (!sale) {
     return Response.json({ error: "Sold out. See you tomorrow." }, { status: 409 });
   }
 
-  return Response.json({ confirmation: preorder.confirmation, rollsLeft: getRollsLeft() }, { status: 201 });
+  return Response.json({ confirmation: sale.preorder.confirmation, rollsLeft: sale.rollsLeft }, { status: 201 });
 }

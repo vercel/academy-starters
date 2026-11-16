@@ -32,6 +32,6 @@ export async function POST(request: Request) {
   }
 
   const placedBy = welcomeBot && botName ? botName : "customer";
-  const order = createOrder({ name, email, rolls, pickup, placedBy });
+  const order = await createOrder({ name, email, rolls, pickup, placedBy });
   return Response.json({ id: order.id, status: order.status, placedBy: order.placedBy }, { status: 201 });
 }

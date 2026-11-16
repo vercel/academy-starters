@@ -13,7 +13,8 @@
     "typecheck": "tsc --noEmit",
     "scalper": "node attack/scalper.mjs",
     "webhook": "node attack/payment-webhook.mjs",
-    "lunch": "node attack/lunch-rush.mjs"
+    "lunch": "node attack/lunch-rush.mjs",
+    "restock": "node attack/restock.mjs"
   },
   "dependencies": {
     "next": "^16.4.6",

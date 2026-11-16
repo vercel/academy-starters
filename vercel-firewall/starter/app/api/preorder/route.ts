@@ -1,5 +1,5 @@
 import { isValidPhone, normalizePhone } from "@/lib/phone";
-import { getRollsLeft, takeRoll } from "@/lib/store";
+import { takeRoll } from "@/lib/store";
 import { MENU, type RollStyle } from "@/lib/truck";
 
 export async function POST(request: Request) {
@@ -15,10 +15,10 @@ export async function POST(request: Request) {
   // TODO (3.2, Advanced, Pro and Enterprise): One roll per phone number. Call checkRateLimit from
   // @vercel/firewall with the normalized phone as the rateLimitKey.
 
-  const preorder = takeRoll({ name, phone: normalizePhone(phone), style });
-  if (!preorder) {
+  const sale = await takeRoll({ name, phone: normalizePhone(phone), style });
+  if (!sale) {
     return Response.json({ error: "Sold out. See you tomorrow." }, { status: 409 });
   }
 
-  return Response.json({ confirmation: preorder.confirmation, rollsLeft: getRollsLeft() }, { status: 201 });
+  return Response.json({ confirmation: sale.preorder.confirmation, rollsLeft: sale.rollsLeft }, { status: 201 });
 }
