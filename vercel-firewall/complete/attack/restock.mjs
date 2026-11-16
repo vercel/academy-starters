@@ -1,5 +1,5 @@
 // Puts a full day of rolls back on the truck. Runs on your machine, not on the
-// deployment, using the Redis credentials that `vercel install upstash` pulled
+// deployment, using the Redis credentials that `vercel install upstash/upstash-kv` pulled
 // into .env.local. There's no restock endpoint on the site on purpose: a public
 // "reset the inventory" URL is the kind of thing this course teaches you to block.
 

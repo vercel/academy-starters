@@ -9,11 +9,11 @@ The lobster roll truck from [Protect Your App on Vercel](https://vercel.com/acad
 ```bash
 npm install
 vercel link
-vercel install upstash
+vercel install upstash/upstash-kv
 npm run dev
 ```
 
-`vercel install upstash` adds a free Upstash Redis database to your project and pulls its credentials into `.env.local`. Then deploy it to your own Vercel account. The Firewall only sees traffic on a deployment.
+`vercel install upstash/upstash-kv` adds a free Upstash Redis database to your project and pulls its credentials into `.env.local`. Then deploy it to your own Vercel account. The Firewall only sees traffic on a deployment.
 
 ## What's in here
 
