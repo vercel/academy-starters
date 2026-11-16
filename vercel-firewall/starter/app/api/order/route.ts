@@ -14,6 +14,6 @@ export async function POST(request: Request) {
     return Response.json({ error: "Name, email, 5 to 40 rolls, and a pickup time, please." }, { status: 400 });
   }
 
-  const order = createOrder({ name, email, rolls, pickup, placedBy: "customer" });
+  const order = await createOrder({ name, email, rolls, pickup, placedBy: "customer" });
   return Response.json({ id: order.id, status: order.status }, { status: 201 });
 }

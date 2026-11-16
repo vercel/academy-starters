@@ -22,7 +22,7 @@ export async function POST(request: Request) {
     return Response.json({ received: true });
   }
 
-  const order = markOrderPaid(event.orderId);
+  const order = await markOrderPaid(event.orderId);
   if (!order) {
     return Response.json({ error: "Unknown order" }, { status: 404 });
   }

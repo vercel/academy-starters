@@ -13,9 +13,11 @@
     "typecheck": "tsc --noEmit",
     "scalper": "node attack/scalper.mjs",
     "webhook": "node attack/payment-webhook.mjs",
-    "lunch": "node attack/lunch-rush.mjs"
+    "lunch": "node attack/lunch-rush.mjs",
+    "restock": "node attack/restock.mjs"
   },
   "dependencies": {
+    "@upstash/redis": "^1.41.0",
     "next": "^16.4.5",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
