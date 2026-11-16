@@ -15,27 +15,27 @@ importers:
         specifier: ^5.1.0
         version: 5.1.0(@types/express@5.0.6)(undici@7.30.1)
       '@slack/web-api':
-        specifier: ^8.3.0
-        version: 8.3.0
+        specifier: ^8.4.0
+        version: 8.4.0
       '@vercel/slack-bolt':
-        specifier: ^1.7.4
-        version: 1.7.4(@slack/bolt@5.1.0(@types/express@5.0.6)(undici@7.30.1))
+        specifier: ^1.7.5
+        version: 1.7.5(@slack/bolt@5.1.0(@types/express@5.0.6)(undici@7.30.1))
       ai:
-        specifier: ^7.0.164
-        version: 7.0.164(zod@4.6.7)
+        specifier: ^7.0.173
+        version: 7.0.173(zod@4.6.7)
       zod:
         specifier: ^4.6.7
         version: 4.6.7
     devDependencies:
       '@biomejs/biome':
-        specifier: 2.6.6
-        version: 2.6.6
+        specifier: 2.6.7
+        version: 2.6.7
       '@inquirer/input':
         specifier: ^4.3.1
         version: 4.3.1(@types/node@24.19.2)
       '@ngrok/ngrok':
-        specifier: ^1.7.0
-        version: 1.7.0
+        specifier: ^1.8.0
+        version: 1.8.0
       '@slack/cli-hooks':
         specifier: ^1.3.3
         version: 1.3.3
@@ -53,7 +53,7 @@ importers:
         version: 17.4.2
       nitropack:
         specifier: ^2.13.6
-        version: 2.13.6(@vercel/functions@3.11.0)
+        version: 2.13.6(@vercel/functions@3.11.3)
       ora:
         specifier: ^8.2.0
         version: 8.2.0
@@ -63,20 +63,20 @@ importers:
 
 packages:
 
-  '@ai-sdk/gateway@4.0.137':
-    resolution: {integrity: sha512-AYAoZmMGEGOWnMpBvEYc3lONumD3WZIc3GqTv2Q2QLHXr7BY1JVwCbm6ZA3dd8tT1xx5eSJSBbYfZZ3xSRfskQ==}
+  '@ai-sdk/gateway@4.0.146':
+    resolution: {integrity: sha512-rJ5NQSyjnpo6HSBEYc9Ff6k1EROUuB7KeAfHYVbVDsk68ynY0Eb8JeWflZKXlT6NhYgqyCiBDxE5blXWACXMKQ==}
     engines: {node: '>=22'}
     peerDependencies:
       zod: ^4.6.7
 
-  '@ai-sdk/provider-utils@5.0.75':
-    resolution: {integrity: sha512-k4yAsFliGZwoTpyTpm3ptxwIeaPvRh5vGh/UWoqDiLLXKoyz4zuBGS7p3ygf8to5Bh4fAOHynotLBsWLIYdu2A==}
+  '@ai-sdk/provider-utils@5.0.81':
+    resolution: {integrity: sha512-pfvvdQ3d1WxdBuug/mnGEP6E48cPokwD8dMBnsFeeAUp0/rb/H2aj0f3mwOiY62gu/Cu5GO44e+SE5nDHyBWMA==}
     engines: {node: '>=22'}
     peerDependencies:
       zod: ^4.6.7
 
-  '@ai-sdk/provider@4.0.36':
-    resolution: {integrity: sha512-GqvWZSZdBelCGughlBdOoupT258rgM3YMbaLAS9WSZJ0vlt8c9vm3My+ZT31mYhiReMCMCF2qF2axnGbILpk1A==}
+  '@ai-sdk/provider@4.0.38':
+    resolution: {integrity: sha512-GElz70UUCuDFFyD6m6aQJFgRY0HEABQzB5otzgkrisYaF5mnss7o0upAmbBTSD6KWiM9h7lZm1ls2c7xzHR8CA==}
     engines: {node: '>=22'}
 
   '@babel/helper-string-parser@7.29.11':
@@ -96,71 +96,71 @@ packages:
     resolution: {integrity: sha512-WCsemW40Cpc6gouC1SrY6PBaZ+oLRlEVY9XBvZBI7il/HyUrb2nJ505wE1MHEFyDZNnrWDEuy4jL50WVHfTTSQ==}
     engines: {node: '>=6.9.0'}
 
-  '@biomejs/biome@2.6.6':
-    resolution: {integrity: sha512-NCgVJRyrU1+hsW1ILNaRqNAb9fRL4n49bwyef+wjVJQ488/bXbp0BfnNqTTExkiNQT3ugkgYKR1vK8NxsjlNSQ==}
+  '@biomejs/biome@2.6.7':
+    resolution: {integrity: sha512-2bT1FE6FvZZgPLFw4BjcDyRwG8Ry9zYla4X+Lw8oj2SxvqiXHiYkkEpjcrsWQrik6iYHygAa/D67YxLbVz9P1Q==}
     engines: {node: '>=14.21.3'}
     hasBin: true
 
-  '@biomejs/cli-android-arm64@2.6.6':
-    resolution: {integrity: sha512-bicnqNNxEX7pjkDQaptYvPRIWDfgXJLl/Ok7iZjC+F1AhfReor3FSS7SgPYnOvUy/jf++5U/KYN4T8OKH5rrNA==}
+  '@biomejs/cli-android-arm64@2.6.7':
+    resolution: {integrity: sha512-f4fyRTl+rW6QZp+iHdZrKAKptG/xmIDijTnxWhpC1Hnzr8yvjaBm/aJ98JiMv5mMx7jL1MOu4+zwmQUzfcoKBg==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [android]
 
-  '@biomejs/cli-android-x64@2.6.6':
-    resolution: {integrity: sha512-N443kDSElF4kDMKjarsL+ymj/ewLA5R9VAdawA7fJ7pwgN3JVDZp0K+xhKBglH8EwsKi2+K8xC6WxXSkgziFfw==}
+  '@biomejs/cli-android-x64@2.6.7':
+    resolution: {integrity: sha512-eUdeN+mh2bwen+By1feKzpFkFGAfLG3Pxi6tbwpzMvePBwFGMd4mnE6gaxDRMiWJ1eMuc+Xhtg3ErbLLbtL5wQ==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [android]
 
-  '@biomejs/cli-darwin-arm64@2.6.6':
-    resolution: {integrity: sha512-/vSAqWx3by3p8w5ew+HVJDgguuaTK3U6Fb5gk/oDUH21iWOopm3gOlhT6tZfy5mTaM5R4CVc3uFWkxBtEDrKyw==}
+  '@biomejs/cli-darwin-arm64@2.6.7':
+    resolution: {integrity: sha512-GewLcsnCsVblgnWYw5QRz5ydy9xphCtlFP37TpLKarezqwZMrH2qxrYblhY6DPOir4gnKyaqDnS/xZWIGVjaKw==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [darwin]
 
-  '@biomejs/cli-darwin-x64@2.6.6':
-    resolution: {integrity: sha512-lLdOAJKbrAoDs+3GvTyVmMW345D9IhrIE3GgoL2eeHwO1boN4VhrSlALtFYsP0p+Jy4udUp4bTguij0qjKrH8w==}
+  '@biomejs/cli-darwin-x64@2.6.7':
+    resolution: {integrity: sha512-AMPl+Q+bHjRcNUBn8gwBl+dJAnKRUWGZ7ZiJo2U8tQtdpqJ32OqvIg4cwTH+xv0jrcNVkUSE69nj57zsHZ1WBA==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [darwin]
 
-  '@biomejs/cli-linux-arm64-musl@2.6.6':
-    resolution: {integrity: sha512-rw2Vsoi/WZGDyRjMXx9KZH9zsHe79LIzkdWHkLqsIkeKZm6qiGxtiIApxn7cmJSoEPaSvHaH5pRj1FhTcyL/XA==}
+  '@biomejs/cli-linux-arm64-musl@2.6.7':
+    resolution: {integrity: sha512-BIA7qVO1O15D2wVKxLTcvEWszgOqJVZRUhlksg1KQ9N0VtYCbvknV1vyjFiSrzuBT57+z59gbzhYQCinw9lRSQ==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
 
-  '@biomejs/cli-linux-arm64@2.6.6':
-    resolution: {integrity: sha512-UzJdUCg9dbEGpZOuZRyehEPrnwKjx9z4Um7sWLG5x6txu7UjeWdJZuBXVGlyAdD39w2Hx0nZeK1jKC4NFUTCNQ==}
+  '@biomejs/cli-linux-arm64@2.6.7':
+    resolution: {integrity: sha512-Qa2edxQClKn17y1ASWkOOuT96K2si1nTLiPbXMOMilNJ79eNsa1as1kaSbgxOXy1kRUENw76sp4pAddneq3l8Q==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@biomejs/cli-linux-x64-musl@2.6.6':
-    resolution: {integrity: sha512-DiKejs+GnFbOVQsBnukUpiB+T13tqUDFGwwjsTq51vatAsaflzFzVD0BOgjVUGRrqKgE0K0Xf+wNtkcmdN2chw==}
+  '@biomejs/cli-linux-x64-musl@2.6.7':
+    resolution: {integrity: sha512-+AOQyCsPR4nH5L4Hjzp8T0iaHm4UxY3unjL/KUJKc/8ziLnbkbmL3adtWmQW5ERB1zi6LRA1fsjaSuf/xGnLaQ==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [linux]
     libc: [musl]
 
-  '@biomejs/cli-linux-x64@2.6.6':
-    resolution: {integrity: sha512-l8/aPXc1cz8VpUyd4hb5Pm5zx+X3voQBks4aLYbp5pC8KSchuHyvqDfY5xax39qCHomI/2xn6NKEot+zebG38g==}
+  '@biomejs/cli-linux-x64@2.6.7':
+    resolution: {integrity: sha512-VpHQ33CPNYrlIn0vyDdRS1KUlS3AiM17FiyEE2gwU000NwzyY4MgjzVHEv2KrmMb5D9Ksm3gFkwg+IOx/ULJNQ==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@biomejs/cli-win32-arm64@2.6.6':
-    resolution: {integrity: sha512-DjVXwQAQeHrO1JEZAEus54k40Tnh4glyU3VFLcDBKwoz0xnxCEnqw6TCMXoujcQMQynWd3AY8bLrbR1o0XNqow==}
+  '@biomejs/cli-win32-arm64@2.6.7':
+    resolution: {integrity: sha512-2nLivZfgcGMIXP/bI8w1FZP5JE2MetP+XZInyMQ7SvJBKlDoGrm/nRjN7uUi9dOaaSlpbRWkHSfb7PqcQR3nXg==}
     engines: {node: '>=14.21.3'}
     cpu: [arm64]
     os: [win32]
 
-  '@biomejs/cli-win32-x64@2.6.6':
-    resolution: {integrity: sha512-B7KMG26A4I9lAuxwBGMmiVcjMGAeJRoz+pzFt9brRvOAsIrgOu8ptJld5rUWui6tM1uiJwxeJhhDPuAiZtxXdw==}
+  '@biomejs/cli-win32-x64@2.6.7':
+    resolution: {integrity: sha512-uYfH+n+IAtVz3lh7m6JxdjxfJ3WCvAJDE3spHIUbU955V42oKymlhiQiu92fAhXZb7KOjvRcrfImySQbc1MFFg==}
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [win32]
@@ -391,89 +391,89 @@ packages:
     engines: {node: '>=18'}
     hasBin: true
 
-  '@ngrok/ngrok-android-arm64@1.7.0':
-    resolution: {integrity: sha512-8tco3ID6noSaNy+CMS7ewqPoIkIM6XO5COCzsUp3Wv3XEbMSyn65RN6cflX2JdqLfUCHcMyD0ahr9IEiHwqmbQ==}
+  '@ngrok/ngrok-android-arm64@1.8.0':
+    resolution: {integrity: sha512-A6RBN6u5aurJOZr83kJubp3NMBQTlh1n18gETX86AOC9Ym76tAS7/DotONDcK3TVq07MdJ/HlXvEXv2PmpHpeA==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [android]
 
-  '@ngrok/ngrok-darwin-arm64@1.7.0':
-    resolution: {integrity: sha512-+dmJSOzSO+MNDVrPOca2yYDP1W3KfP4qOlAkarIeFRIfqonQwq3QCBmcR7HAlZocLsSqEwyG6KP4RRvAuT0WGQ==}
+  '@ngrok/ngrok-darwin-arm64@1.8.0':
+    resolution: {integrity: sha512-GysV47h9LdfXNEElSSCJgsBD+8Y2jzb+xwVj+aP/V2qru52lcc4za0GEFMWLIi2ue8yzXN2Qarrei6p02fO7Jw==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [darwin]
 
-  '@ngrok/ngrok-darwin-universal@1.7.0':
-    resolution: {integrity: sha512-fDEfewyE2pWGFBhOSwQZObeHUkc65U1l+3HIgSOe094TMHsqmyJD0KTCgW9KSn0VP4OvDZbAISi1T3nvqgZYhQ==}
+  '@ngrok/ngrok-darwin-universal@1.8.0':
+    resolution: {integrity: sha512-gnGSxHCD4VX3SbfbCV5RriWaUUR7Vtda3dsD3St3zN0XMeewKPoCZOtN3/C1rBDLQTNnAzmejmn0J+csejW4Kw==}
     engines: {node: '>= 10'}
     os: [darwin]
 
-  '@ngrok/ngrok-darwin-x64@1.7.0':
-    resolution: {integrity: sha512-+fwMi5uHd9G8BS42MMa9ye6exI5lwTcjUO6Ut497Vu0qgLONdVRenRqnEePV+Q3KtQR7NjqkMnomVfkr9MBjtw==}
+  '@ngrok/ngrok-darwin-x64@1.8.0':
+    resolution: {integrity: sha512-rgNQwr4X5jJef7PmIJkaqdsYm0sbIUj92HOXOuKUl+CTtGLLKL4BlhOjoVUxnVSP17y4mQeffgvowkBC/1D+dA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [darwin]
 
-  '@ngrok/ngrok-freebsd-x64@1.7.0':
-    resolution: {integrity: sha512-2OGgbrjy3yLRrqAz5N6hlUKIWIXSpR5RjQa2chtZMsSbszQ6c9dI+uVQfOKAeo05tHMUgrYAZ7FocC+ig0dzdQ==}
+  '@ngrok/ngrok-freebsd-x64@1.8.0':
+    resolution: {integrity: sha512-AS2N0Guk6DExIwwRszfO9yx0UB+7HMr8UPhSOqkBARL4FnzFd7ytvsx00OycriOZGuR5jNzU+OFzZ68+q+E+kA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [freebsd]
 
-  '@ngrok/ngrok-linux-arm-gnueabihf@1.7.0':
-    resolution: {integrity: sha512-SN9YIfEQiR9xN90QVNvdgvAemqMLoFVSeTWZs779145hQMhvF9Qd9rnWi6J+2uNNK10OczdV1oc/nq1es7u/3g==}
+  '@ngrok/ngrok-linux-arm-gnueabihf@1.8.0':
+    resolution: {integrity: sha512-KHWdtjtaAC5kn+wQGxpQ2LJZJFuSDYOdmXmCfGR6Hkj4JsjHvpOXoFLhrivZAG2JCMFibd9/e3uysE+CG4dB4w==}
     engines: {node: '>= 10'}
     cpu: [arm]
     os: [linux]
 
-  '@ngrok/ngrok-linux-arm64-gnu@1.7.0':
-    resolution: {integrity: sha512-KDMgzPKFU2kbpVSaA2RZBBia5IPdJEe063YlyVFnSMJmPYWCUnMwdybBsucXfV9u1Lw/ZjKTKotIlbTWGn3HGw==}
+  '@ngrok/ngrok-linux-arm64-gnu@1.8.0':
+    resolution: {integrity: sha512-HqZ/zEaPCYy1my8fNnsZvhhP1WKrr/Ad1i2mn9nDeDJ3ZHoup5X932XVDwOLiszYD4mmaK3M8OqlM4V+R4N08Q==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
     libc: [glibc]
 
-  '@ngrok/ngrok-linux-arm64-musl@1.7.0':
-    resolution: {integrity: sha512-e66vUdVrBlQ0lT9ZdamB4U604zt5Gualt8/WVcUGzbu8s5LajWd6g/mzZCUjK4UepjvMpfgmCp1/+rX7Rk8d5A==}
+  '@ngrok/ngrok-linux-arm64-musl@1.8.0':
+    resolution: {integrity: sha512-vx40RViSNBPkXyooqOcRnwUIoFdcGeSrGUSryFhAshyruNSx5qqerhCKSUXan9IF5+Zf5nDVpUhpxLL9sBv/NQ==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [linux]
     libc: [musl]
 
-  '@ngrok/ngrok-linux-x64-gnu@1.7.0':
-    resolution: {integrity: sha512-M6gF0DyOEFqXLfWxObfL3bxYZ4+PnKBHuyLVaqNfFN9Y5utY2mdPOn5422Ppbk4XoIK5/YkuhRqPJl/9FivKEw==}
+  '@ngrok/ngrok-linux-x64-gnu@1.8.0':
+    resolution: {integrity: sha512-LnHl+R6OLfqnTepaIY6Oj8TT6Moz8zKxM6rC3/uNbn8F7X0ybPZ9wCUGIznBodBRvxQXt/dkW5yQ9HcTVppQ1Q==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
     libc: [glibc]
 
-  '@ngrok/ngrok-linux-x64-musl@1.7.0':
-    resolution: {integrity: sha512-4Ijm0dKeoyzZTMaYxR2EiNjtlK81ebflg/WYIO1XtleFrVy4UJEGnxtxEidYoT4BfCqi4uvXiK2Mx216xXKvog==}
+  '@ngrok/ngrok-linux-x64-musl@1.8.0':
+    resolution: {integrity: sha512-UkQ1EdQ01jdDW7mXsa9f87sy1XFwVnPl81PXOjb/aq3ChJ/PiKrouX9mFvaFWWvlkROYzC9AmEB4/3yeCd1sTQ==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [linux]
     libc: [musl]
 
-  '@ngrok/ngrok-win32-arm64-msvc@1.7.0':
-    resolution: {integrity: sha512-u7qyWIJI2/YG1HTBnHwUR1+Z2tyGfAsUAItJK/+N1G0FeWJhIWQvSIFJHlaPy4oW1Dc8mSDBX9qvVsiQgLaRFg==}
+  '@ngrok/ngrok-win32-arm64-msvc@1.8.0':
+    resolution: {integrity: sha512-16+bvhLL/QHTkGqHMzkB7K76CbYltDdDXq/Z6A5j8n8714TuUtOsOQY3eFim/weiwlhoOAbbMJRG+T5OTnqm1Q==}
     engines: {node: '>= 10'}
     cpu: [arm64]
     os: [win32]
 
-  '@ngrok/ngrok-win32-ia32-msvc@1.7.0':
-    resolution: {integrity: sha512-/UdYUsLNv/Q8j9YJsyIfq/jLCoD8WP+NidouucTUzSoDtmOsXBBT3itLrmPiZTEdEgKiFYLuC1Zon8XQQvbVLA==}
+  '@ngrok/ngrok-win32-ia32-msvc@1.8.0':
+    resolution: {integrity: sha512-/0BPDP2/B1xqAt/6Q9W+D7zdzqGjEYKd9hN1Dhxq4BpGirYo/Gvhf0TPTwpWurCGzuBTsxMrVn8m5m4MMH1Zhg==}
     engines: {node: '>= 10'}
     cpu: [ia32]
     os: [win32]
 
-  '@ngrok/ngrok-win32-x64-msvc@1.7.0':
-    resolution: {integrity: sha512-UFJg/duEWzZlLkEs61Gz6/5nYhGaKI62I8dvUGdBR3NCtIMagehnFaFxmnXZldyHmCM8U0aCIFNpWRaKcrQkoA==}
+  '@ngrok/ngrok-win32-x64-msvc@1.8.0':
+    resolution: {integrity: sha512-baucMQgqwDKtKGHZsWMBzMGIHS38GIZepGddhG1wLV/2jG8J8sheLtdbtIZX4dO0PttSLaB2TUu3U2dcn9ODpA==}
     engines: {node: '>= 10'}
     cpu: [x64]
     os: [win32]
 
-  '@ngrok/ngrok@1.7.0':
-    resolution: {integrity: sha512-P06o9TpxrJbiRbHQkiwy/rUrlXRupc+Z8KT4MiJfmcdWxvIdzjCaJOdnNkcOTs6DMyzIOefG5tvk/HLdtjqr0g==}
+  '@ngrok/ngrok@1.8.0':
+    resolution: {integrity: sha512-kV3CZ3YVEh+gRl6uw/VdCrczCZ2F5agiWiGKnETxj72pem2dKu5XmECfGSohNEhi49pqnzLOIcw54+qjDHOMag==}
     engines: {node: '>= 10'}
 
   '@nodelib/fs.scandir@2.1.5':
@@ -775,8 +775,8 @@ packages:
     resolution: {integrity: sha512-ItjyjEZml+LDH8CjcCLRLJHh7VZtevPKExrRN3l5KWyBliyDnGAeoO4Y+K+fFBmRpKLYVPgqWMX4THldv2HVtA==}
     engines: {node: '>= 18', npm: '>= 8.6.0'}
 
-  '@slack/web-api@8.3.0':
-    resolution: {integrity: sha512-rGHDZggzG658Uc4yebenp3rVfVVToL0w8aOis40EfrstZCxg8FWS+ECGDIkw498Q9jxF/LVKgGbPfUeYntTrUQ==}
+  '@slack/web-api@8.4.0':
+    resolution: {integrity: sha512-SZSa8Xqz0jkvGfw9lLKQt17u44Xi5+O2QRMFo6f2vTEP0fPS+ThxOR0++AwJAPOkf3PKxA7lLmrL9Y4Y2J693w==}
     engines: {node: '>= 20', npm: '>=9.6.4'}
 
   '@speed-highlight/core@1.2.24':
@@ -836,15 +836,15 @@ packages:
   '@types/serve-static@2.2.0':
     resolution: {integrity: sha512-8mam4H1NHLtu7nmtalF7eyBH14QyOASmcxHhSfEoRyr0nP/YdoesEtU+uSRvMe96TW/HPTtkoKqQLl53N7UXMQ==}
 
-  '@vercel/cli-config@0.3.7':
-    resolution: {integrity: sha512-bHFJcUF2sUsB/6XfS+BWAYjD7DIt1xyhz6oOAvGEBua0S4P+pKQ04O6vZ3jLw1HMX1ZNKP9lyGpoiqgToqI7GQ==}
+  '@vercel/cli-config@0.4.0':
+    resolution: {integrity: sha512-7+DnWjfcHA/u2FjiPMknhlqZFmJZZq1qS5ziIxNH+3zNBo2U4NQjkJABKDGMZlLBlBLK94RXuA2dceC4SCFumA==}
 
   '@vercel/cli-exec@1.0.1':
     resolution: {integrity: sha512-g9XerViJ/paZujufXYcu5XYI2vU2rtB4sgdpjUHde5RnOkdmpu0ngH46LCFGHoPXO/C+qDPSczIHIRN+8Q2YKQ==}
     engines: {node: '>= 18'}
 
-  '@vercel/functions@3.11.0':
-    resolution: {integrity: sha512-LKwNcV4Jwb8GpovADePfassmsR2gRL5OeKcQzrWfLOJaRX3MHbeUPqAurCAneKrKa8hxnWa4H5bCFreLSvHedA==}
+  '@vercel/functions@3.11.3':
+    resolution: {integrity: sha512-WOOYeJXbA1CeqQzCu9JLCJQnNdisrGpNgS3K5qSTyMPsXlfs4y47S3EiRCyDPYw6vajPoqQffbFI05zgjYIJcQ==}
     engines: {node: '>= 20'}
     peerDependencies:
       '@aws-sdk/credential-provider-web-identity': '*'
@@ -864,12 +864,12 @@ packages:
     resolution: {integrity: sha512-UycprH3T6n3jH0k44NHMa7pnFHGu/N05MjojYr+Mc6I7obkoLIJujSWwin1pCvdy/eOxrI/l3uDLQsmcrOb4ug==}
     engines: {node: '>= 20'}
 
-  '@vercel/oidc@4.0.7':
-    resolution: {integrity: sha512-ZiplzlXLWdKPj36yp23LBwaKWt4hR+kNULULeMVwtrx+iDpxnMk1nFKiHEtUWRjGpnqi/rDGwtnE/Xkfl9xXvQ==}
+  '@vercel/oidc@4.0.9':
+    resolution: {integrity: sha512-LBNEPlKHv3ZAhOX2Dcj1hrxdmqYrdzxukGltouKbyjU8IeJvAFSuOHn5X0ZWg0qG2huANcgrHAb03giWeUyubQ==}
     engines: {node: '>= 20'}
 
-  '@vercel/slack-bolt@1.7.4':
-    resolution: {integrity: sha512-tuXC7Sht0kpSMyjuX0AbV4RQdatSoyGcXawklwRMAPBYHlaf5XsQRkFry8xuhWpftNn8GkQdnZkEHEHRAMI2Cg==}
+  '@vercel/slack-bolt@1.7.5':
+    resolution: {integrity: sha512-fbQWdzd7Qg5+zpklkxIxo/VL6ph7kk+vR78AfK2vzzT3Sw7Po2HRHYopD40x8SVX3q957HNsmo7eN+/IU8S2HQ==}
     engines: {node: '>=22.0.0'}
     hasBin: true
     peerDependencies:
@@ -908,8 +908,8 @@ packages:
     resolution: {integrity: sha512-MnA+YT8fwfJPgBx3m60MNqakm30XOkyIoH1y6huTQvC0PwZG7ki8NacLBcrPbNoo8vEZy7Jpuk7+jMO+CUovTQ==}
     engines: {node: '>= 14'}
 
-  ai@7.0.164:
-    resolution: {integrity: sha512-wZxQnJ53WntJ334Q/UuCIXmhnZ3X0+NcU3706VGSYAeW0lbEIJd9pOKCoRHN7HZTzyOyrl5o38BEgE+0duVwuw==}
+  ai@7.0.173:
+    resolution: {integrity: sha512-dLea37zT1h7cjkUsBprU4Rq35HJqhtHHaq1jTAXjHQoyfpeswpgCrhjZJWdWc10gjEAxmz114py7iLGQ3xIMxw==}
     engines: {node: '>=22'}
     peerDependencies:
       zod: ^4.6.7
@@ -2479,9 +2479,9 @@ packages:
     resolution: {integrity: sha512-c16PKLIRxBYpR3jSWsdS7SFp0COm5SOQdiFjY818dYFHJbMGuLBszpF07LBWmOS1uzrHa9VGdynsEgoeKy0oOQ==}
     engines: {node: '>=20'}
 
-  xdg-app-paths@5.5.1:
-    resolution: {integrity: sha512-hI3flOB4PLZIy5prbtTpirobtPE2ZtZ52szO+2mM9Efp6ErM398La+C1lIpNWDfNoQk+6Lsi6nMcCwVB7pxeMQ==}
-    engines: {node: '>= 6.0'}
+  xdg-app-paths@5.1.0:
+    resolution: {integrity: sha512-RAQ3WkPf4KTU1A8RtFx3gWywzVKe00tfOPFfl2NDGqbIFENQO4kqAJp7mhQjNj/33W5x5hiWWUdyfPq/5SU3QA==}
+    engines: {node: '>=6'}
 
   xdg-portable@7.3.0:
     resolution: {integrity: sha512-sqMMuL1rc0FmMBOzCpd0yuy9trqF2yTTVe+E9ogwCSWQCdDEtQUwrZPT6AxqtsFGRNxycgncbP/xmOOSPw5ZUw==}
@@ -2527,23 +2527,22 @@ packages:
 
 snapshots:
 
-  '@ai-sdk/gateway@4.0.137(zod@4.6.7)':
+  '@ai-sdk/gateway@4.0.146(zod@4.6.7)':
     dependencies:
-      '@ai-sdk/provider': 4.0.36
-      '@ai-sdk/provider-utils': 5.0.75(zod@4.6.7)
+      '@ai-sdk/provider': 4.0.38
+      '@ai-sdk/provider-utils': 5.0.81(zod@4.6.7)
       '@vercel/oidc': 3.2.0
       zod: 4.6.7
 
-  '@ai-sdk/provider-utils@5.0.75(zod@4.6.7)':
+  '@ai-sdk/provider-utils@5.0.81(zod@4.6.7)':
     dependencies:
-      '@ai-sdk/provider': 4.0.36
+      '@ai-sdk/provider': 4.0.38
       '@standard-schema/spec': 1.1.0
       '@workflow/serde': 4.1.0
       eventsource-parser: 3.1.1
-      undici: 7.30.1
       zod: 4.6.7
 
-  '@ai-sdk/provider@4.0.36':
+  '@ai-sdk/provider@4.0.38':
     dependencies:
       json-schema: 0.4.0
 
@@ -2560,47 +2559,47 @@ snapshots:
       '@babel/helper-string-parser': 7.29.11
       '@babel/helper-validator-identifier': 7.29.7
 
-  '@biomejs/biome@2.6.6':
+  '@biomejs/biome@2.6.7':
     optionalDependencies:
-      '@biomejs/cli-android-arm64': 2.6.6
-      '@biomejs/cli-android-x64': 2.6.6
-      '@biomejs/cli-darwin-arm64': 2.6.6
-      '@biomejs/cli-darwin-x64': 2.6.6
-      '@biomejs/cli-linux-arm64': 2.6.6
-      '@biomejs/cli-linux-arm64-musl': 2.6.6
-      '@biomejs/cli-linux-x64': 2.6.6
-      '@biomejs/cli-linux-x64-musl': 2.6.6
-      '@biomejs/cli-win32-arm64': 2.6.6
-      '@biomejs/cli-win32-x64': 2.6.6
+      '@biomejs/cli-android-arm64': 2.6.7
+      '@biomejs/cli-android-x64': 2.6.7
+      '@biomejs/cli-darwin-arm64': 2.6.7
+      '@biomejs/cli-darwin-x64': 2.6.7
+      '@biomejs/cli-linux-arm64': 2.6.7
+      '@biomejs/cli-linux-arm64-musl': 2.6.7
+      '@biomejs/cli-linux-x64': 2.6.7
+      '@biomejs/cli-linux-x64-musl': 2.6.7
+      '@biomejs/cli-win32-arm64': 2.6.7
+      '@biomejs/cli-win32-x64': 2.6.7
 
-  '@biomejs/cli-android-arm64@2.6.6':
+  '@biomejs/cli-android-arm64@2.6.7':
     optional: true
 
-  '@biomejs/cli-android-x64@2.6.6':
+  '@biomejs/cli-android-x64@2.6.7':
     optional: true
 
-  '@biomejs/cli-darwin-arm64@2.6.6':
+  '@biomejs/cli-darwin-arm64@2.6.7':
     optional: true
 
-  '@biomejs/cli-darwin-x64@2.6.6':
+  '@biomejs/cli-darwin-x64@2.6.7':
     optional: true
 
-  '@biomejs/cli-linux-arm64-musl@2.6.6':
+  '@biomejs/cli-linux-arm64-musl@2.6.7':
     optional: true
 
-  '@biomejs/cli-linux-arm64@2.6.6':
+  '@biomejs/cli-linux-arm64@2.6.7':
     optional: true
 
-  '@biomejs/cli-linux-x64-musl@2.6.6':
+  '@biomejs/cli-linux-x64-musl@2.6.7':
     optional: true
 
-  '@biomejs/cli-linux-x64@2.6.6':
+  '@biomejs/cli-linux-x64@2.6.7':
     optional: true
 
-  '@biomejs/cli-win32-arm64@2.6.6':
+  '@biomejs/cli-win32-arm64@2.6.7':
     optional: true
 
-  '@biomejs/cli-win32-x64@2.6.6':
+  '@biomejs/cli-win32-x64@2.6.7':
     optional: true
 
   '@cloudflare/kv-asset-handler@0.4.2': {}
@@ -2754,60 +2753,60 @@ snapshots:
       - encoding
       - supports-color
 
-  '@ngrok/ngrok-android-arm64@1.7.0':
+  '@ngrok/ngrok-android-arm64@1.8.0':
     optional: true
 
-  '@ngrok/ngrok-darwin-arm64@1.7.0':
+  '@ngrok/ngrok-darwin-arm64@1.8.0':
     optional: true
 
-  '@ngrok/ngrok-darwin-universal@1.7.0':
+  '@ngrok/ngrok-darwin-universal@1.8.0':
     optional: true
 
-  '@ngrok/ngrok-darwin-x64@1.7.0':
+  '@ngrok/ngrok-darwin-x64@1.8.0':
     optional: true
 
-  '@ngrok/ngrok-freebsd-x64@1.7.0':
+  '@ngrok/ngrok-freebsd-x64@1.8.0':
     optional: true
 
-  '@ngrok/ngrok-linux-arm-gnueabihf@1.7.0':
+  '@ngrok/ngrok-linux-arm-gnueabihf@1.8.0':
     optional: true
 
-  '@ngrok/ngrok-linux-arm64-gnu@1.7.0':
+  '@ngrok/ngrok-linux-arm64-gnu@1.8.0':
     optional: true
 
-  '@ngrok/ngrok-linux-arm64-musl@1.7.0':
+  '@ngrok/ngrok-linux-arm64-musl@1.8.0':
     optional: true
 
-  '@ngrok/ngrok-linux-x64-gnu@1.7.0':
+  '@ngrok/ngrok-linux-x64-gnu@1.8.0':
     optional: true
 
-  '@ngrok/ngrok-linux-x64-musl@1.7.0':
+  '@ngrok/ngrok-linux-x64-musl@1.8.0':
     optional: true
 
-  '@ngrok/ngrok-win32-arm64-msvc@1.7.0':
+  '@ngrok/ngrok-win32-arm64-msvc@1.8.0':
     optional: true
 
-  '@ngrok/ngrok-win32-ia32-msvc@1.7.0':
+  '@ngrok/ngrok-win32-ia32-msvc@1.8.0':
     optional: true
 
-  '@ngrok/ngrok-win32-x64-msvc@1.7.0':
+  '@ngrok/ngrok-win32-x64-msvc@1.8.0':
     optional: true
 
-  '@ngrok/ngrok@1.7.0':
+  '@ngrok/ngrok@1.8.0':
     optionalDependencies:
-      '@ngrok/ngrok-android-arm64': 1.7.0
-      '@ngrok/ngrok-darwin-arm64': 1.7.0
-      '@ngrok/ngrok-darwin-universal': 1.7.0
-      '@ngrok/ngrok-darwin-x64': 1.7.0
-      '@ngrok/ngrok-freebsd-x64': 1.7.0
-      '@ngrok/ngrok-linux-arm-gnueabihf': 1.7.0
-      '@ngrok/ngrok-linux-arm64-gnu': 1.7.0
-      '@ngrok/ngrok-linux-arm64-musl': 1.7.0
-      '@ngrok/ngrok-linux-x64-gnu': 1.7.0
-      '@ngrok/ngrok-linux-x64-musl': 1.7.0
-      '@ngrok/ngrok-win32-arm64-msvc': 1.7.0
-      '@ngrok/ngrok-win32-ia32-msvc': 1.7.0
-      '@ngrok/ngrok-win32-x64-msvc': 1.7.0
+      '@ngrok/ngrok-android-arm64': 1.8.0
+      '@ngrok/ngrok-darwin-arm64': 1.8.0
+      '@ngrok/ngrok-darwin-universal': 1.8.0
+      '@ngrok/ngrok-darwin-x64': 1.8.0
+      '@ngrok/ngrok-freebsd-x64': 1.8.0
+      '@ngrok/ngrok-linux-arm-gnueabihf': 1.8.0
+      '@ngrok/ngrok-linux-arm64-gnu': 1.8.0
+      '@ngrok/ngrok-linux-arm64-musl': 1.8.0
+      '@ngrok/ngrok-linux-x64-gnu': 1.8.0
+      '@ngrok/ngrok-linux-x64-musl': 1.8.0
+      '@ngrok/ngrok-win32-arm64-msvc': 1.8.0
+      '@ngrok/ngrok-win32-ia32-msvc': 1.8.0
+      '@ngrok/ngrok-win32-x64-msvc': 1.8.0
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -2989,7 +2988,7 @@ snapshots:
       '@slack/oauth': 4.0.0
       '@slack/socket-mode': 3.1.0(undici@7.30.1)
       '@slack/types': 3.2.0
-      '@slack/web-api': 8.3.0
+      '@slack/web-api': 8.4.0
       '@types/express': 5.0.6
       express: 5.3.0
       path-to-regexp: 8.4.2
@@ -3026,7 +3025,7 @@ snapshots:
   '@slack/oauth@4.0.0':
     dependencies:
       '@slack/logger': 5.0.0
-      '@slack/web-api': 8.3.0
+      '@slack/web-api': 8.4.0
       '@types/jsonwebtoken': 9.0.10
       '@types/node': 24.19.2
       jsonwebtoken: 9.0.3
@@ -3034,7 +3033,7 @@ snapshots:
   '@slack/socket-mode@3.1.0(undici@7.30.1)':
     dependencies:
       '@slack/logger': 5.0.0
-      '@slack/web-api': 8.3.0
+      '@slack/web-api': 8.4.0
       '@types/node': 24.19.2
       eventemitter3: 5.0.4
       undici: 7.30.1
@@ -3063,7 +3062,7 @@ snapshots:
       - debug
       - supports-color
 
-  '@slack/web-api@8.3.0':
+  '@slack/web-api@8.4.0':
     dependencies:
       '@slack/logger': 5.0.0
       '@slack/types': 3.3.0
@@ -3136,18 +3135,18 @@ snapshots:
       '@types/http-errors': 2.0.5
       '@types/node': 24.19.2
 
-  '@vercel/cli-config@0.3.7':
+  '@vercel/cli-config@0.4.0':
     dependencies:
-      xdg-app-paths: 5.5.1
+      xdg-app-paths: 5.1.0
       zod: 4.6.7
 
   '@vercel/cli-exec@1.0.1':
     dependencies:
       execa: 5.1.1
 
-  '@vercel/functions@3.11.0':
+  '@vercel/functions@3.11.3':
     dependencies:
-      '@vercel/oidc': 4.0.7
+      '@vercel/oidc': 4.0.9
 
   '@vercel/nft@1.11.0(rollup@4.68.0)':
     dependencies:
@@ -3170,18 +3169,18 @@ snapshots:
 
   '@vercel/oidc@3.2.0': {}
 
-  '@vercel/oidc@4.0.7':
+  '@vercel/oidc@4.0.9':
     dependencies:
-      '@vercel/cli-config': 0.3.7
+      '@vercel/cli-config': 0.4.0
       '@vercel/cli-exec': 1.0.1
       jose: 5.10.0
 
-  '@vercel/slack-bolt@1.7.4(@slack/bolt@5.1.0(@types/express@5.0.6)(undici@7.30.1))':
+  '@vercel/slack-bolt@1.7.5(@slack/bolt@5.1.0(@types/express@5.0.6)(undici@7.30.1))':
     dependencies:
       '@slack/bolt': 5.1.0(@types/express@5.0.6)(undici@7.30.1)
       '@slack/logger': 5.0.0
       '@slack/oauth': 3.0.5
-      '@vercel/functions': 3.11.0
+      '@vercel/functions': 3.11.3
       commander: 14.0.3
       yaml: 2.9.1
       zod: 4.6.7
@@ -3218,11 +3217,11 @@ snapshots:
 
   agent-base@7.1.4: {}
 
-  ai@7.0.164(zod@4.6.7):
+  ai@7.0.173(zod@4.6.7):
     dependencies:
-      '@ai-sdk/gateway': 4.0.137(zod@4.6.7)
-      '@ai-sdk/provider': 4.0.36
-      '@ai-sdk/provider-utils': 5.0.75(zod@4.6.7)
+      '@ai-sdk/gateway': 4.0.146(zod@4.6.7)
+      '@ai-sdk/provider': 4.0.38
+      '@ai-sdk/provider-utils': 5.0.81(zod@4.6.7)
       zod: 4.6.7
 
   ansi-align@3.0.1:
@@ -4079,7 +4078,7 @@ snapshots:
     dependencies:
       content-type: 2.1.0
 
-  nitropack@2.13.6(@vercel/functions@3.11.0):
+  nitropack@2.13.6(@vercel/functions@3.11.3):
     dependencies:
       '@cloudflare/kv-asset-handler': 0.4.2
       '@rollup/plugin-alias': 6.0.1(rollup@4.68.0)
@@ -4146,7 +4145,7 @@ snapshots:
       unenv: 2.0.0-rc.24
       unimport: 6.5.0(esbuild@0.28.2)(rollup@4.68.0)
       unplugin-utils: 0.3.2
-      unstorage: 1.17.6(@vercel/functions@3.11.0)(db0@0.3.4)(ioredis@5.11.1)
+      unstorage: 1.17.6(@vercel/functions@3.11.3)(db0@0.3.4)(ioredis@5.11.1)
       untyped: 2.0.0
       unwasm: 0.5.3
       youch: 4.1.1
@@ -4764,7 +4763,7 @@ snapshots:
       esbuild: 0.28.2
       rollup: 4.68.0
 
-  unstorage@1.17.6(@vercel/functions@3.11.0)(db0@0.3.4)(ioredis@5.11.1):
+  unstorage@1.17.6(@vercel/functions@3.11.3)(db0@0.3.4)(ioredis@5.11.1):
     dependencies:
       anymatch: 3.1.3
       chokidar: 5.0.0
@@ -4775,7 +4774,7 @@ snapshots:
       ofetch: 1.5.1
       ufo: 1.6.4
     optionalDependencies:
-      '@vercel/functions': 3.11.0
+      '@vercel/functions': 3.11.3
       db0: 0.3.4
       ioredis: 5.11.1
 
@@ -4840,9 +4839,8 @@ snapshots:
       is-wsl: 3.1.1
       powershell-utils: 0.2.1
 
-  xdg-app-paths@5.5.1:
+  xdg-app-paths@5.1.0:
     dependencies:
-      os-paths: 4.4.0
       xdg-portable: 7.3.0
 
   xdg-portable@7.3.0:

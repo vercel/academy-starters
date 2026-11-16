@@ -19,8 +19,8 @@
   "dependencies": {
     "@upstash/redis": "^1.41.0",
     "@vercel/firewall": "^1.2.6",
-    "botid": "^1.5.12",
-    "next": "^16.4.5",
+    "botid": "^1.5.13",
+    "next": "^16.4.6",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },
