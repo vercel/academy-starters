@@ -11,8 +11,8 @@
     "start": "next start"
   },
   "dependencies": {
-    "ai": "^7.0.164",
-    "next": "^16.4.5",
+    "ai": "^7.0.173",
+    "next": "^16.4.6",
     "react": "^19.3.1",
     "react-dom": "^19.3.1"
   },

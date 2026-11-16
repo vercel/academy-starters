@@ -8,11 +8,11 @@
     "start": "next start"
   },
   "dependencies": {
-    "@ai-sdk/react": "^4.0.168",
+    "@ai-sdk/react": "^4.0.177",
     "@vercel/sandbox": "^3.9.1",
-    "ai": "^7.0.164",
+    "ai": "^7.0.173",
     "dotenv": "^17.4.2",
-    "next": "16.4.5",
+    "next": "16.4.6",
     "react": "19.3.1",
     "react-dom": "19.3.1",
     "tsx": "^4.23.15",
