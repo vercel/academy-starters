@@ -9,7 +9,7 @@ import { DAILY_ROLLS, type RollStyle } from "./truck";
 const REDIS_URL = process.env.UPSTASH_REDIS_REST_URL ?? process.env.KV_REST_API_URL;
 const REDIS_TOKEN = process.env.UPSTASH_REDIS_REST_TOKEN ?? process.env.KV_REST_API_TOKEN;
 
-// False until `vercel install upstash` adds the credentials and the site is
+// False until `vercel install upstash/upstash-kv` adds the credentials and the site is
 // deployed again. The pages show setup steps instead of crashing.
 export const storeReady = Boolean(REDIS_URL && REDIS_TOKEN);
 

@@ -6,7 +6,7 @@ export function StoreSetup() {
         Rolls and orders live in Redis, and this deployment can&apos;t find it. From the project folder, run:
       </p>
       <pre className="mt-3 rounded-lg bg-harbor p-3 font-mono text-sm text-white">
-        vercel install upstash{"\n"}vercel deploy --prod
+        vercel install upstash/upstash-kv{"\n"}vercel deploy --prod
       </pre>
     </div>
   );
