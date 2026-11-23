@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@vercel/sandbox": "3.9.1",
-    "ai": "7.0.173",
+    "ai": "7.0.179",
     "commander": "15.1.0",
     "zod": "4.6.7"
   },

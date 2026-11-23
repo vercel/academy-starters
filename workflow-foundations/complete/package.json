@@ -13,8 +13,8 @@
     "next": "16.4.6",
     "react": "19.3.1",
     "react-dom": "19.3.1",
-    "resend": "6.38.1",
-    "workflow": "5.5.0"
+    "resend": "6.39.0",
+    "workflow": "5.7.1"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.3.5",

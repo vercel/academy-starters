@@ -16,13 +16,13 @@
   },
   "dependencies": {
     "@slack/bolt": "^5.1.0",
-    "@slack/web-api": "^8.4.0",
-    "@vercel/slack-bolt": "^1.7.5",
-    "ai": "^7.0.173",
+    "@slack/web-api": "^8.5.0",
+    "@vercel/slack-bolt": "^1.7.6",
+    "ai": "^7.0.179",
     "zod": "^4.6.7"
   },
   "devDependencies": {
-    "@biomejs/biome": "2.6.7",
+    "@biomejs/biome": "2.6.8",
     "@inquirer/input": "^4.3.1",
     "@ngrok/ngrok": "^1.8.0",
     "@slack/cli-hooks": "^1.3.3",
