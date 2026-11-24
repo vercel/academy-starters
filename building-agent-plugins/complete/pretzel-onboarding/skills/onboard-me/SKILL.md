@@ -1,8 +1,9 @@
 ---
-description: Walk a new hire through the Pretzel Logic codebase, structure first, then the three quirks that bite everyone once.
+name: onboard-me
+description: Guided onboarding tour of the Pretzel Logic codebase, structure first, then the three quirks that bite everyone once. Use when the user runs /onboard-me or asks for an onboarding tour of pretzel-logic.
 ---
 
-When the user runs `/onboard-me`, walk through the Pretzel Logic codebase in this order. Be conversational. Pause between sections and let the user steer.
+Walk through the Pretzel Logic codebase in this order. Be conversational. Pause between sections and let the user steer.
 
 1. **Project summary.** Read `README.md` and summarize what Pretzel Logic is in one or two sentences.
 
@@ -15,7 +16,7 @@ When the user runs `/onboard-me`, walk through the Pretzel Logic codebase in thi
 
 4. **Salt levels.** Walk through `lib/constants.ts` and explain the lookup. Apply the `salt-level-lookup` skill. Point out the TODO in `app/plans/[slug]/page.tsx` as a real-world example of the gotcha.
 
-5. **Shipping zones.** Walk through `config/shipping-zones.ts` and `app/shipping/[zone]/page.tsx`. Apply the `shipping-zones-buildtime` skill. Make sure the user understands that dev edits to the config require a rebuild.
+5. **Shipping zones.** Walk through `config/shipping-zones.ts` and `app/shipping/[zone]/page.tsx`. Apply the `shipping-zones-buildtime` skill. Make sure the user understands that a new zone works in `next dev` but 404s in production until the next deploy.
 
 6. **Hand-off.** End with: "That's the tour. What do you want to dig into first?"
 

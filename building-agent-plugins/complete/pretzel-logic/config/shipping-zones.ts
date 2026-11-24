@@ -1,8 +1,8 @@
-// IMPORTANT: This file is read at BUILD TIME via generateStaticParams in
-// app/shipping/[zone]/page.tsx. Editing the array in dev will NOT add or
-// remove shipping routes, the static params are locked once next build runs.
-// To add a zone, edit this file AND redeploy. Local edits without rebuild
-// look like nothing happened.
+// IMPORTANT: app/shipping/[zone]/page.tsx reads this array through
+// generateStaticParams and sets dynamicParams = false. In `next dev`, a new
+// zone works as soon as you visit it. In a deployed build, the list is fixed
+// at `next build`, and any zone code that isn't in it 404s. To add a zone,
+// edit this file AND redeploy.
 export const SHIPPING_ZONES = [
   { code: "us-west", name: "US West", flatRateCents: 800 },
   { code: "us-central", name: "US Central", flatRateCents: 700 },
